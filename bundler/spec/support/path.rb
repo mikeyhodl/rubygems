@@ -161,6 +161,13 @@ module Spec
       protocol + root + path.to_s
     end
 
+    def endpoint_uri_for(path)
+      protocol = "https://"
+      root_index = Gem.win_platform? ? 0 : 1
+
+      protocol + path.to_s[root_index..-1].tr(File::SEPARATOR, ".")
+    end
+
     def gem_repo1(*args)
       tmp("gems/remote1", *args)
     end

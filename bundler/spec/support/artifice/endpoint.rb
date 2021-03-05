@@ -41,7 +41,17 @@ class Endpoint < Sinatra::Base
     include Spec::Path
 
     def default_gem_repo
-      Pathname.new(ENV["BUNDLER_SPEC_GEM_REPO"] || Spec::Path.gem_repo1)
+      if ENV["BUNDLER_SPEC_GEM_REPO"]
+        Pathname.new(ENV["BUNDLER_SPEC_GEM_REPO"])
+      else
+        root = Gem.win_platform? ? "" : "/"
+        repo = root + request.host.tr(".", File::SEPARATOR)
+        if File.exist?(repo)
+          Pathname.new(repo)
+        else
+          Spec::Path.gem_repo1
+        end
+      end
     end
 
     def dependencies_for(gem_names, gem_repo = default_gem_repo)
