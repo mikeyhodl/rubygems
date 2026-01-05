@@ -1,21 +1,21 @@
 HTTP/1.1 200 OK
 connection: keep-alive
-content-length: 8331
-last-modified: Thu, 22 May 2025 20:07:11 GMT
-etag: "7312b95841e86992b8d350c5379e9ed0"
+content-length: 9057
+last-modified: Tue, 09 Sep 2025 21:00:26 GMT
+etag: "9bffbfa9e8628faebbfa64b793e70e2c"
 cache-control: max-age=60, public
 content-type: text/plain; charset=utf-8
-digest: sha-256="x04F/pHKHGafNBzLAuCDZ9oA4DE5Kg5cW28LqPNE4HE="
-repr-digest: sha-256="x04F/pHKHGafNBzLAuCDZ9oA4DE5Kg5cW28LqPNE4HE="
+digest: sha-256="tXDBd5nfJ0GY24nt7soBbgHHY8xZxGAhhmWqgoTRfVY="
+repr-digest: sha-256="tXDBd5nfJ0GY24nt7soBbgHHY8xZxGAhhmWqgoTRfVY="
 via: 1.1 varnish, 1.1 varnish
 x-backend: fastlyshield--shield_ssl_cache_bfi_kbfi7400052_BFI 167.82.142.52:443
 accept-ranges: bytes
-date: Mon, 14 Jul 2025 08:09:11 GMT
-age: 286
-x-served-by: cache-bfi-kbfi7400052-BFI, cache-mad22033-MAD
+date: Mon, 05 Jan 2026 06:53:54 GMT
+age: 342
+x-served-by: cache-bfi-kbfi7400052-BFI, cache-tyo11934-TYO
 x-cache: HIT, HIT
-x-cache-hits: 99672, 2
-x-timer: S1752480551.271563,VS0,VE0
+x-cache-hits: 127689, 2
+x-timer: S1767596035.511351,VS0,VE0
 server: RubyGems.org
 
 ---
@@ -52,3 +52,6 @@ server: RubyGems.org
 0.16.0 addressable:>= 2.5.1&~> 2.5,googleauth:~> 1.9,httpclient:< 3.a&>= 2.8.3,mini_mime:~> 1.0,mutex_m:>= 0,representable:~> 3.0,retriable:< 4.a&>= 2.0|checksum:046a2c30a5ec123b2a6bc5e64348be781ce5fcd18dd4e85982e7a6a8da9d0dcc,ruby:>= 2.7
 0.17.0 addressable:>= 2.5.1&~> 2.5,googleauth:~> 1.9,httpclient:< 3.a&>= 2.8.3,mini_mime:~> 1.0,mutex_m:>= 0,representable:~> 3.0,retriable:< 4.a&>= 2.0|checksum:3d4408b26b3f4b517b869be3c5aba40db0e172b4481c20ff882ef47579dd08f8,ruby:>= 3.1
 0.18.0 addressable:>= 2.5.1&~> 2.5,googleauth:~> 1.9,httpclient:< 3.a&>= 2.8.3,mini_mime:~> 1.0,mutex_m:>= 0,representable:~> 3.0,retriable:< 4.a&>= 2.0|checksum:96b057816feeeab448139ed5b5c78eab7fc2a9d8958f0fbc8217dedffad054ee,ruby:>= 3.1
+1.0.0 addressable:>= 2.8.7&~> 2.8,faraday:~> 2.13,faraday-follow_redirects:~> 0.3,googleauth:~> 1.14,mini_mime:~> 1.1,representable:~> 3.0,retriable:~> 3.1|checksum:c46e4b4f8eafa7f469a689c56a00d0ca46799adaa5f5adb171d91be85e58878b,ruby:>= 3.1
+1.0.1 addressable:>= 2.8.7&~> 2.8,faraday:~> 2.13,faraday-follow_redirects:~> 0.3,googleauth:~> 1.14,mini_mime:~> 1.1,representable:~> 3.0,retriable:~> 3.1|checksum:5cd0fc24e33efe5e8d095374c0fef3d246eded243b751c861e95e3d16ad0d861,ruby:>= 3.1
+1.0.2 addressable:>= 2.8.7&~> 2.8,faraday:~> 2.13,faraday-follow_redirects:~> 0.3,googleauth:~> 1.14,mini_mime:~> 1.1,representable:~> 3.0,retriable:~> 3.1|checksum:ba4579aaadc902d6cc7bc8db88f566ab00f5e31ea87ab41e9f9a032c470f2629,ruby:>= 3.1

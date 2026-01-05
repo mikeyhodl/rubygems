@@ -1,21 +1,21 @@
 HTTP/1.1 200 OK
 connection: keep-alive
-content-length: 7596
-last-modified: Fri, 28 Feb 2025 14:08:23 GMT
-etag: "7cae49475ac8acea42c5344a3b81b452"
+content-length: 8790
+last-modified: Wed, 24 Dec 2025 09:47:53 GMT
+etag: "28136676fbd92a17f11599014a50547b"
 cache-control: max-age=60, public
 content-type: text/plain; charset=utf-8
-digest: sha-256="xHf2ptZ9q1ArOGX2qvgklvCQODfhwtUpWnVbmBut7AY="
-repr-digest: sha-256="xHf2ptZ9q1ArOGX2qvgklvCQODfhwtUpWnVbmBut7AY="
+digest: sha-256="QLYN1Wm5/BYHYDa0MpCB1wfudL8w2bEY6o3xCzMa4k4="
+repr-digest: sha-256="QLYN1Wm5/BYHYDa0MpCB1wfudL8w2bEY6o3xCzMa4k4="
 via: 1.1 varnish, 1.1 varnish
 x-backend: fastlyshield--shield_ssl_cache_bfi_krnt7300077_BFI 167.82.143.77:443
 accept-ranges: bytes
-date: Mon, 14 Jul 2025 08:09:14 GMT
-age: 3422
-x-served-by: cache-bfi-krnt7300077-BFI, cache-mad2200147-MAD
+date: Mon, 05 Jan 2026 06:53:57 GMT
+age: 168
+x-served-by: cache-bfi-krnt7300077-BFI, cache-tyo11983-TYO
 x-cache: HIT, HIT
-x-cache-hits: 48210, 1
-x-timer: S1752480555.811899,VS0,VE1
+x-cache-hits: 110789, 1
+x-timer: S1767596037.022265,VS0,VE1
 server: RubyGems.org
 
 ---
@@ -65,3 +65,9 @@ server: RubyGems.org
 14.0.0 cucumber-gherkin:< 30&> 27,cucumber-messages:< 27&> 22,cucumber-tag-expressions:< 7&> 5|checksum:12c9ffba129967efa65df48f077f79b7ff923d3d163590b86c9b3108386f4869,ruby:>= 2.7,rubygems:>= 3.2.8
 15.0.0 cucumber-gherkin:< 30&> 27,cucumber-messages:< 28&> 25,cucumber-tag-expressions:< 7&> 5|checksum:57859a6c5ea2c5d3934b963e450b4560ee3d4121d4e49bc61ec16544d7891fc2,ruby:>= 3.0,rubygems:>= 3.2.8
 15.1.0 cucumber-gherkin:< 31&> 27,cucumber-messages:< 29&> 26,cucumber-tag-expressions:< 7&> 5|checksum:2d5c56425d5f663a58647e12969288d555fd78a1e18bfe34d1957f0b3c4134b7,ruby:>= 3.0,rubygems:>= 3.2.8
+15.2.0 cucumber-gherkin:< 33&> 27,cucumber-messages:< 30&> 26,cucumber-tag-expressions:< 7&> 5|checksum:18e45bd05d0fa44342b9f39d89b07a832063922d946c854e87013f94461b72a8,ruby:>= 3.0,rubygems:>= 3.2.8
+15.2.1 cucumber-gherkin:< 33&> 27,cucumber-messages:< 30&> 26,cucumber-tag-expressions:< 7&> 5|checksum:636a329f877c7ba478b5d9090f810c1b21796f9b601fa33532133ad1910b8588,ruby:>= 3.0,rubygems:>= 3.2.8
+15.3.0 cucumber-gherkin:< 35&> 27,cucumber-messages:< 30&> 26,cucumber-tag-expressions:< 9&> 5|checksum:7a5c79e443b52096ca7f7df05b749e16abecb3b7d6f40f3074d30afc7464c14f,ruby:>= 3.0,rubygems:>= 3.2.8
+15.4.0 cucumber-gherkin:< 40&> 27,cucumber-messages:< 33&> 26,cucumber-tag-expressions:< 9&> 5|checksum:161309d85847b336c998b201e2003d3f4a86207fa4816da2678fe3d7f3735e45,ruby:>= 3.0,rubygems:>= 3.2.8
+16.0.0 cucumber-gherkin:< 40&> 33,cucumber-messages:< 33&> 28,cucumber-tag-expressions:< 9&> 6|checksum:f26d75895de85272dd7db9f14176220cb229a74dd332d18e231bda28aa9eaa45,ruby:>= 3.2,rubygems:>= 3.2.8
+16.1.1 cucumber-gherkin:< 40&> 36,cucumber-messages:< 33&> 31,cucumber-tag-expressions:< 9&> 6|checksum:d3aaa80a1ee2865f63f1a21ef496129f675af9099993b9af9608c4ef8ae26b89,ruby:>= 3.2,rubygems:>= 3.2.8

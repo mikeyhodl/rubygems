@@ -1,21 +1,21 @@
 HTTP/1.1 200 OK
 connection: keep-alive
-content-length: 160859
-last-modified: Wed, 12 Mar 2025 03:09:40 GMT
-etag: "891123e6ef4dfbbe990e97f347a3229c"
+content-length: 165532
+last-modified: Tue, 28 Oct 2025 23:48:02 GMT
+etag: "bb7555be14036cf878ebaf6c625a3210"
 cache-control: max-age=60, public
 content-type: text/plain; charset=utf-8
-digest: sha-256="HvE9UWpzuVXnjkOxUMlLKZrR4zXJQ1IviSpmCCy9rvo="
-repr-digest: sha-256="HvE9UWpzuVXnjkOxUMlLKZrR4zXJQ1IviSpmCCy9rvo="
+digest: sha-256="56/pxOlXMTl+samwut/LZ4C6Q8ty7r/GFpaPv4mcQpE="
+repr-digest: sha-256="56/pxOlXMTl+samwut/LZ4C6Q8ty7r/GFpaPv4mcQpE="
 via: 1.1 varnish, 1.1 varnish
 x-backend: fastlyshield--shield_ssl_cache_bfi_kbfi7400100_BFI 167.82.142.100:443
 accept-ranges: bytes
-date: Mon, 14 Jul 2025 08:09:04 GMT
-age: 1090
-x-served-by: cache-bfi-kbfi7400100-BFI, cache-mad2200147-MAD
+date: Mon, 05 Jan 2026 06:53:49 GMT
+age: 2255
+x-served-by: cache-bfi-kbfi7400100-BFI, cache-tyo11974-TYO
 x-cache: HIT, HIT
-x-cache-hits: 194228, 1
-x-timer: S1752480545.774447,VS0,VE1
+x-cache-hits: 213934, 2
+x-timer: S1767596029.460908,VS0,VE0
 server: RubyGems.org
 
 ---
@@ -517,3 +517,15 @@ server: RubyGems.org
 8.0.0.1 actioncable:= 8.0.0.1,actionmailbox:= 8.0.0.1,actionmailer:= 8.0.0.1,actionpack:= 8.0.0.1,actiontext:= 8.0.0.1,actionview:= 8.0.0.1,activejob:= 8.0.0.1,activemodel:= 8.0.0.1,activerecord:= 8.0.0.1,activestorage:= 8.0.0.1,activesupport:= 8.0.0.1,bundler:>= 1.15.0,railties:= 8.0.0.1|checksum:67d612af8bb25a285359dc0bfc40deb2060a7511dcad7f3d9deee3c83c440dd1,ruby:>= 3.2.0,rubygems:>= 1.8.11
 8.0.1 actioncable:= 8.0.1,actionmailbox:= 8.0.1,actionmailer:= 8.0.1,actionpack:= 8.0.1,actiontext:= 8.0.1,actionview:= 8.0.1,activejob:= 8.0.1,activemodel:= 8.0.1,activerecord:= 8.0.1,activestorage:= 8.0.1,activesupport:= 8.0.1,bundler:>= 1.15.0,railties:= 8.0.1|checksum:c86f4cd7834a67c1e5d04a77d35c88a5f56a20e2022ec416fa52c1af2cdc9491,ruby:>= 3.2.0,rubygems:>= 1.8.11
 8.0.2 actioncable:= 8.0.2,actionmailbox:= 8.0.2,actionmailer:= 8.0.2,actionpack:= 8.0.2,actiontext:= 8.0.2,actionview:= 8.0.2,activejob:= 8.0.2,activemodel:= 8.0.2,activerecord:= 8.0.2,activestorage:= 8.0.2,activesupport:= 8.0.2,bundler:>= 1.15.0,railties:= 8.0.2|checksum:fdfaa5a83ec0388e02864e88d515959caedc88053b5f701c4deb1652d8f164c6,ruby:>= 3.2.0,rubygems:>= 1.8.11
+7.1.5.2 actioncable:= 7.1.5.2,actionmailbox:= 7.1.5.2,actionmailer:= 7.1.5.2,actionpack:= 7.1.5.2,actiontext:= 7.1.5.2,actionview:= 7.1.5.2,activejob:= 7.1.5.2,activemodel:= 7.1.5.2,activerecord:= 7.1.5.2,activestorage:= 7.1.5.2,activesupport:= 7.1.5.2,bundler:>= 1.15.0,railties:= 7.1.5.2|checksum:a292087202c5babf4f4c39a8c37afda732117c481c619986ae1559446e927546,ruby:>= 2.7.0,rubygems:>= 1.8.11
+7.2.2.2 actioncable:= 7.2.2.2,actionmailbox:= 7.2.2.2,actionmailer:= 7.2.2.2,actionpack:= 7.2.2.2,actiontext:= 7.2.2.2,actionview:= 7.2.2.2,activejob:= 7.2.2.2,activemodel:= 7.2.2.2,activerecord:= 7.2.2.2,activestorage:= 7.2.2.2,activesupport:= 7.2.2.2,bundler:>= 1.15.0,railties:= 7.2.2.2|checksum:f38ff86c5e6905e5d30a762575f92ddad5b60346f5acfc282b0e22dbb36eca97,ruby:>= 3.1.0,rubygems:>= 1.8.11
+8.0.2.1 actioncable:= 8.0.2.1,actionmailbox:= 8.0.2.1,actionmailer:= 8.0.2.1,actionpack:= 8.0.2.1,actiontext:= 8.0.2.1,actionview:= 8.0.2.1,activejob:= 8.0.2.1,activemodel:= 8.0.2.1,activerecord:= 8.0.2.1,activestorage:= 8.0.2.1,activesupport:= 8.0.2.1,bundler:>= 1.15.0,railties:= 8.0.2.1|checksum:13ab95615569e74e364384b346b1d83e4795dbde83d9edf584e8768e8049b3ac,ruby:>= 3.2.0,rubygems:>= 1.8.11
+8.1.0.beta1 actioncable:= 8.1.0.beta1,actionmailbox:= 8.1.0.beta1,actionmailer:= 8.1.0.beta1,actionpack:= 8.1.0.beta1,actiontext:= 8.1.0.beta1,actionview:= 8.1.0.beta1,activejob:= 8.1.0.beta1,activemodel:= 8.1.0.beta1,activerecord:= 8.1.0.beta1,activestorage:= 8.1.0.beta1,activesupport:= 8.1.0.beta1,bundler:>= 1.15.0,railties:= 8.1.0.beta1|checksum:93a387b9cb4f27f10bec6d218bb955ea555967b3848b2c10fdfac78da438a819,ruby:>= 3.2.0,rubygems:>= 1.8.11
+8.0.3 actioncable:= 8.0.3,actionmailbox:= 8.0.3,actionmailer:= 8.0.3,actionpack:= 8.0.3,actiontext:= 8.0.3,actionview:= 8.0.3,activejob:= 8.0.3,activemodel:= 8.0.3,activerecord:= 8.0.3,activestorage:= 8.0.3,activesupport:= 8.0.3,bundler:>= 1.15.0,railties:= 8.0.3|checksum:5d83c0822d1aaea32a278a99b1afedd3f28e14cfff846e96987bb24ebcb3fd45,ruby:>= 3.2.0,rubygems:>= 1.8.11
+8.1.0.rc1 actioncable:= 8.1.0.rc1,actionmailbox:= 8.1.0.rc1,actionmailer:= 8.1.0.rc1,actionpack:= 8.1.0.rc1,actiontext:= 8.1.0.rc1,actionview:= 8.1.0.rc1,activejob:= 8.1.0.rc1,activemodel:= 8.1.0.rc1,activerecord:= 8.1.0.rc1,activestorage:= 8.1.0.rc1,activesupport:= 8.1.0.rc1,bundler:>= 1.15.0,railties:= 8.1.0.rc1|checksum:086451f3f72f7a6fc99c5c3b72018c76ecdad68d16a163e9b0cad304b6fe9a5f,ruby:>= 3.2.0,rubygems:>= 1.8.11
+8.1.0 actioncable:= 8.1.0,actionmailbox:= 8.1.0,actionmailer:= 8.1.0,actionpack:= 8.1.0,actiontext:= 8.1.0,actionview:= 8.1.0,activejob:= 8.1.0,activemodel:= 8.1.0,activerecord:= 8.1.0,activestorage:= 8.1.0,activesupport:= 8.1.0,bundler:>= 1.15.0,railties:= 8.1.0|checksum:85b8bd4568523e455d9651d36ac385d1be7073e88441aa4d902915db8c0f33f0,ruby:>= 3.2.0,rubygems:>= 1.8.11
+7.0.10 actioncable:= 7.0.10,actionmailbox:= 7.0.10,actionmailer:= 7.0.10,actionpack:= 7.0.10,actiontext:= 7.0.10,actionview:= 7.0.10,activejob:= 7.0.10,activemodel:= 7.0.10,activerecord:= 7.0.10,activestorage:= 7.0.10,activesupport:= 7.0.10,bundler:>= 1.15.0,railties:= 7.0.10|checksum:866eb2c53d3184543fdb770d7ea308e4ee518063226a9e176229f3c7a9537c25,ruby:>= 2.7.0,rubygems:>= 1.8.11
+7.1.6 actioncable:= 7.1.6,actionmailbox:= 7.1.6,actionmailer:= 7.1.6,actionpack:= 7.1.6,actiontext:= 7.1.6,actionview:= 7.1.6,activejob:= 7.1.6,activemodel:= 7.1.6,activerecord:= 7.1.6,activestorage:= 7.1.6,activesupport:= 7.1.6,bundler:>= 1.15.0,railties:= 7.1.6|checksum:9a0a335e510de3daad7542cd791af3d8ff710c644e1da17ed12e96d2f28a7470,ruby:>= 2.7.0,rubygems:>= 1.8.11
+7.2.3 actioncable:= 7.2.3,actionmailbox:= 7.2.3,actionmailer:= 7.2.3,actionpack:= 7.2.3,actiontext:= 7.2.3,actionview:= 7.2.3,activejob:= 7.2.3,activemodel:= 7.2.3,activerecord:= 7.2.3,activestorage:= 7.2.3,activesupport:= 7.2.3,bundler:>= 1.15.0,railties:= 7.2.3|checksum:9a9812eb131189676e64665f6883fc9c4051f412cc87ef9e3fa242a09c609bff,ruby:>= 3.1.0,rubygems:>= 1.8.11
+8.0.4 actioncable:= 8.0.4,actionmailbox:= 8.0.4,actionmailer:= 8.0.4,actionpack:= 8.0.4,actiontext:= 8.0.4,actionview:= 8.0.4,activejob:= 8.0.4,activemodel:= 8.0.4,activerecord:= 8.0.4,activestorage:= 8.0.4,activesupport:= 8.0.4,bundler:>= 1.15.0,railties:= 8.0.4|checksum:364494a32d2dc3f9d5c135d036ce47e7776684bc6add73f1037ac2b1007962db,ruby:>= 3.2.0,rubygems:>= 1.8.11
+8.1.1 actioncable:= 8.1.1,actionmailbox:= 8.1.1,actionmailer:= 8.1.1,actionpack:= 8.1.1,actiontext:= 8.1.1,actionview:= 8.1.1,activejob:= 8.1.1,activemodel:= 8.1.1,activerecord:= 8.1.1,activestorage:= 8.1.1,activesupport:= 8.1.1,bundler:>= 1.15.0,railties:= 8.1.1|checksum:877509b7aef309239978685883097d2c03e21383a50a3f78882cf9b3b5c136f7,ruby:>= 3.2.0,rubygems:>= 1.8.11

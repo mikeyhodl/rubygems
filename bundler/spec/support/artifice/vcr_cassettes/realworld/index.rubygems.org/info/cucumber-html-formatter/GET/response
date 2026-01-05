@@ -1,21 +1,21 @@
 HTTP/1.1 200 OK
 connection: keep-alive
-content-length: 6470
-last-modified: Mon, 07 Jul 2025 17:58:11 GMT
-etag: "09408db826d10f9dadf38e67786a8bbb"
+content-length: 7446
+last-modified: Mon, 22 Dec 2025 20:51:46 GMT
+etag: "5fb5626419a77ede6f9dfd6aa5eba306"
 cache-control: max-age=60, public
 content-type: text/plain; charset=utf-8
-digest: sha-256="tjvwsS27ll3p18mDtWie9wsRQniijGq+s1IedMHYx2Y="
-repr-digest: sha-256="tjvwsS27ll3p18mDtWie9wsRQniijGq+s1IedMHYx2Y="
+digest: sha-256="m9AL1sQCIYvM1ANtJmC1+/um8+l3PPR0pC7mw7J+YvQ="
+repr-digest: sha-256="m9AL1sQCIYvM1ANtJmC1+/um8+l3PPR0pC7mw7J+YvQ="
 via: 1.1 varnish, 1.1 varnish
 x-backend: fastlyshield--shield_ssl_cache_bfi_kbfi7400035_BFI 167.82.142.35:443
 accept-ranges: bytes
-date: Mon, 14 Jul 2025 08:09:14 GMT
-age: 595
-x-served-by: cache-bfi-kbfi7400035-BFI, cache-mad2200086-MAD
+date: Mon, 05 Jan 2026 06:53:57 GMT
+age: 3527
+x-served-by: cache-bfi-kbfi7400035-BFI, cache-tyo11928-TYO
 x-cache: HIT, HIT
-x-cache-hits: 59940, 1
-x-timer: S1752480555.816431,VS0,VE1
+x-cache-hits: 126415, 7
+x-timer: S1767596037.030467,VS0,VE0
 server: RubyGems.org
 
 ---
@@ -68,3 +68,10 @@ server: RubyGems.org
 21.10.1 cucumber-messages:< 28&> 19|checksum:bc59de683fe84fb3403ca9ec5cd208afcf53aedda7be1844e3b3698e9c2f1134,ruby:>= 2.6,rubygems:>= 3.0.3
 21.12.0 cucumber-messages:< 28&> 19|checksum:17db4083fb724d286b0d01db91ea165c4214222260d57d548320ad8d792341f7,ruby:>= 2.6,rubygems:>= 3.0.3
 21.13.0 cucumber-messages:< 28&> 19|checksum:882e20b7da8642d6284112bcc837cb96738490086bac227137f543eae587ee4d,ruby:>= 2.6,rubygems:>= 3.0.3
+21.14.0 cucumber-messages:< 28&> 19|checksum:7fbaeb38c76e982848cf144136544853102ed906b6e54070bba409e505742267,ruby:>= 2.6,rubygems:>= 3.0.3
+21.15.0 cucumber-messages:< 28&> 19|checksum:86c863ee031da5e68379116568540073d4c6ebdfa703e870a8f8373fc07818bb,ruby:>= 2.6,rubygems:>= 3.0.3
+21.15.1 cucumber-messages:< 28&> 19|checksum:a08d7c30c357bfd4ea746312ed36e75dab5ba069e5ebc364ecfd5508540920e0,ruby:>= 2.6,rubygems:>= 3.0.3
+22.0.0 cucumber-messages:< 31&> 19|checksum:dddba302aeb0401d424a7f5f9895898d909adbb7edf69a6c2d1164e59b269d6c,ruby:>= 3.1,rubygems:>= 3.2.8
+22.1.0 cucumber-messages:< 31&> 19|checksum:95db49ff5c6b6d1f4353a71687cef5e001b0a28428c75acf8b9c11862a542726,ruby:>= 3.1,rubygems:>= 3.2.8
+22.2.0 cucumber-messages:< 31&> 19|checksum:e92fed01ee5a120690da89152ddbe71b77aa56b058228f9df81c6bf8cd4b6980,ruby:>= 3.1,rubygems:>= 3.2.8
+22.3.0 cucumber-messages:< 33&> 23|checksum:f9768ed05588dbd73a5f3824c2cc648bd86b00206e6972d743af8051281d0729,ruby:>= 3.1,rubygems:>= 3.2.8

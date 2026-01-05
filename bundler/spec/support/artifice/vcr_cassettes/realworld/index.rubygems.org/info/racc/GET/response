@@ -8,14 +8,14 @@ content-type: text/plain; charset=utf-8
 digest: sha-256="ntlH4YIdpQgZ1NxM3mAgYejMozOzE/dpmg5qSSF8wkg="
 repr-digest: sha-256="ntlH4YIdpQgZ1NxM3mAgYejMozOzE/dpmg5qSSF8wkg="
 via: 1.1 varnish, 1.1 varnish
-x-backend: fastlyshield--shield_ssl_cache_bfi_krnt7300101_BFI 167.82.143.101:443
+x-backend: fastlyshield--shield_ssl_cache_bfi_krnt7300077_BFI 167.82.143.77:443
 accept-ranges: bytes
-date: Mon, 14 Jul 2025 08:08:59 GMT
-age: 3022
-x-served-by: cache-bfi-krnt7300101-BFI, cache-mad22057-MAD
+date: Mon, 05 Jan 2026 06:53:48 GMT
+age: 342
+x-served-by: cache-bfi-krnt7300077-BFI, cache-tyo11921-TYO
 x-cache: HIT, HIT
-x-cache-hits: 55951, 1
-x-timer: S1752480539.356272,VS0,VE1
+x-cache-hits: 61767, 1
+x-timer: S1767596028.326575,VS0,VE1
 server: RubyGems.org
 
 ---

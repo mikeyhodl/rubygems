@@ -1,21 +1,21 @@
 HTTP/1.1 200 OK
 connection: keep-alive
-content-length: 60078
-last-modified: Wed, 12 Mar 2025 03:09:25 GMT
-etag: "9b7b104ca0b5277ff93b4928d37f700a"
+content-length: 62720
+last-modified: Tue, 28 Oct 2025 23:47:23 GMT
+etag: "a212451493279b14b2e094d919ab5136"
 cache-control: max-age=60, public
 content-type: text/plain; charset=utf-8
-digest: sha-256="DJqE/nAACvhQQl2ydY4N17YuwrTJablfTIC5kqiXygA="
-repr-digest: sha-256="DJqE/nAACvhQQl2ydY4N17YuwrTJablfTIC5kqiXygA="
+digest: sha-256="w06Qe4gDuE0Kd7M2BKyd9YUa1CmTGeg2FrL50B/ahpw="
+repr-digest: sha-256="w06Qe4gDuE0Kd7M2BKyd9YUa1CmTGeg2FrL50B/ahpw="
 via: 1.1 varnish, 1.1 varnish
 x-backend: fastlyshield--shield_ssl_cache_bfi_kbfi7400035_BFI 167.82.142.35:443
 accept-ranges: bytes
-date: Mon, 14 Jul 2025 08:09:03 GMT
-age: 550
-x-served-by: cache-bfi-kbfi7400035-BFI, cache-mad2200132-MAD
+date: Mon, 05 Jan 2026 06:53:48 GMT
+age: 526
+x-served-by: cache-bfi-kbfi7400035-BFI, cache-tyo11961-TYO
 x-cache: HIT, HIT
-x-cache-hits: 180601, 1
-x-timer: S1752480544.613597,VS0,VE1
+x-cache-hits: 168762, 1
+x-timer: S1767596028.093951,VS0,VE1
 server: RubyGems.org
 
 ---
@@ -306,3 +306,16 @@ server: RubyGems.org
 8.0.0.1 activesupport:= 8.0.0.1,builder:~> 3.1,erubi:~> 1.11,rails-dom-testing:~> 2.2,rails-html-sanitizer:~> 1.6|checksum:39bd66e6b75eee9a7aa9d5902f092cf9834a7f46aecf5463b53ebe8d069e0379,ruby:>= 3.2.0
 8.0.1 activesupport:= 8.0.1,builder:~> 3.1,erubi:~> 1.11,rails-dom-testing:~> 2.2,rails-html-sanitizer:~> 1.6|checksum:3005e3de5ca49ea789bf1ad46002d63fe5aa543c61c341239d3c533757e64f8a,ruby:>= 3.2.0
 8.0.2 activesupport:= 8.0.2,builder:~> 3.1,erubi:~> 1.11,rails-dom-testing:~> 2.2,rails-html-sanitizer:~> 1.6|checksum:e038e1405cdfc18f04f17243da4fb8eeda3a4992f63a6d70a7281d255cf7cebb,ruby:>= 3.2.0
+7.1.5.2 activesupport:= 7.1.5.2,builder:~> 3.1,erubi:~> 1.11,rails-dom-testing:~> 2.2,rails-html-sanitizer:~> 1.6|checksum:4fc916ac7eac631e228955207b1730935a7944a4d87d45a32cc40e977d5ca1c9,ruby:>= 2.7.0
+7.2.2.2 activesupport:= 7.2.2.2,builder:~> 3.1,erubi:~> 1.11,rails-dom-testing:~> 2.2,rails-html-sanitizer:~> 1.6|checksum:5bf67e9716fbd159f09cbc8cf87f4813d3e8725f0197a7321910e9dc8c165b07,ruby:>= 3.1.0
+8.0.2.1 activesupport:= 8.0.2.1,builder:~> 3.1,erubi:~> 1.11,rails-dom-testing:~> 2.2,rails-html-sanitizer:~> 1.6|checksum:2ea6d20ccb0b7b84a221a940ac06853ce99235e4ecb4947815839c7c5ecbf347,ruby:>= 3.2.0
+8.1.0.beta1 activesupport:= 8.1.0.beta1,builder:~> 3.1,erubi:~> 1.11,rails-dom-testing:~> 2.2,rails-html-sanitizer:~> 1.6|checksum:9d1bf18d0dcef5d5733d386b2089f54380f3e97389da6debcfee46bd56cc1bfe,ruby:>= 3.2.0
+8.0.3 activesupport:= 8.0.3,builder:~> 3.1,erubi:~> 1.11,rails-dom-testing:~> 2.2,rails-html-sanitizer:~> 1.6|checksum:5171946ff07d1e95bf3d805ad9425a89040a013dea11bb1f4cf604f108b1ce66,ruby:>= 3.2.0
+8.1.0.rc1 activesupport:= 8.1.0.rc1,builder:~> 3.1,erubi:~> 1.11,rails-dom-testing:~> 2.2,rails-html-sanitizer:~> 1.6|checksum:cc0361bef45e52120b15e8bf6d155c49ffde9c674de537d6523d4cf6aed2cb3a,ruby:>= 3.2.0
+8.1.0 activesupport:= 8.1.0,builder:~> 3.1,erubi:~> 1.11,rails-dom-testing:~> 2.2,rails-html-sanitizer:~> 1.6|checksum:b7e8770a5aacd389a3c04916d29609a53459447fcbf747150437136d44c1d1f3,ruby:>= 3.2.0
+7.0.9 activesupport:= 7.0.9,builder:~> 3.1,erubi:~> 1.4,rails-dom-testing:~> 2.0,rails-html-sanitizer:>= 1.2.0&~> 1.1|checksum:9f4e9e04eac9e38752ffb9746cb6d5ef3b833998ec966c4734c34ec3776970ad,ruby:>= 2.7.0
+7.0.10 activesupport:= 7.0.10,builder:~> 3.1,erubi:~> 1.4,rails-dom-testing:~> 2.0,rails-html-sanitizer:>= 1.2.0&~> 1.1|checksum:e5a9475ccfcde80dddf7ced701f44aedc4f8262286051db84ae2c48322ec000e,ruby:>= 2.7.0
+7.1.6 activesupport:= 7.1.6,builder:~> 3.1,cgi:>= 0,erubi:~> 1.11,rails-dom-testing:~> 2.2,rails-html-sanitizer:~> 1.6|checksum:11147d81f90465ae062b2a77805c6f8f446e044e309c51bd9449bdbd43edf566,ruby:>= 2.7.0
+7.2.3 activesupport:= 7.2.3,builder:~> 3.1,cgi:>= 0,erubi:~> 1.11,rails-dom-testing:~> 2.2,rails-html-sanitizer:~> 1.6|checksum:1f427d7a41b43804d7250911535740451b9c32b6416239d87e6dab9d5948ecb2,ruby:>= 3.1.0
+8.0.4 activesupport:= 8.0.4,builder:~> 3.1,erubi:~> 1.11,rails-dom-testing:~> 2.2,rails-html-sanitizer:~> 1.6|checksum:5bd3c41ee7a59e14cf062bb5e4ee53c9a253d12fc13c8754cae368012e1a1648,ruby:>= 3.2.0
+8.1.1 activesupport:= 8.1.1,builder:~> 3.1,erubi:~> 1.11,rails-dom-testing:~> 2.2,rails-html-sanitizer:~> 1.6|checksum:ca480c8b099dea0862b0934f24182b84c2d29092e7dbf464fb3e6d4eb9b468dc,ruby:>= 3.2.0

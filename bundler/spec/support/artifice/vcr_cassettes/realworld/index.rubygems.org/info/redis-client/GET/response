@@ -1,21 +1,21 @@
 HTTP/1.1 200 OK
 connection: keep-alive
-content-length: 5322
-last-modified: Tue, 17 Jun 2025 07:05:53 GMT
-etag: "bea99f324ac8037f9b52951c50f63e58"
+content-length: 6018
+last-modified: Fri, 05 Dec 2025 13:05:43 GMT
+etag: "3b449152e61138f441691baffdbe1c60"
 cache-control: max-age=60, public
 content-type: text/plain; charset=utf-8
-digest: sha-256="sKgzRrSjskLTIZg7ZUQktxgUY1Gvxv1l0J4m0sxyjZY="
-repr-digest: sha-256="sKgzRrSjskLTIZg7ZUQktxgUY1Gvxv1l0J4m0sxyjZY="
+digest: sha-256="YDwpjXJNaffgCUtpGafc3ITFU4hO6cCbKzvM4T6ZS3c="
+repr-digest: sha-256="YDwpjXJNaffgCUtpGafc3ITFU4hO6cCbKzvM4T6ZS3c="
 via: 1.1 varnish, 1.1 varnish
 x-backend: fastlyshield--shield_ssl_cache_bfi_krnt7300077_BFI 167.82.143.77:443
 accept-ranges: bytes
-date: Mon, 14 Jul 2025 08:09:04 GMT
-age: 3447
-x-served-by: cache-bfi-krnt7300077-BFI, cache-mad22066-MAD
+date: Mon, 05 Jan 2026 06:53:49 GMT
+age: 2158
+x-served-by: cache-bfi-krnt7300077-BFI, cache-tyo11960-TYO
 x-cache: HIT, HIT
-x-cache-hits: 52818, 2
-x-timer: S1752480545.996353,VS0,VE0
+x-cache-hits: 127002, 4
+x-timer: S1767596030.773669,VS0,VE0
 server: RubyGems.org
 
 ---
@@ -65,3 +65,9 @@ server: RubyGems.org
 0.23.2 connection_pool:>= 0|checksum:e33bab6682c8155cfef95e6dd296936bb9c2981a89fb578ace27a076fa2836fa,ruby:>= 2.6.0
 0.24.0 connection_pool:>= 0|checksum:ee65ee39cb2c38608b734566167fd912384f3c1241f59075e22858f23a085dbb,ruby:>= 2.6.0
 0.25.0 connection_pool:>= 0|checksum:927dfd07a37346fd9111d80cac3199d2a02b4c084c79260acf7a5057bd742910,ruby:>= 2.6.0
+0.25.1 connection_pool:>= 0|checksum:40130f8f95194c9c73eec322516781b0bfdd8293369a67dc175bd7bc391a68bd,ruby:>= 2.6.0
+0.25.2 connection_pool:>= 0|checksum:aa37e34c29da39fdb0b8663e7a649adb0923959cd4a9351befe2cd19e6f8d6f0,ruby:>= 2.6.0
+0.25.3 connection_pool:>= 0|checksum:bff579db68dd7c59be8f9575a5825d8fb2a23944438f6e5e7e57e7ffddd34e50,ruby:>= 2.6.0
+0.26.0 connection_pool:>= 0|checksum:71e048d75650eb23b8387c71c620a49edb6d2ffc48a565734aa81efca34e90ae,ruby:>= 2.6.0
+0.26.1 connection_pool:>= 0|checksum:1e39d2862c4516a75ff777ee6ed08827af39336bfece4a48e944244891d9a073,ruby:>= 2.6.0
+0.26.2 connection_pool:>= 0|checksum:1336fb5a7202d398b719531853c184b7c9cbdcace1f00f8356062b9dfba6779b,ruby:>= 2.6.0

@@ -1,21 +1,21 @@
 HTTP/1.1 200 OK
 connection: keep-alive
-content-length: 2887
-last-modified: Mon, 02 Dec 2024 07:52:09 GMT
-etag: "2b0eb5809687881c3ccffb34078f4666"
+content-length: 3277
+last-modified: Wed, 10 Dec 2025 05:58:00 GMT
+etag: "2e885ca82b249c834db104e3bffe23cb"
 cache-control: max-age=60, public
 content-type: text/plain; charset=utf-8
-digest: sha-256="YM06avuM2eLqMD9EjcfLjCgDioIrqbnCO9aYWlSkVZ4="
-repr-digest: sha-256="YM06avuM2eLqMD9EjcfLjCgDioIrqbnCO9aYWlSkVZ4="
+digest: sha-256="VCcWJiwvs9/229EojycpVMj+izVoBmiXYe8/Keo2L5M="
+repr-digest: sha-256="VCcWJiwvs9/229EojycpVMj+izVoBmiXYe8/Keo2L5M="
 via: 1.1 varnish, 1.1 varnish
 x-backend: fastlyshield--shield_ssl_cache_bfi_krnt7300077_BFI 167.82.143.77:443
 accept-ranges: bytes
-age: 3470
-date: Mon, 14 Jul 2025 08:09:03 GMT
-x-served-by: cache-bfi-krnt7300077-BFI, cache-mad2200129-MAD
+date: Mon, 05 Jan 2026 06:53:48 GMT
+age: 2258
+x-served-by: cache-bfi-krnt7300077-BFI, cache-tyo11961-TYO
 x-cache: HIT, HIT
-x-cache-hits: 57982, 0
-x-timer: S1752480544.821765,VS0,VE1
+x-cache-hits: 133086, 5
+x-timer: S1767596028.330104,VS0,VE0
 server: RubyGems.org
 
 ---
@@ -49,3 +49,7 @@ server: RubyGems.org
 3.4.0-java |checksum:f7951ea2b7008aebd9cd293008edbd7dd23a928112399ae191f05a42321fc100,ruby:>= 2.6.0
 3.4.1 |checksum:bf268e14ef7158009bfeaec40b5fa3c7271906e88b196d958a89d4b408abe64f,ruby:>= 2.6.0
 3.4.1-java |checksum:74740d914c65a922a15657c25ff0e203c16f1d0f7aa910a9ebed712afe9819c4,ruby:>= 2.6.0
+3.5.0 |checksum:5e74fd6c04b0e65d97ad4f3bb5cb2d8efb37f386cc848f46310b4593ffc46ee5,ruby:>= 2.6.0
+3.5.0-java |checksum:d6876651299185b935e1b834a353e3a1d1db054be478967e8104e30a9a8f1127,ruby:>= 2.6.0
+3.5.1 |checksum:750d06384d7b9c15d562c76291407d89e368dda4d4fff957eb94962d325a0dc0,ruby:>= 2.6.0
+3.5.1-java |checksum:12e09477dc932afe45bf768cd362bf73026804e0db1e6c314186d6cd0bee3344,ruby:>= 2.6.0

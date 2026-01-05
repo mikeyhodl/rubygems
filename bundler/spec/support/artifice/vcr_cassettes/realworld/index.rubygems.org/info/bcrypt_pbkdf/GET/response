@@ -1,21 +1,21 @@
 HTTP/1.1 200 OK
 connection: keep-alive
-content-length: 4764
-last-modified: Wed, 21 May 2025 09:09:19 GMT
-etag: "2bc63837ea42217c43d7663bb318e956"
+content-length: 5426
+last-modified: Fri, 05 Dec 2025 12:49:15 GMT
+etag: "c8a370d843532b5e21615a6caa88b903"
 cache-control: max-age=60, public
 content-type: text/plain; charset=utf-8
-digest: sha-256="jFlUAiNY+IDr2GBQB3KYliqMSG9Me+cnmFjpWQlYTpI="
-repr-digest: sha-256="jFlUAiNY+IDr2GBQB3KYliqMSG9Me+cnmFjpWQlYTpI="
+digest: sha-256="otqAUs6I956IMchGVs97h+50j+7vqQ4ARqz/xQGYdvY="
+repr-digest: sha-256="otqAUs6I956IMchGVs97h+50j+7vqQ4ARqz/xQGYdvY="
 via: 1.1 varnish, 1.1 varnish
 x-backend: fastlyshield--shield_ssl_cache_bfi_krnt7300061_BFI 167.82.143.61:443
 accept-ranges: bytes
-date: Mon, 14 Jul 2025 08:08:59 GMT
-age: 398
-x-served-by: cache-bfi-krnt7300061-BFI, cache-mad22044-MAD
+date: Mon, 05 Jan 2026 06:53:48 GMT
+age: 3199
+x-served-by: cache-bfi-krnt7300061-BFI, cache-tyo11976-TYO
 x-cache: HIT, HIT
-x-cache-hits: 57079, 1
-x-timer: S1752480540.764915,VS0,VE1
+x-cache-hits: 135344, 8
+x-timer: S1767596028.425574,VS0,VE0
 server: RubyGems.org
 
 ---
@@ -60,3 +60,9 @@ server: RubyGems.org
 1.1.2.rc1-x64-mingw32 |checksum:d6bf523c6b716c4a8cde2d3cc1ac5263f0c939542ac51219647e9f2652715826,ruby:< 3.1.dev&>= 2.7,rubygems:> 1.3.1
 1.1.2.rc1-x86-mingw32 |checksum:82938ed9ab44ec73ca1484b5dd768dd1adf933fa092b16d38a167f6f6bdaafcd,ruby:< 3.4.dev&>= 2.7,rubygems:> 1.3.1
 1.1.2.rc1-x86_64-darwin |checksum:3b3c46334f4b7fac88aefed52617ed4ae415d682a0cff31e5c32285e25031ddf,ruby:< 3.4.dev&>= 2.7,rubygems:> 1.3.1
+1.1.2 |checksum:c2414c23ce66869b3eb9f643d6a3374d8322dfb5078125c82792304c10b94cf6
+1.1.2-arm64-darwin |checksum:afdd6feb6ed5a97b8e44caacb3f2d641b98af78e6a516d4a3520b69af5cf9fea,ruby:< 3.4.dev&>= 2.7
+1.1.2-x64-mingw-ucrt |checksum:8d84326d1a922d71b90a1522333299e1d0c5fea4513e54cd2ca8c13cfeb34911,ruby:< 3.4.dev&>= 3.1
+1.1.2-x64-mingw32 |checksum:652a41784d9de35aaf08084b2530b0c2dde1b5a6b6c624543ffff883f6533d92,ruby:< 3.1.dev&>= 2.7
+1.1.2-x86-mingw32 |checksum:4a6fcf83e78df087a1465491ab579793bffbf0c947b142e93d2989bec8f90394,ruby:< 3.4.dev&>= 2.7
+1.1.2-x86_64-darwin |checksum:35f5639d0058e6c2cc2f856f9c0b14080543268d3047abe6bc81c513093caa0e,ruby:< 3.4.dev&>= 2.7

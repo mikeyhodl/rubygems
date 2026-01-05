@@ -1,21 +1,21 @@
 HTTP/1.1 200 OK
 connection: keep-alive
-content-length: 6009
-last-modified: Thu, 10 Jul 2025 11:10:02 GMT
-etag: "9017fa603a0dea81348e10e0e22debd1"
+content-length: 6385
+last-modified: Fri, 26 Dec 2025 21:54:42 GMT
+etag: "3d376a8d8adb59903b2f2176f726bfc9"
 cache-control: max-age=60, public
 content-type: text/plain; charset=utf-8
-digest: sha-256="T8gGVMvMMZR/k8bNwdEWEHdd9BaWvfzdvZraUa7CUdE="
-repr-digest: sha-256="T8gGVMvMMZR/k8bNwdEWEHdd9BaWvfzdvZraUa7CUdE="
+digest: sha-256="4BtqYneayy6zmFP5tIb34vHSXlNpBvSKIBrcZCx4Fyk="
+repr-digest: sha-256="4BtqYneayy6zmFP5tIb34vHSXlNpBvSKIBrcZCx4Fyk="
 via: 1.1 varnish, 1.1 varnish
-x-backend: fastlyshield--shield_ssl_cache_bfi_kbfi7400023_BFI 167.82.142.23:443
+x-backend: fastlyshield--shield_ssl_cache_bfi_krnt7300090_BFI 167.82.143.90:443
 accept-ranges: bytes
-date: Mon, 14 Jul 2025 08:08:59 GMT
-age: 3515
-x-served-by: cache-bfi-kbfi7400023-BFI, cache-mad2200106-MAD
+date: Mon, 05 Jan 2026 06:53:48 GMT
+age: 345
+x-served-by: cache-bfi-krnt7300090-BFI, cache-tyo11921-TYO
 x-cache: HIT, HIT
-x-cache-hits: 41158, 1
-x-timer: S1752480539.322816,VS0,VE1
+x-cache-hits: 60284, 1
+x-timer: S1767596028.336337,VS0,VE1
 server: RubyGems.org
 
 ---
@@ -80,3 +80,7 @@ server: RubyGems.org
 1.14.1 |checksum:d971296c0eacea289d31e4a7ab7ac5eda97262c62bbc8c110de4f5e36425c577,rubygems:>= 1.3.5
 1.15.0 |checksum:1fd04138b6e4a90017e8d1b804c039031399866ff3fbabb7822aea367c78615d,rubygems:>= 1.3.5
 1.16.0 |checksum:111f3120b69989829e7819321e3f626b943c04017cedf912b8fc7125fefa7636,ruby:>= 3.2
+1.17.0 |checksum:76581f6c96aebf2e85f8a8b9854829e0988f335e8671cd1a56a1036eb75e4a1b,ruby:>= 3.0
+1.18.0 |checksum:23f70cf73e2895a33e6d10f0ec955b28ef5627ca4bbad0f292e7d16f4675596f,ruby:>= 3.0
+1.19.0 |checksum:533a023cbcea2876fd19652c8eb9c5a38b821720369ef45a24c5cf70b293dffd,ruby:>= 3.0
+1.19.1 |checksum:7aefeff8f2c854bf739931a238e4aea64592845e0c0395c8a7d2eea7fdd631b7,ruby:>= 3.0

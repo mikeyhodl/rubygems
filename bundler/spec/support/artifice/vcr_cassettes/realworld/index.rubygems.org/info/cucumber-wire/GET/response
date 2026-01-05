@@ -1,21 +1,21 @@
 HTTP/1.1 200 OK
 connection: keep-alive
-content-length: 3276
-last-modified: Fri, 10 Nov 2023 17:18:35 GMT
-etag: "8bc2041bd1eb54052872423c85fcfec8"
+content-length: 3450
+last-modified: Tue, 14 Oct 2025 18:00:35 GMT
+etag: "30f9272404874d4332e40497b66f6a12"
 cache-control: max-age=60, public
 content-type: text/plain; charset=utf-8
-digest: sha-256="BABKVkaZ9yUSpDfVcUHDDovYAiAnyRKSaHHrnYWy2uM="
-repr-digest: sha-256="BABKVkaZ9yUSpDfVcUHDDovYAiAnyRKSaHHrnYWy2uM="
+digest: sha-256="1vBTt1j++cVQWTqNiEZPSpfa2en21IMm7acPUaF4s/E="
+repr-digest: sha-256="1vBTt1j++cVQWTqNiEZPSpfa2en21IMm7acPUaF4s/E="
 via: 1.1 varnish, 1.1 varnish
-x-backend: fastlyshield--shield_ssl_cache_bfi_kbfi7400030_BFI 167.82.142.30:443
+x-backend: fastlyshield--shield_ssl_cache_bfi_kbfi7400075_BFI 167.82.142.75:443
 accept-ranges: bytes
-date: Mon, 14 Jul 2025 08:09:14 GMT
-age: 1484
-x-served-by: cache-bfi-kbfi7400030-BFI, cache-mad2200130-MAD
+date: Mon, 05 Jan 2026 06:53:57 GMT
+age: 859
+x-served-by: cache-bfi-kbfi7400075-BFI, cache-tyo11924-TYO
 x-cache: HIT, HIT
-x-cache-hits: 217672, 1
-x-timer: S1752480555.815459,VS0,VE1
+x-cache-hits: 138087, 3
+x-timer: S1767596037.025812,VS0,VE0
 server: RubyGems.org
 
 ---
@@ -37,3 +37,4 @@ server: RubyGems.org
 6.2.0 cucumber-core:>= 10.1.0&~> 10.1,cucumber-cucumber-expressions:>= 14.0.0&~> 14.0,cucumber-messages:>= 17.1.1&~> 17.1|checksum:ea4ffe2ab2b95ef18f2895406dea05039e4e265f7f5b58d49d04e7f051c477fe,ruby:>= 2.3
 6.2.1 cucumber-core:>= 10.1.0&~> 10.1,cucumber-cucumber-expressions:>= 14.0.0&~> 14.0|checksum:699dcde817ae0e98826606e5f8537eb3755d0f97c75806ee9193319a606ebede,ruby:>= 2.3
 7.0.0 cucumber-core:< 14&> 10.1,cucumber-cucumber-expressions:< 18&> 14|checksum:7a658efa333d10a2f087095a54e1ed7658c8f87f1b273bd657f6f039cc2f0c69,ruby:>= 2.6
+8.0.0 cucumber-core:< 16&> 11,cucumber-cucumber-expressions:< 20&> 14|checksum:7dc80ba47c7d7b5f50a2892179f742398e2a7886cfb1a22733ad504a979a2608,ruby:>= 3.1,rubygems:>= 3.2.8

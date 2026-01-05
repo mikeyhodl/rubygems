@@ -1,21 +1,21 @@
 HTTP/1.1 200 OK
 connection: keep-alive
-content-length: 16702
-last-modified: Mon, 12 May 2025 16:23:54 GMT
-etag: "4ae0242acaf16d80e0e11d787823822a"
+content-length: 17208
+last-modified: Wed, 17 Dec 2025 04:36:39 GMT
+etag: "194612717a088d0168206b1c95f5af12"
 cache-control: max-age=60, public
 content-type: text/plain; charset=utf-8
-digest: sha-256="rq74g4AD7MWcIyudeKtRSSh/EBQsJxDcKb9MaTpvA7Q="
-repr-digest: sha-256="rq74g4AD7MWcIyudeKtRSSh/EBQsJxDcKb9MaTpvA7Q="
+digest: sha-256="p3ECYgx60jEPbF8z391xxUHlSOUbJfYLmvohbgt7Mxc="
+repr-digest: sha-256="p3ECYgx60jEPbF8z391xxUHlSOUbJfYLmvohbgt7Mxc="
 via: 1.1 varnish, 1.1 varnish
 x-backend: fastlyshield--shield_ssl_cache_bfi_kbfi7400084_BFI 167.82.142.84:443
 accept-ranges: bytes
-date: Mon, 14 Jul 2025 08:09:04 GMT
-age: 1022
-x-served-by: cache-bfi-kbfi7400084-BFI, cache-mad2200137-MAD
+date: Mon, 05 Jan 2026 06:53:49 GMT
+age: 42
+x-served-by: cache-bfi-kbfi7400084-BFI, cache-tyo11926-TYO
 x-cache: HIT, HIT
-x-cache-hits: 120632, 1
-x-timer: S1752480545.977637,VS0,VE1
+x-cache-hits: 176110, 1
+x-timer: S1767596030.744718,VS0,VE1
 server: RubyGems.org
 
 ---
@@ -168,3 +168,7 @@ server: RubyGems.org
 5.2.5-java date:>= 0,jar-dependencies:>= 0.1.7|checksum:f81588b2814b17cea626304cb2639e2819af90452bd22f19b80693c52ee360c3,ruby:>= 2.5.0
 5.2.6 date:>= 0,stringio:>= 0|checksum:814328aa5dcb6d604d32126a20bc1cbcf05521a5b49dbb1a8b30a07e580f316e,ruby:>= 2.5.0
 5.2.6-java date:>= 0,jar-dependencies:>= 0.1.7|checksum:0a5f65d47ed1ae3475d062b254e7b2035a259eac578038016d62172dd4cfbd91,ruby:>= 2.5.0
+5.3.0 date:>= 0,stringio:>= 0|checksum:8976a41ae29ea38c88356e862629345290347e3bfe27caf654f7c5a920e95eeb,ruby:>= 2.5.0
+5.3.0-java date:>= 0,jar-dependencies:>= 0.1.7|checksum:b4139ebbf9aff9823a09bd5a773b0c0eb90f7584ddc6eb97822eb7f0ec39f82d,ruby:>= 2.5.0
+5.3.1 date:>= 0,stringio:>= 0|checksum:eb7a57cef10c9d70173ff74e739d843ac3b2c019a003de48447b2963d81b1974,ruby:>= 2.5.0
+5.3.1-java date:>= 0,jar-dependencies:>= 0.1.7|checksum:20a4a81ad01479ef060f604ed75ba42fe673169e67d923b1bae5aa4e13cc5820,ruby:>= 2.5.0
