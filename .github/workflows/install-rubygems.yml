@@ -98,6 +98,9 @@ jobs:
       - name: Check bundler install didn't hit the network
         run: if grep -q 'GET http' output.txt; then false; else true; fi
         working-directory: ./bundler
+      - name: Resolve tsort dependency for Ruby 3.2
+        run: gem install tsort
+        if: matrix.ruby.name == '3.2'
       - name: Check gem exec can create a rails project
         run: gem exec rails new app --minimal
         if: matrix.ruby.name != 'truffleruby' && matrix.ruby.name != 'jruby'
