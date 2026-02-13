@@ -435,6 +435,10 @@ module Bundler
         exit 1
       end
 
+      if /[A-Z]/.match?(name)
+        Bundler.ui.warn "Gem names with capital letters are not recommended. Please use only lowercase letters, numbers, and hyphens."
+      end
+
       constant_name = constant_array.join("::")
 
       existing_constant = constant_array.inject(Object) do |c, s|
