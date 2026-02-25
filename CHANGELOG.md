@@ -1,5 +1,22 @@
 # Changelog
 
+## 4.0.7 / 2026-02-25
+
+### Enhancements:
+
+* Add Gem.disable_system_update_message in setup.rb. Pull request
+  [#9020](https://github.com/ruby/rubygems/pull/9020) by hyuraku
+* Print message when signing in with an existing API key. Pull request
+  [#9312](https://github.com/ruby/rubygems/pull/9312) by hsbt
+* Installs bundler 4.0.7 as a default gem.
+
+### Documentation:
+
+* Document gemspecs must be deterministic. Pull request
+  [#9321](https://github.com/ruby/rubygems/pull/9321) by fxn
+* Remove "##" from a comment to require. Pull request
+  [#9306](https://github.com/ruby/rubygems/pull/9306) by tompng
+
 ## 4.0.6 / 2026-02-05
 
 ### Enhancements:

@@ -1,5 +1,24 @@
 # Changelog
 
+## 4.0.7 (2026-02-25)
+
+### Enhancements:
+
+  - Don't check whether a plugin needs to be installed: [#9328](https://github.com/ruby/rubygems/pull/9328)
+  - [rust gem] Major improvements for gem scaffolding (rebased) [#8455](https://github.com/ruby/rubygems/pull/8455)
+  - Fix(bundler): only preload git sources for requested groups [#9234](https://github.com/ruby/rubygems/pull/9234)
+  - Raise error when gem contains capital letters [#5432](https://github.com/ruby/rubygems/pull/5432)
+
+### Bug fixes:
+
+  - Fix Bundler crashing when it tries to install plugin: [#9335](https://github.com/ruby/rubygems/pull/9335)
+  - Run git operations in parallel (take 2): [#9323](https://github.com/ruby/rubygems/pull/9323)
+  - Add support for help flag in plugin commands [#9263](https://github.com/ruby/rubygems/pull/9263)
+
+### Documentation:
+
+  - [DOC] Fix link in Bundler [#9315](https://github.com/ruby/rubygems/pull/9315)
+
 ## 4.0.6 (2026-02-05)
 
 ### Bug fixes:
