@@ -57,9 +57,12 @@ jobs:
           - { os: { name: Ubuntu, value: ubuntu-24.04 }, ruby: { name: jruby, value: jruby-10.0.2.0 } }
           - { os: { name: Windows, value: windows-2025 }, ruby: { name: jruby, value: jruby-10.0.2.0 } }
 
+          - { os: { name: Ubuntu, value: ubuntu-24.04 }, ruby: { name: ruby-4.0 (psych), value: 4.0.0 }, use_psych: true }
+
     env:
       RGV: ..
       RUBYOPT: --disable-gems
+      RUBYGEMS_USE_PSYCH: ${{ matrix.use_psych || 'false' }}
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
