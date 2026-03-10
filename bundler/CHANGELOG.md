@@ -1,5 +1,16 @@
 # Changelog
 
+## 4.0.8 (2026-03-11)
+
+### Enhancements:
+
+  - Add a new Bundler config to control how many specs are fetched [#9363](https://github.com/ruby/rubygems/pull/9363)
+  - Restrict GitHub Actions workflow permissions for newgem [#9361](https://github.com/ruby/rubygems/pull/9361)
+
+### Bug fixes:
+
+  - Fix plugin new version not registering [#9355](https://github.com/ruby/rubygems/pull/9355)
+
 ## 4.0.7 (2026-02-25)
 
 ### Enhancements:
