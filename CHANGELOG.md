@@ -1,5 +1,21 @@
 # Changelog
 
+## 4.0.8 / 2026-03-11
+
+### Enhancements:
+
+* Use JSON for cargo metadata parsing. Pull request
+  [#9373](https://github.com/ruby/rubygems/pull/9373) by hsbt
+* Fix NameError in Gem::Request.get_proxy_from_env when requiring
+  rubygems/request directly. Pull request
+  [#9362](https://github.com/ruby/rubygems/pull/9362) by afurm
+* Installs bundler 4.0.8 as a default gem.
+
+### Documentation:
+
+* Unify Compact Index API naming. Pull request
+  [#9372](https://github.com/ruby/rubygems/pull/9372) by simi
+
 ## 4.0.7 / 2026-02-25
 
 ### Enhancements:
