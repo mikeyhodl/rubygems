@@ -86,6 +86,28 @@ end
 
 task default: [:test, :spec]
 
+desc "Generate coverage report from collected results"
+task "coverage:report" do
+  require "simplecov"
+  SimpleCov.collate Dir["coverage/.resultset.json"] do
+    coverage_dir "coverage"
+    add_filter "/test/"
+    add_filter "/spec/"
+    add_filter "/tool/"
+    add_filter "/lib/rubygems/vendor/"
+    add_filter "/lib/bundler/vendor/"
+    add_filter "/bundler/tmp/"
+    add_filter ".gemspec"
+
+    add_group "RubyGems" do |src|
+      src.filename.include?("/lib/rubygems/") || src.filename.end_with?("/lib/rubygems.rb")
+    end
+    add_group "Bundler" do |src|
+      src.filename.include?("/lib/bundler/") || src.filename.end_with?("/lib/bundler.rb")
+    end
+  end
+end
+
 spec = Gem::Specification.load(File.expand_path("rubygems-update.gemspec", __dir__))
 v = spec.version
 
@@ -544,7 +566,6 @@ task :spec do
   end
 end
 
-
 namespace :dev do
   desc "Ensure dev dependencies are installed"
   task :deps do
@@ -742,3 +763,10 @@ namespace :bundler do
     end
   end
 end
+
+Rake::Task[:test].enhance do
+  Rake::Task["coverage:report"].reenable
+  Rake::Task["coverage:report"].invoke end
+Rake::Task["spec:regular"].enhance do
+  Rake::Task["coverage:report"].reenable
+  Rake::Task["coverage:report"].invoke end
