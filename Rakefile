@@ -68,6 +68,9 @@ Rake::TestTask.new do |t|
   t.ruby_opts = %w[-w]
   t.ruby_opts << "-rdevkit" if RbConfig::CONFIG["host_os"].include?("mingw")
 
+  coverage_setup = File.expand_path("test/rubygems/coverage_setup.rb", __dir__)
+  t.ruby_opts.unshift("--disable-gems", "-r#{coverage_setup}")
+
   t.libs << "test"
   t.test_files = FileList["test/**/test_*.rb"]
 end
@@ -540,6 +543,7 @@ task :spec do
     sh("bin/rspec")
   end
 end
+
 
 namespace :dev do
   desc "Ensure dev dependencies are installed"
