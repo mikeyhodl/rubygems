@@ -90,8 +90,16 @@ task default: [:test, :spec]
 
 desc "Generate coverage report from collected results"
 task "coverage:report" do
-  require "simplecov"
-  SimpleCov.collate Dir["coverage/.resultset.json"] do
+  resultset = File.join(__dir__, "coverage", ".resultset.json")
+  next unless File.exist?(resultset)
+
+  begin
+    require "simplecov"
+  rescue LoadError
+    next
+  end
+
+  SimpleCov.collate Dir[resultset] do
     coverage_dir "coverage"
     add_filter "/test/"
     add_filter "/spec/"
