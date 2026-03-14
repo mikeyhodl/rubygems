@@ -13,20 +13,20 @@ last-modified: Sat, 30 Sep 2023 08:01:40 GMT
 digest: sha-256=3UBGgK5kWp4R8PuI5JQnsGAdjhk7y///ytyfJ6WdUQA=
 repr-digest: sha-256=:3UBGgK5kWp4R8PuI5JQnsGAdjhk7y///ytyfJ6WdUQA=:
 cache-control: max-age=60, public
-content-security-policy: default-src 'self'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://secure.gaug.es https://gravatar.com https://www.gravatar.com https://secure.gravatar.com https://*.fastly-insights.com https://avatars.githubusercontent.com; object-src 'none'; script-src 'self' 'sha256-cCx/054kTLMPsOXs/RSfWzj+QTTXTo79eGucevTHPxU=' https://secure.gaug.es https://www.fastly-insights.com 'nonce-7a4fde04ecc5a9ec0be9ab11b31ca0c4'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; connect-src 'self' https://s3-us-west-2.amazonaws.com/rubygems-dumps/ https://*.fastly-insights.com https://fastly-insights.com https://api.github.com http://localhost:*; form-action 'self' https://github.com/login/oauth/authorize; frame-ancestors 'self'; base-uri 'self'; report-uri https://csp-report.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pub852fa3e2312391fafa5640b60784e660&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=service%3Arubygems.org%2Cversion%3Ab7afb8c4a021576d2d3d63f651f11e9ca1a53f25%2Cenv%3Aproduction%2Ctrace_id%3A6864ead60000000007bff38203791519
-x-request-id: 0e54a87d-38a8-4ebb-a6fa-1084c54f2b92
-x-runtime: 0.006159
+content-security-policy: default-src 'self'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://secure.gaug.es https://gravatar.com https://www.gravatar.com https://secure.gravatar.com https://*.fastly-insights.com https://avatars.githubusercontent.com; object-src 'none'; script-src 'self' 'sha256-azSWmMHKuxlIULceWMzTCcGRpzgQb+ekrQnQm8duQMU=' https://secure.gaug.es https://www.fastly-insights.com 'nonce-7b360248cbbefd2b4122ff0f0e7e5b87'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; connect-src 'self' https://s3-us-west-2.amazonaws.com/rubygems-dumps/ https://*.fastly-insights.com https://fastly-insights.com https://api.github.com http://localhost:*; form-action 'self' https://github.com/login/oauth/authorize; frame-ancestors 'self'; base-uri 'self'; report-uri https://csp-report.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pub852fa3e2312391fafa5640b60784e660&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=service%3Arubygems.org%2Cversion%3Aac9955d21ea46bab8d3c128de6e4eb36715798e0%2Cenv%3Aproduction%2Ctrace_id%3A6945259b0000000020aa0634657b8a38
+x-request-id: 2bbeb99f-37a4-4511-bfcd-b14f7ee1562d
+x-runtime: 0.006298
 strict-transport-security: max-age=31536000; includeSubDomains
 fastly-restarts: 1
 via: 1.1 varnish, 1.1 varnish
-x-backend: F_Rails 52.89.128.178:443, fastlyshield--shield_ssl_cache_bfi_krnt7300080_BFI 167.82.143.80:443
+x-backend: F_Rails 16.144.125.99:443, fastlyshield--shield_ssl_cache_bfi_krnt7300080_BFI 167.82.143.80:443
 accept-ranges: bytes
-age: 3014
-date: Mon, 14 Jul 2025 08:09:04 GMT
-x-served-by: cache-bfi-krnt7300080-BFI, cache-mad2200095-MAD
+date: Mon, 05 Jan 2026 06:53:49 GMT
+age: 2117
+x-served-by: cache-bfi-krnt7300080-BFI, cache-tyo11971-TYO
 x-cache: HIT, HIT
-x-cache-hits: 100209, 0
-x-timer: S1752480545.995005,VS0,VE1
+x-cache-hits: 140166, 4
+x-timer: S1767596030.774945,VS0,VE0
 vary: Accept,Accept-Encoding
 server: RubyGems.org
 

@@ -93,10 +93,9 @@ RDoc::Task.new rdoc: "docs", clobber_rdoc: "clobber_docs" do |doc|
   doc.title  = "RubyGems #{v} API Documentation"
 
   rdoc_files = Rake::FileList.new %w[lib bundler/lib]
-  rdoc_files.add %w[CHANGELOG.md LICENSE.txt MIT.txt CODE_OF_CONDUCT.md doc/rubygems/CONTRIBUTING.md
-                    doc/MAINTAINERS.txt Manifest.txt doc/rubygems/POLICIES.md README.md doc/UPGRADING.md bundler/CHANGELOG.md
-                    doc/bundler/contributing/README.md bundler/LICENSE.md bundler/README.md
-                    hide_lib_for_update/note.txt].map(&:freeze)
+  rdoc_files.add %w[CHANGELOG.md LICENSE.txt MIT.txt CODE_OF_CONDUCT.md CONTRIBUTING.md
+                    doc/MAINTAINERS.txt Manifest.txt doc/POLICIES.md README.md doc/UPGRADING.md bundler/CHANGELOG.md
+                    bundler/LICENSE.md bundler/README.md hide_lib_for_update/note.txt].map(&:freeze)
 
   doc.rdoc_files = rdoc_files
 
@@ -485,8 +484,7 @@ module Rubygems
       %w[
         doc/MAINTAINERS.txt
         doc/UPGRADING.md
-        doc/rubygems/CONTRIBUTING.md
-        doc/rubygems/POLICIES.md
+        doc/POLICIES.md
       ].each {|f| files << f }
 
       files.sort

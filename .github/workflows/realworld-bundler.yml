@@ -26,22 +26,24 @@ jobs:
 
         ruby:
           - { name: ruby-3.2, value: 3.2.9 }
-          - { name: ruby-3.3, value: 3.3.9 }
-          - { name: ruby-3.4, value: 3.4.5 }
+          - { name: ruby-3.3, value: 3.3.10 }
+          - { name: ruby-3.4, value: 3.4.8 }
+          - { name: ruby-4.0, value: 4.0.0 }
 
         include:
           - { os: { name: macOS, value: macos-15 }, ruby: { name: ruby-3.2, value: 3.2.9 } }
-          - { os: { name: macOS, value: macos-15 }, ruby: { name: ruby-3.3, value: 3.3.9 } }
-          - { os: { name: macOS, value: macos-15 }, ruby: { name: ruby-3.4, value: 3.4.5 } }
+          - { os: { name: macOS, value: macos-15 }, ruby: { name: ruby-3.3, value: 3.3.10 } }
+          - { os: { name: macOS, value: macos-15 }, ruby: { name: ruby-3.4, value: 3.4.8 } }
+          - { os: { name: macOS, value: macos-15 }, ruby: { name: ruby-4.0, value: 4.0.0 } }
     env:
       RGV: ..
       RUBYOPT: --disable-gems
     steps:
-      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
       - name: Setup ruby
-        uses: ruby/setup-ruby@8aeb6ff8030dd539317f8e1769a044873b56ea71 # v1.268.0
+        uses: ruby/setup-ruby@09a7688d3b55cf0e976497ff046b70949eeaccfd # v1.288.0
         with:
           ruby-version: ${{ matrix.ruby.value }}
           bundler: none
@@ -50,7 +52,7 @@ jobs:
       - name: Run Test
         run: bin/rake spec:realworld
       - name: Upload used cassettes as artifact
-        uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
           name: cassettes-bundler-${{ matrix.os.value }}-${{ matrix.ruby.name }}
           path: ./bundler/spec/support/artifice/used_cassettes.txt
@@ -60,13 +62,13 @@ jobs:
     name: Tapioca
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
       - name: Setup ruby
-        uses: ruby/setup-ruby@8aeb6ff8030dd539317f8e1769a044873b56ea71 # v1.268.0
+        uses: ruby/setup-ruby@09a7688d3b55cf0e976497ff046b70949eeaccfd # v1.288.0
         with:
-          ruby-version: 3.4.5
+          ruby-version: 3.4.8
           bundler: none
       - name: Prepare tapioca
         run: ../../../../bin/bundle install
@@ -87,11 +89,11 @@ jobs:
           - { ruby: { name: ruby-3.3, value: 3.3.9 } }
           - { ruby: { name: ruby-3.4, value: 3.4.5 } }
     steps:
-      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
       - name: Setup ruby
-        uses: ruby/setup-ruby@8aeb6ff8030dd539317f8e1769a044873b56ea71 # v1.268.0
+        uses: ruby/setup-ruby@09a7688d3b55cf0e976497ff046b70949eeaccfd # v1.288.0
         with:
           ruby-version: ${{ matrix.ruby.value }}
           bundler: none
@@ -100,7 +102,7 @@ jobs:
       - name: Run Test
         run: bin/rake spec:realworld
       - name: Upload used cassettes as artifact
-        uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
           name: cassettes-system-rubygems-bundler-${{ matrix.ruby.name }}
           path: ./bundler/spec/support/artifice/used_cassettes.txt
@@ -111,18 +113,18 @@ jobs:
     needs: [bundler, system_rubygems_bundler]
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
       - name: Setup ruby
-        uses: ruby/setup-ruby@8aeb6ff8030dd539317f8e1769a044873b56ea71 # v1.268.0
+        uses: ruby/setup-ruby@09a7688d3b55cf0e976497ff046b70949eeaccfd # v1.288.0
         with:
-          ruby-version: 3.4.5
+          ruby-version: 3.4.8
           bundler: none
       - name: Prepare dependencies
         run: bin/rake setup
       - name: Download all used cassettes as artifacts
-        uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
+        uses: actions/download-artifact@70fc10c6e5e1ce46ad2ea6f2b72d43f7d47b13c3 # v8.0.0
         with:
           path: ./bundler/spec/support/artifice/used_vcr_cassettes
       - name: Check unused cassettes

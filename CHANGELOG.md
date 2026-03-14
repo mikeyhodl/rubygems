@@ -1,5 +1,81 @@
 # Changelog
 
+## 4.0.8 / 2026-03-11
+
+### Enhancements:
+
+* Use JSON for cargo metadata parsing. Pull request
+  [#9373](https://github.com/ruby/rubygems/pull/9373) by hsbt
+* Fix NameError in Gem::Request.get_proxy_from_env when requiring
+  rubygems/request directly. Pull request
+  [#9362](https://github.com/ruby/rubygems/pull/9362) by afurm
+* Installs bundler 4.0.8 as a default gem.
+
+### Documentation:
+
+* Unify Compact Index API naming. Pull request
+  [#9372](https://github.com/ruby/rubygems/pull/9372) by simi
+
+## 4.0.7 / 2026-02-25
+
+### Enhancements:
+
+* Add Gem.disable_system_update_message in setup.rb. Pull request
+  [#9020](https://github.com/ruby/rubygems/pull/9020) by hyuraku
+* Print message when signing in with an existing API key. Pull request
+  [#9312](https://github.com/ruby/rubygems/pull/9312) by hsbt
+* Installs bundler 4.0.7 as a default gem.
+
+### Documentation:
+
+* Document gemspecs must be deterministic. Pull request
+  [#9321](https://github.com/ruby/rubygems/pull/9321) by fxn
+* Remove "##" from a comment to require. Pull request
+  [#9306](https://github.com/ruby/rubygems/pull/9306) by tompng
+
+## 4.0.6 / 2026-02-05
+
+### Enhancements:
+
+* Update vendored resolv to 0.7.0. Pull request
+  [#9298](https://github.com/ruby/rubygems/pull/9298) by hsbt
+* Installs bundler 4.0.6 as a default gem.
+
+## 4.0.5 / 2026-01-29
+
+### Enhancements:
+
+* Removed unused deprecate loading. Pull request
+  [#9266](https://github.com/ruby/rubygems/pull/9266) by hsbt
+* Validate executable names for invalid characters. Pull request
+  [#9257](https://github.com/ruby/rubygems/pull/9257) by hsbt
+* Installs bundler 4.0.5 as a default gem.
+
+### Bug fixes:
+
+* Fix RubyGems not able to require the right gem:. Pull request
+  [#9246](https://github.com/ruby/rubygems/pull/9246) by Edouard-chin
+* Remove special behavior for rake. Pull request
+  [#9245](https://github.com/ruby/rubygems/pull/9245) by JasonLunn
+
+### Documentation:
+
+* Added another usage of pristine command. Pull request
+  [#9255](https://github.com/ruby/rubygems/pull/9255) by hsbt
+
+## 4.0.4 / 2026-01-15
+
+### Enhancements:
+
+* Remove date require from rebuild command. Pull request
+  [#9232](https://github.com/ruby/rubygems/pull/9232) by jeremyevans
+* Installs bundler 4.0.4 as a default gem.
+
+### Bug fixes:
+
+* Add a missing "require 'etc'" statement:. Pull request
+  [#9242](https://github.com/ruby/rubygems/pull/9242) by Edouard-chin
+
 ## 4.0.3 / 2025-12-23
 
 ### Enhancements:

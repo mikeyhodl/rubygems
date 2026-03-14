@@ -1,21 +1,21 @@
 HTTP/1.1 200 OK
 connection: keep-alive
-content-length: 12503
-last-modified: Wed, 12 Mar 2025 19:41:39 GMT
-etag: "9d40d99413acd6600a32b4321f3b83f1"
+content-length: 13203
+last-modified: Fri, 26 Dec 2025 21:24:37 GMT
+etag: "29e03a9670aef37c38af6a88a2b5c89f"
 cache-control: max-age=60, public
 content-type: text/plain; charset=utf-8
-digest: sha-256="3r1l0YDJ8bv/KGeG2J8VkMmAeCgJo82k+3h2ijMUy1A="
-repr-digest: sha-256="3r1l0YDJ8bv/KGeG2J8VkMmAeCgJo82k+3h2ijMUy1A="
+digest: sha-256="At7Xoh+1vKVaObSb5IxWx9Em2sCc77CoKbgE2HGlv04="
+repr-digest: sha-256="At7Xoh+1vKVaObSb5IxWx9Em2sCc77CoKbgE2HGlv04="
 via: 1.1 varnish, 1.1 varnish
 x-backend: fastlyshield--shield_ssl_cache_bfi_kbfi7400058_BFI 167.82.142.58:443
 accept-ranges: bytes
-date: Mon, 14 Jul 2025 08:08:59 GMT
-age: 265
-x-served-by: cache-bfi-kbfi7400058-BFI, cache-mad2200115-MAD
+date: Mon, 05 Jan 2026 06:53:48 GMT
+age: 3029
+x-served-by: cache-bfi-kbfi7400058-BFI, cache-tyo11967-TYO
 x-cache: HIT, HIT
-x-cache-hits: 269907, 1
-x-timer: S1752480539.323557,VS0,VE1
+x-cache-hits: 61406, 10
+x-timer: S1767596028.281839,VS0,VE0
 server: RubyGems.org
 
 ---
@@ -165,3 +165,10 @@ server: RubyGems.org
 5.25.3 |checksum:54cdafc4c5bc7260b83909db1d9aedba3856f098e43045626b651017e94bea34,ruby:< 4.0&>= 2.6
 5.25.4 |checksum:9cf2cae25ac4dfc90c988ebc3b917f53c054978b673273da1bd20bcb0778f947,ruby:< 4.0&>= 2.6
 5.25.5 |checksum:391b6c6cb43a4802bfb7c93af1ebe2ac66a210293f4a3fb7db36f2fc7dc2c756,ruby:< 4.0&>= 2.7
+5.26.0 |checksum:f5817ad09f863a4f7eac917707c1ca5c09cdc4a35e17d91171760178324d2c30,ruby:< 4.0&>= 2.7
+5.26.1 |checksum:f16a63d4278e230bba342c3bda3006a69c5216d46461b77dd57f7c7c529b5a96,ruby:>= 2.7
+5.26.2 |checksum:f021118a6185b9ba9f5af71f2ba103ad770c75afde9f2ab8da512677c550cde3,ruby:>= 3.1
+5.27.0 |checksum:2d3b17f8a36fe7801c1adcffdbc38233b938eb0b4966e97a6739055a45fa77d5,ruby:>= 3.1
+6.0.0.a1 prism:~> 1.5|checksum:05ddb0b5e55505449e0cac192f9c6c140b7693093e78790d9f7c388ef6f1b045,ruby:>= 3.2
+6.0.0 prism:~> 1.5|checksum:4ca597fc1d735ea18d2b4b98c5fb1d5a6da4a6f35ddf32bd5fa3eded33a453be,ruby:>= 3.2
+6.0.1 prism:~> 1.5|checksum:7854c74f48e2e975969062833adc4013f249a4b212f5e7b9d5c040bf838d54bb,ruby:>= 3.2

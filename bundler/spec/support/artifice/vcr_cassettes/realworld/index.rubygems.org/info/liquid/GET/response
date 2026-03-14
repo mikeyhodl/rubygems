@@ -1,21 +1,21 @@
 HTTP/1.1 200 OK
 connection: keep-alive
-content-length: 7549
-last-modified: Mon, 09 Jun 2025 19:45:04 GMT
-etag: "fb2aed77fa97640d2aca150de4718b11"
+content-length: 7986
+last-modified: Wed, 19 Nov 2025 17:07:59 GMT
+etag: "7a87fbd9e58928f164517bdeb833d464"
 cache-control: max-age=60, public
 content-type: text/plain; charset=utf-8
-digest: sha-256="WZu4HlFKmj3VUThpdkBjde9CDzvbZvZ20VTmb7tHzgk="
-repr-digest: sha-256="WZu4HlFKmj3VUThpdkBjde9CDzvbZvZ20VTmb7tHzgk="
+digest: sha-256="FqsGtpHfB6OdRyPhf0/2A2BKT4Po5/teF4Bkd01OvD0="
+repr-digest: sha-256="FqsGtpHfB6OdRyPhf0/2A2BKT4Po5/teF4Bkd01OvD0="
 via: 1.1 varnish, 1.1 varnish
 x-backend: fastlyshield--shield_ssl_cache_bfi_kbfi7400047_BFI 167.82.142.47:443
 accept-ranges: bytes
-age: 397
-date: Mon, 14 Jul 2025 08:09:11 GMT
-x-served-by: cache-bfi-kbfi7400047-BFI, cache-mad22031-MAD
+date: Mon, 05 Jan 2026 06:53:54 GMT
+age: 974
+x-served-by: cache-bfi-kbfi7400047-BFI, cache-tyo11934-TYO
 x-cache: HIT, HIT
-x-cache-hits: 172025, 0
-x-timer: S1752480551.266700,VS0,VE1
+x-cache-hits: 173147, 1
+x-timer: S1767596034.475091,VS0,VE1
 server: RubyGems.org
 
 ---
@@ -85,3 +85,6 @@ server: RubyGems.org
 5.8.5 bigdecimal:>= 0,strscan:>= 3.1.1|checksum:2a7cb889b6d20132c7353357c6ef4fc18f666c9e8020a0a07846171dba19cae8,ruby:>= 3.0.0,rubygems:>= 1.3.7
 5.8.6 bigdecimal:>= 0,strscan:>= 3.1.1|checksum:b8f8bdcb250dec7bb57e35eff83d65fa45dc98a77dffb6e9dc9bc02cf1c327d9,ruby:>= 3.0.0,rubygems:>= 1.3.7
 5.8.7 bigdecimal:>= 0,strscan:>= 3.1.1|checksum:b14ef9391096783dc187ff59348dffc9d6153840fbc9a811e12f033d066cbbad,ruby:>= 3.0.0,rubygems:>= 1.3.7
+5.9.0 bigdecimal:>= 0,strscan:>= 3.1.1|checksum:069973accd11a97ad77992bb77dab599f4497ece4f394886455a39fe2afef92b,ruby:>= 3.0.0,rubygems:>= 1.3.7
+5.10.0 bigdecimal:>= 0,strscan:>= 3.1.1|checksum:0d719186676d8be9d15d2bea7fd76388faf24a2aa7ad803c3de161322f74adc6,ruby:>= 3.0.0,rubygems:>= 1.3.7
+5.11.0 bigdecimal:>= 0,strscan:>= 3.1.1|checksum:c338b641f9ee9e03e1377a13d880a0c636fadd944fae0c8a4af9bf4349264800,ruby:>= 3.0.0,rubygems:>= 1.3.7

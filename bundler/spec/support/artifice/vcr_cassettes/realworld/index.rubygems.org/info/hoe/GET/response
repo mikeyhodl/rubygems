@@ -1,21 +1,21 @@
 HTTP/1.1 200 OK
 connection: keep-alive
-content-length: 17213
-last-modified: Tue, 25 Mar 2025 22:51:49 GMT
-etag: "f867b901abfbf9dc1694e22ea954b483"
+content-length: 17717
+last-modified: Fri, 02 Jan 2026 22:54:20 GMT
+etag: "a2750fbf5cdb9cdc2651d5e2bff303b9"
 cache-control: max-age=60, public
 content-type: text/plain; charset=utf-8
-digest: sha-256="5rMugTzJMPQz7SqnCqoWXbZBGsWWX72AslMG4hWyrOs="
-repr-digest: sha-256="5rMugTzJMPQz7SqnCqoWXbZBGsWWX72AslMG4hWyrOs="
+digest: sha-256="GvYToRzu3VB+1MCBJPGMtFMLWrJtj/4rUsflc5FM0Ag="
+repr-digest: sha-256="GvYToRzu3VB+1MCBJPGMtFMLWrJtj/4rUsflc5FM0Ag="
 via: 1.1 varnish, 1.1 varnish
 x-backend: fastlyshield--shield_ssl_cache_bfi_krnt7300078_BFI 167.82.143.78:443
 accept-ranges: bytes
-date: Mon, 14 Jul 2025 08:08:59 GMT
-age: 140
-x-served-by: cache-bfi-krnt7300078-BFI, cache-mad2200124-MAD
+date: Mon, 05 Jan 2026 06:53:48 GMT
+age: 3552
+x-served-by: cache-bfi-krnt7300078-BFI, cache-tyo11924-TYO
 x-cache: HIT, HIT
-x-cache-hits: 268331, 1
-x-timer: S1752480540.526313,VS0,VE1
+x-cache-hits: 25605, 12
+x-timer: S1767596028.368002,VS0,VE0
 server: RubyGems.org
 
 ---
@@ -164,3 +164,7 @@ server: RubyGems.org
 4.2.1 rake:< 15.0&>= 0.8|checksum:7e15ca91994480e3ec5d389c89891d6c8ed0db423e0ff03c6ac4518e4f1b196f,ruby:< 4&>= 2.7,rubygems:>= 3.0
 4.2.2 rake:< 15.0&>= 0.8|checksum:d65f546b18899e795139b5bb7cb272b75c20abbb7540479ce1ed5601f40f12e6,ruby:< 4&>= 2.7,rubygems:>= 3.0
 4.2.3 rake:< 15.0&>= 0.8|checksum:0299109742d1794ad9041894e0b48e4e22256394aa37549892cc36328c3815a2,ruby:< 4&>= 2.7,rubygems:>= 3.0
+4.3.0 rake:< 15.0&>= 0.8|checksum:4c64b43a2b4e9e280df82f681b7a6eec61b61d80efaeb80b2abbfbe236a30c68,ruby:< 4&>= 2.7,rubygems:>= 3.0
+4.4.0 rake:< 15.0&>= 0.8|checksum:2ee50b385a321cc1aa8adec7516382dc59b51c397bd9f244fa17dfc0809bd9b5,ruby:< 4&>= 2.7,rubygems:>= 3.0
+4.5.0 rake:~> 13.0|checksum:e20e537b60a0e05837d66829555587ce1cfa14a3ce0956e26c14723922c5b15f,ruby:>= 3.2,rubygems:>= 3.0
+4.5.1 rake:~> 13.0|checksum:93275bddfca53b4c14ce28ec7e0a5c1935d6492bf5851ada66bebe5a33d06a01,ruby:>= 3.2,rubygems:>= 3.0

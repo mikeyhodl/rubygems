@@ -1,5 +1,69 @@
 # Changelog
 
+## 4.0.8 (2026-03-11)
+
+### Enhancements:
+
+  - Add a new Bundler config to control how many specs are fetched [#9363](https://github.com/ruby/rubygems/pull/9363)
+  - Restrict GitHub Actions workflow permissions for newgem [#9361](https://github.com/ruby/rubygems/pull/9361)
+
+### Bug fixes:
+
+  - Fix plugin new version not registering [#9355](https://github.com/ruby/rubygems/pull/9355)
+
+## 4.0.7 (2026-02-25)
+
+### Enhancements:
+
+  - Don't check whether a plugin needs to be installed: [#9328](https://github.com/ruby/rubygems/pull/9328)
+  - [rust gem] Major improvements for gem scaffolding (rebased) [#8455](https://github.com/ruby/rubygems/pull/8455)
+  - Fix(bundler): only preload git sources for requested groups [#9234](https://github.com/ruby/rubygems/pull/9234)
+  - Raise error when gem contains capital letters [#5432](https://github.com/ruby/rubygems/pull/5432)
+
+### Bug fixes:
+
+  - Fix Bundler crashing when it tries to install plugin: [#9335](https://github.com/ruby/rubygems/pull/9335)
+  - Run git operations in parallel (take 2): [#9323](https://github.com/ruby/rubygems/pull/9323)
+  - Add support for help flag in plugin commands [#9263](https://github.com/ruby/rubygems/pull/9263)
+
+### Documentation:
+
+  - [DOC] Fix link in Bundler [#9315](https://github.com/ruby/rubygems/pull/9315)
+
+## 4.0.6 (2026-02-05)
+
+### Bug fixes:
+
+  - Fix gzip cache corruption when recovering from HTTP 416 responses [#9272](https://github.com/ruby/rubygems/pull/9272)
+  - Fallback git/path sources to default source [#9301](https://github.com/ruby/rubygems/pull/9301)
+  - Ensure revision is always re-resolved in `git_proxy.rb` [#9294](https://github.com/ruby/rubygems/pull/9294)
+
+### Documentation:
+
+  - Clarify local gem override docs to require git-sourced gems [#9305](https://github.com/ruby/rubygems/pull/9305)
+
+## 4.0.5 (2026-01-29)
+
+### Enhancements:
+
+  - Fix Bundler that re-exec $0 when a `version` is present in the config: [#9249](https://github.com/ruby/rubygems/pull/9249)
+
+### Bug fixes:
+
+  - Only use parent source with Git and Path sources [#9269](https://github.com/ruby/rubygems/pull/9269)
+
+## 4.0.4 (2026-01-15)
+
+### Enhancements:
+
+  - Validate more options for add sub-command [#5905](https://github.com/ruby/rubygems/pull/5905)
+  - Support Ruby 4.1 [#9219](https://github.com/ruby/rubygems/pull/9219)
+
+### Bug fixes:
+
+  - Fix dependency source bug in bundler [#9213](https://github.com/ruby/rubygems/pull/9213)
+  - Retain current bundler version on `bundle clean` [#9221](https://github.com/ruby/rubygems/pull/9221)
+
 ## 4.0.3 (2025-12-23)
 
 ### Enhancements:

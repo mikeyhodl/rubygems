@@ -1,21 +1,21 @@
 HTTP/1.1 200 OK
 connection: keep-alive
-content-length: 4438
-last-modified: Mon, 21 Apr 2025 02:40:08 GMT
-etag: "14ad809595fb11e5ad34fdc1912e3b60"
+content-length: 5011
+last-modified: Wed, 17 Dec 2025 05:19:31 GMT
+etag: "a4d4506668e4dccb1f1eff5df3db6dcd"
 cache-control: max-age=60, public
 content-type: text/plain; charset=utf-8
-digest: sha-256="Xydl0eqxVuSnmHmiugF0wWtM6hfRQ/oKjYZgELEEIxA="
-repr-digest: sha-256="Xydl0eqxVuSnmHmiugF0wWtM6hfRQ/oKjYZgELEEIxA="
+digest: sha-256="v9fXRSibIiCMQMCadBa4Ici4Z4eKaQQrS00d/r0LWyY="
+repr-digest: sha-256="v9fXRSibIiCMQMCadBa4Ici4Z4eKaQQrS00d/r0LWyY="
 via: 1.1 varnish, 1.1 varnish
 x-backend: fastlyshield--shield_ssl_cache_bfi_krnt7300053_BFI 167.82.143.53:443
 accept-ranges: bytes
-date: Mon, 14 Jul 2025 08:09:05 GMT
-age: 1390
-x-served-by: cache-bfi-krnt7300053-BFI, cache-mad22075-MAD
+date: Mon, 05 Jan 2026 06:53:49 GMT
+age: 733
+x-served-by: cache-bfi-krnt7300053-BFI, cache-tyo11977-TYO
 x-cache: HIT, HIT
-x-cache-hits: 56891, 1
-x-timer: S1752480545.040063,VS0,VE1
+x-cache-hits: 144135, 1
+x-timer: S1767596030.783558,VS0,VE1
 server: RubyGems.org
 
 ---
@@ -62,3 +62,9 @@ server: RubyGems.org
 3.1.6-java |checksum:dbdb1ee4e6d75782bbc7e8cc7d84cd05e592df50494f363011cc7cd48153bbf7,ruby:>= 2.7
 3.1.7 |checksum:5b78b7cb242a315fb4fca61a8255d62ec438f58da2b90be66048546ade4507fa,ruby:>= 2.7
 3.1.7-java |checksum:167bdd3d60a002ee94bc289cc3259638aaadc36a47b3086a44a694b5dc72a499,ruby:>= 2.7
+3.1.8 |checksum:99c43c3a9302843cca223fd985bfc503dd50a4b1723d3e4a9eb1d9c37d99e4ec,ruby:>= 2.7
+3.1.8-java |checksum:f3895e5843a78b0163907bf9850f9a6d43d0a27d8255c03290d2473798c29428,ruby:>= 2.7
+3.1.9 |checksum:c111af13d3a73eab96a3bc2655ecf93788d13d28cb8e25c1dcbff89ace885121,ruby:>= 2.7
+3.1.9-java |checksum:b78f8357ea642c9779a22e655d883bd844e0c77296285aa829c61f7ccc4c807b,ruby:>= 2.7
+3.2.0 |checksum:c37cb2e58b4ffbd33fe5cd948c05934af997b36e0b6ca6fdf43afa234cf222e1,ruby:>= 2.7
+3.2.0-java |checksum:55fff26a7c5062f5def0cc5868414dfa99b9f0463dd5cd6904e63bdc259f4e07,ruby:>= 2.7

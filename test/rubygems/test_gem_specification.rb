@@ -2812,14 +2812,13 @@ duplicate dependency on c (>= 1.2.3, development), (~> 1.2) use:
     Dir.chdir @tempdir do
       @a1.add_dependency @a1.name, "1"
 
-      use_ui @ui do
+      e = assert_raise Gem::InvalidSpecificationException do
         @a1.validate
       end
 
-      assert_equal <<-EXPECTED, @ui.error
-#{w}:  Self referencing dependency is unnecessary and strongly discouraged.
-#{w}:  See https://guides.rubygems.org/specification-reference/ for help
-      EXPECTED
+      expected = "Dependencies of this gem include a self-reference."
+
+      assert_equal expected, e.message
     end
   end
 
@@ -2884,6 +2883,61 @@ duplicate dependency on c (>= 1.2.3, development), (~> 1.2) use:
       use_ui @ui do
         @a1.validate
       end
+    end
+  end
+
+  def test_validate_extension_require_relative_warning
+    util_setup_validate
+
+    Dir.chdir @tempdir do
+      @a1.extensions = ["ext/a/extconf.rb"]
+      @a1.files = %w[lib/code.rb lib/a.rb ext/a/extconf.rb]
+
+      File.write File.join("lib", "a.rb"), 'require_relative "a/a"'
+
+      use_ui @ui do
+        @a1.validate
+      end
+
+      assert_match(%r{require_relative "a/a"}, @ui.error)
+      assert_match(/will break in RubyGems 4\.2/, @ui.error)
+      assert_match(/Use `require` instead of `require_relative`/, @ui.error)
+    end
+  end
+
+  def test_validate_extension_require_relative_no_warning_when_rb_exists
+    util_setup_validate
+
+    Dir.chdir @tempdir do
+      @a1.extensions = ["ext/a/extconf.rb"]
+      @a1.files = %w[lib/code.rb lib/a.rb lib/a/a.rb ext/a/extconf.rb]
+
+      FileUtils.mkdir_p File.join("lib", "a")
+      File.write File.join("lib", "a.rb"), 'require_relative "a/a"'
+      File.write File.join("lib", "a", "a.rb"), ""
+
+      use_ui @ui do
+        @a1.validate
+      end
+
+      refute_match(/require_relative/, @ui.error)
+    end
+  end
+
+  def test_validate_extension_require_relative_no_warning_without_extensions
+    util_setup_validate
+
+    Dir.chdir @tempdir do
+      @a1.extensions = []
+      @a1.files = %w[lib/code.rb lib/a.rb]
+
+      File.write File.join("lib", "a.rb"), 'require_relative "a/a"'
+
+      use_ui @ui do
+        @a1.validate
+      end
+
+      refute_match(/require_relative/, @ui.error)
     end
   end
 
@@ -3011,6 +3065,65 @@ duplicate dependency on c (>= 1.2.3, development), (~> 1.2) use:
 
     assert_equal "", @ui.output, "output"
     assert_match "#{w}:  bin/exec is missing #! line\n", @ui.error, "error"
+  end
+
+  def test_validate_executables_with_space
+    util_setup_validate
+
+    FileUtils.mkdir_p File.join(@tempdir, "bin")
+    File.write File.join(@tempdir, "bin", "echo hax"), "#!/usr/bin/env ruby\n"
+
+    @a1.executables = ["echo hax"]
+
+    e = assert_raise Gem::InvalidSpecificationException do
+      use_ui @ui do
+        Dir.chdir @tempdir do
+          @a1.validate
+        end
+      end
+    end
+
+    assert_match "executable \"echo hax\" contains invalid characters", e.message
+  end
+
+  def test_validate_executables_with_path_separator
+    util_setup_validate
+
+    FileUtils.mkdir_p File.join(@tempdir, "bin")
+    File.write File.join(@tempdir, "exe"), "#!/usr/bin/env ruby\n"
+
+    @a1.executables = Gem.win_platform? ? ["..\\exe"] : ["../exe"]
+
+    e = assert_raise Gem::InvalidSpecificationException do
+      use_ui @ui do
+        Dir.chdir @tempdir do
+          @a1.validate
+        end
+      end
+    end
+
+    assert_match "executable \"#{Gem.win_platform? ? "..\\exe" : "../exe"}\" contains invalid characters", e.message
+  end
+
+  def test_validate_executables_with_path_list_separator
+    sep = Gem.win_platform? ? ";" : ":"
+
+    util_setup_validate
+
+    FileUtils.mkdir_p File.join(@tempdir, "bin")
+    File.write File.join(@tempdir, "bin", "foo#{sep}bar"), "#!/usr/bin/env ruby\n"
+
+    @a1.executables = ["foo#{sep}bar"]
+
+    e = assert_raise Gem::InvalidSpecificationException do
+      use_ui @ui do
+        Dir.chdir @tempdir do
+          @a1.validate
+        end
+      end
+    end
+
+    assert_match "executable \"foo#{sep}bar\" contains invalid characters", e.message
   end
 
   def test_validate_empty_require_paths

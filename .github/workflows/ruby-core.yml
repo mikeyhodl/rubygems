@@ -16,24 +16,29 @@ permissions:  # added using https://github.com/step-security/secure-workflows
 
 jobs:
   ruby_core:
-    name: ${{matrix.target}} under a ruby-core setup
+    name: ${{matrix.target}} under a ruby-core / ${{matrix.branch}}
     runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
       matrix:
         target: [Rubygems, Bundler]
+        branch: [ruby_3_4, ruby_4_0, master]
     steps:
-      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           repository: ruby/ruby
           path: ruby/ruby
-          ref: v3_4_5
+          ref: ${{ matrix.branch }}
           persist-credentials: false
+      - uses: ruby/setup-ruby@09a7688d3b55cf0e976497ff046b70949eeaccfd # v1.288.0
+        with:
+          ruby-version: 3.4
+          bundler: none
       - name: Install libraries
         run: |
           set -x
           sudo apt-get update -q || :
-          sudo apt-get install --no-install-recommends -q -y build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm-dev bison autoconf ruby
+          sudo apt-get install --no-install-recommends -q -y build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm-dev bison autoconf
       - name: Build Ruby
         run: |
           export GNUMAKEFLAGS="-j$((1 + $(nproc)))"
@@ -41,10 +46,16 @@ jobs:
           ./configure -C --disable-install-doc
           make
         working-directory: ruby/ruby
-      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
-          path: rubygems/rubygems # We need to backport repository url to sync_default_gems.rb of `ruby_3_4` branch.
+          path: rubygems/rubygems
           persist-credentials: false
+        if: matrix.branch == 'ruby_3_4'
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          path: ruby/rubygems
+          persist-credentials: false
+        if: matrix.branch != 'ruby_3_4'
       - name: Sync tools
         run: |
           ruby tool/sync_default_gems.rb rubygems

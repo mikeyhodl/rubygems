@@ -1,21 +1,21 @@
 HTTP/1.1 200 OK
 connection: keep-alive
-content-length: 12062
-last-modified: Fri, 14 Mar 2025 20:09:17 GMT
-etag: "b15846d465dbc75abf619ead3b401035"
+content-length: 12779
+last-modified: Fri, 21 Nov 2025 20:13:24 GMT
+etag: "bbcb880adf12be370024abaed0a4ea33"
 cache-control: max-age=60, public
 content-type: text/plain; charset=utf-8
-digest: sha-256="gZhkZHLUcnRTTy8v8gdHA0w3weSSVzntxN9wLFq1ghI="
-repr-digest: sha-256="gZhkZHLUcnRTTy8v8gdHA0w3weSSVzntxN9wLFq1ghI="
+digest: sha-256="xmGdD87WJyGIl9Or73zbPnqD0xraoCrUr4q90+2Ym9E="
+repr-digest: sha-256="xmGdD87WJyGIl9Or73zbPnqD0xraoCrUr4q90+2Ym9E="
 via: 1.1 varnish, 1.1 varnish
-x-backend: fastlyshield--shield_ssl_cache_bfi_krnt7300031_BFI 167.82.143.31:443
+x-backend: fastlyshield--shield_ssl_cache_bfi_kbfi7400078_BFI 167.82.142.78:443
 accept-ranges: bytes
-date: Mon, 14 Jul 2025 08:09:11 GMT
-age: 624
-x-served-by: cache-bfi-krnt7300031-BFI, cache-mad2200130-MAD
+date: Mon, 05 Jan 2026 06:53:54 GMT
+age: 1481
+x-served-by: cache-bfi-kbfi7400078-BFI, cache-tyo11934-TYO
 x-cache: HIT, HIT
-x-cache-hits: 52461, 1
-x-timer: S1752480551.269106,VS0,VE1
+x-cache-hits: 48458, 2
+x-timer: S1767596034.487947,VS0,VE0
 server: RubyGems.org
 
 ---
@@ -80,3 +80,6 @@ server: RubyGems.org
 1.13.0 faraday:< 3.a&>= 1.0,google-cloud-env:~> 2.2,google-logging-utils:~> 0.1,jwt:< 3.0&>= 1.4,multi_json:~> 1.11,os:< 2.0&>= 0.9,signet:< 2.a&>= 0.16|checksum:0d992f63f2e4cc29f51ef9f41ef6f636e9ad4ae72c1aa1af5ad060a68572be6a,ruby:>= 2.7
 1.13.1 faraday:< 3.a&>= 1.0,google-cloud-env:~> 2.2,google-logging-utils:~> 0.1,jwt:< 3.0&>= 1.4,multi_json:~> 1.11,os:< 2.0&>= 0.9,signet:< 2.a&>= 0.16|checksum:33448ce662e40afeb3e6db5eb9f4ee712467b1701f3857ef9c0aecac8447eca0,ruby:>= 2.7
 1.14.0 faraday:< 3.a&>= 1.0,google-cloud-env:~> 2.2,google-logging-utils:~> 0.1,jwt:< 3.0&>= 1.4,multi_json:~> 1.11,os:< 2.0&>= 0.9,signet:< 2.a&>= 0.16|checksum:62e7de11791890c3d3dc70582dfd9ab5516530e4e4f56d96451fd62c76475149,ruby:>= 3.0
+1.15.0 faraday:< 3.a&>= 1.0,google-cloud-env:~> 2.2,google-logging-utils:~> 0.1,jwt:< 4.0&>= 1.4,multi_json:~> 1.11,os:< 2.0&>= 0.9,signet:< 2.a&>= 0.16|checksum:122ae61813805a1cfdf225638f33d354ca6078be17e9712669667226a7243bcf,ruby:>= 3.0
+1.15.1 faraday:< 3.a&>= 1.0,google-cloud-env:~> 2.2,google-logging-utils:~> 0.1,jwt:< 4.0&>= 1.4,multi_json:~> 1.11,os:< 2.0&>= 0.9,signet:< 2.a&>= 0.16|checksum:d61960893d0d573601d94a38889613b991f40a59ab755b5beed87bf2c3d3cb24,ruby:>= 3.0
+1.16.0 faraday:< 3.a&>= 1.0,google-cloud-env:~> 2.2,google-logging-utils:~> 0.1,jwt:< 4.0&>= 1.4,multi_json:~> 1.11,os:< 2.0&>= 0.9,signet:< 2.a&>= 0.16|checksum:1e7b5c2ee7edc6a0f5a4a4312c579b3822dc0be2679d6d09ca19d8c7ca5bd5f1,ruby:>= 3.0

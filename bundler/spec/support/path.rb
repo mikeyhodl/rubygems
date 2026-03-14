@@ -114,7 +114,17 @@ module Spec
     end
 
     def tmp_root
-      source_root.join("tmp")
+      if ruby_core? && (tmpdir = ENV["TMPDIR"])
+        # Use realpath to resolve any symlinks in TMPDIR (e.g., on macOS /var -> /private/var)
+        real = begin
+          File.realpath(tmpdir)
+        rescue Errno::ENOENT, Errno::EACCES
+          tmpdir
+        end
+        Pathname(real)
+      else
+        source_root.join("tmp")
+      end
     end
 
     # Bump this version whenever you make a breaking change to the spec setup
@@ -303,14 +313,23 @@ module Spec
       deps = %w[
         mustermann
         rack
+        rack-protection
+        rack-session
         tilt
         sinatra
-        ruby2_keywords
         base64
         logger
-        cgi
+        compact_index
       ]
-      Dir[scoped_base_system_gem_path.join("gems/{#{deps.join(",")}}-*/lib")].map(&:to_s)
+      path = if deps.all? {|dep| !Dir[scoped_base_system_gem_path.join("gems/#{dep}-*")].empty? }
+        scoped_base_system_gem_path
+      elsif ruby_core? && deps.all? {|dep| !Dir[source_root.join(".bundle/gems/#{dep}-*")].empty? }
+        source_root.join(".bundle")
+      else
+        scoped_base_system_gem_path
+      end
+
+      Dir[path.join("gems/{#{deps.join(",")}}-*/lib")].map(&:to_s)
     end
 
     private

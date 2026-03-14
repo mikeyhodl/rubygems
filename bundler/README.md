@@ -27,23 +27,15 @@ bundle exec rspec
 
 See [bundler.io](https://bundler.io) for the full documentation.
 
-## Troubleshooting
+## Getting help
 
-For help with common problems, see [TROUBLESHOOTING](../doc/bundler/TROUBLESHOOTING.md).
+For help with common problems, see [TROUBLESHOOTING](../doc/TROUBLESHOOTING.md).
 
 Still stuck? Try [filing an issue](https://github.com/ruby/rubygems/issues/new?labels=Bundler&template=bundler-related-issue.md).
 
-## Other questions
-
-To see what has changed in recent versions of Bundler, see the [CHANGELOG](CHANGELOG.md).
-
-To get in touch with the Bundler core team and other Bundler users, please join [the Bundler slack](https://join.slack.com/t/bundler/shared_invite/zt-1rrsuuv3m-OmXKWQf8K6iSla4~F1DBjQ).
-
 ## Contributing
 
-If you'd like to contribute to Bundler, that's awesome, and we <3 you. We've put together [the Bundler contributor guide](https://github.com/ruby/rubygems/blob/master/doc/bundler/contributing/README.md) with all of the information you need to get started.
-
-If you'd like to request a substantial change to Bundler or its documentation, refer to the [Bundler RFC process](https://github.com/rubygems/rfcs) for more information.
+If you'd like to contribute to Bundler, that's awesome, and we <3 you. We've put together [contributor guide](https://github.com/ruby/rubygems/blob/master/CONTRIBUTING.md) with all of the information you need to get started.
 
 ## Supporting
 

@@ -1,21 +1,21 @@
 HTTP/1.1 200 OK
 connection: keep-alive
-content-length: 11132
-last-modified: Sat, 31 May 2025 22:18:23 GMT
-etag: "4b8761b97a8994dfcf9ff7b3e4696512"
+content-length: 12560
+last-modified: Sat, 08 Nov 2025 11:51:51 GMT
+etag: "1dc25035779519a8626c999e21aadb94"
 cache-control: max-age=60, public
 content-type: text/plain; charset=utf-8
-digest: sha-256="ovnzn3Xp8uu+cfkx2ZLbaXHx3If5tvRk0Dw4xotFulo="
-repr-digest: sha-256="ovnzn3Xp8uu+cfkx2ZLbaXHx3If5tvRk0Dw4xotFulo="
+digest: sha-256="LaBX6Rvp7+pqG2jL+ibc5LEDmP7sR167VxOuLs5u08s="
+repr-digest: sha-256="LaBX6Rvp7+pqG2jL+ibc5LEDmP7sR167VxOuLs5u08s="
 via: 1.1 varnish, 1.1 varnish
 x-backend: fastlyshield--shield_ssl_cache_bfi_krnt7300098_BFI 167.82.143.98:443
 accept-ranges: bytes
-date: Mon, 14 Jul 2025 08:09:11 GMT
-age: 635
-x-served-by: cache-bfi-krnt7300098-BFI, cache-mad22033-MAD
+date: Mon, 05 Jan 2026 06:53:54 GMT
+age: 3483
+x-served-by: cache-bfi-krnt7300098-BFI, cache-tyo11934-TYO
 x-cache: HIT, HIT
-x-cache-hits: 252782, 1
-x-timer: S1752480551.409647,VS0,VE1
+x-cache-hits: 52092, 3
+x-timer: S1767596035.716248,VS0,VE0
 server: RubyGems.org
 
 ---
@@ -85,3 +85,9 @@ server: RubyGems.org
 2.0.10 faraday:< 4.0&>= 0.17.3,jwt:< 4.0&>= 1.0,logger:~> 1.2,multi_xml:~> 0.5,rack:< 4&>= 1.2,snaky_hash:~> 2.0,version_gem:< 3&>= 1.1.8|checksum:8f132679598d21885d4bcc68d7e7e6ef0a29f9a782abca00d67d884280dc3a42,ruby:>= 2.2.0
 2.0.11 faraday:< 4.0&>= 0.17.3,jwt:< 4.0&>= 1.0,logger:~> 1.2,multi_xml:~> 0.5,rack:< 4&>= 1.2,snaky_hash:>= 2.0.3&~> 2.0,version_gem:< 3&>= 1.1.8|checksum:29e0505c2a39bc78dfb655dbf85a826b4408e55e7c3d02ce07b3dfd9b40da16c,ruby:>= 2.2.0
 2.0.12 faraday:< 4.0&>= 0.17.3,jwt:< 4.0&>= 1.0,logger:~> 1.2,multi_xml:~> 0.5,rack:< 4&>= 1.2,snaky_hash:>= 2.0.3&~> 2.0,version_gem:< 3&>= 1.1.8|checksum:f7edb8549c7912724d07087d808c3fa6756298fd64d55d4968324df69c64ab3f,ruby:>= 2.2.0
+2.0.13 faraday:< 4.0&>= 0.17.3,jwt:< 4.0&>= 1.0,logger:~> 1.2,multi_xml:~> 0.5,rack:< 4&>= 1.2,snaky_hash:>= 2.0.3&~> 2.0,version_gem:>= 1.1.8&~> 1.1|checksum:e6588fe5902c07bac542a4a1197f558c319cb479b7fbe53f43f883b1a211be25,ruby:>= 2.2.0
+2.0.14 faraday:< 4.0&>= 0.17.3,jwt:< 4.0&>= 1.0,logger:~> 1.2,multi_xml:~> 0.5,rack:< 4&>= 1.2,snaky_hash:>= 2.0.3&~> 2.0,version_gem:>= 1.1.8&~> 1.1|checksum:9bcb7983048cb1ea1823f9b973762cf01ac79315d9991a0721e864747293e720,ruby:>= 2.2.0
+2.0.15 faraday:< 4.0&>= 0.17.3,jwt:< 4.0&>= 1.0,logger:~> 1.2,multi_xml:~> 0.5,rack:< 4&>= 1.2,snaky_hash:>= 2.0.3&~> 2.0,version_gem:>= 1.1.8&~> 1.1|checksum:96ce2ca86cd06e80b0452e17c5bc0a1e349815d29c875a7951cdd8ff04743eab,ruby:>= 2.2.0
+2.0.16 faraday:< 4.0&>= 0.17.3,jwt:< 4.0&>= 1.0,logger:~> 1.2,multi_xml:~> 0.5,rack:< 4&>= 1.2,snaky_hash:>= 2.0.3&~> 2.0,version_gem:>= 1.1.8&~> 1.1|checksum:b45ce8b22e4c198ad372d6ba99134633a83c35aae365addbead0db27948f4294,ruby:>= 2.2.0
+2.0.17 faraday:< 4.0&>= 0.17.3,jwt:< 4.0&>= 1.0,logger:~> 1.2,multi_xml:~> 0.5,rack:< 4&>= 1.2,snaky_hash:>= 2.0.3&~> 2.0,version_gem:>= 1.1.9&~> 1.1|checksum:c4e182aeabc06dfdafce9a15095c30edc3a1a21fc3c4f0ea49d9295429e79835,ruby:>= 2.2.0
+2.0.18 faraday:< 4.0&>= 0.17.3,jwt:< 4.0&>= 1.0,logger:~> 1.2,multi_xml:~> 0.5,rack:< 4&>= 1.2,snaky_hash:>= 2.0.3&~> 2.0,version_gem:>= 1.1.9&~> 1.1|checksum:bacf11e470dfb963f17348666d0a75c7b29ca65bc48fd47be9057cf91a403287,ruby:>= 2.2.0

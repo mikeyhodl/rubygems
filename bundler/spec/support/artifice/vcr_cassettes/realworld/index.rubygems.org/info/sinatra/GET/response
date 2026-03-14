@@ -1,21 +1,21 @@
 HTTP/1.1 200 OK
 connection: keep-alive
-content-length: 14617
-last-modified: Fri, 23 May 2025 22:18:19 GMT
-etag: "3438d5dac698c95702aeed2644fdb763"
+content-length: 15033
+last-modified: Fri, 10 Oct 2025 15:20:39 GMT
+etag: "dac8f986ddfc22b6b31404ef5959a32d"
 cache-control: max-age=60, public
 content-type: text/plain; charset=utf-8
-digest: sha-256="QTj/84wEjgnLhevaS8y2HfID6iSM/71asOWi8HPZTw0="
-repr-digest: sha-256="QTj/84wEjgnLhevaS8y2HfID6iSM/71asOWi8HPZTw0="
+digest: sha-256="zLPAVz6PGLi0VnY1lHq4V4iya0F3cQzj7mMQiY74VI0="
+repr-digest: sha-256="zLPAVz6PGLi0VnY1lHq4V4iya0F3cQzj7mMQiY74VI0="
 via: 1.1 varnish, 1.1 varnish
 x-backend: fastlyshield--shield_ssl_cache_bfi_krnt7300092_BFI 167.82.143.92:443
 accept-ranges: bytes
-age: 2653
-date: Mon, 14 Jul 2025 08:09:09 GMT
-x-served-by: cache-bfi-krnt7300092-BFI, cache-mad2200125-MAD
+date: Mon, 05 Jan 2026 06:53:52 GMT
+age: 1969
+x-served-by: cache-bfi-krnt7300092-BFI, cache-tyo11982-TYO
 x-cache: HIT, HIT
-x-cache-hits: 111349, 0
-x-timer: S1752480550.975101,VS0,VE1
+x-cache-hits: 150595, 7
+x-timer: S1767596033.926665,VS0,VE0
 server: RubyGems.org
 
 ---
@@ -125,3 +125,5 @@ server: RubyGems.org
 4.1.0 logger:>= 1.6.0,mustermann:~> 3.0,rack:< 4&>= 3.0.0,rack-protection:= 4.1.0,rack-session:< 3&>= 2.0.0,tilt:~> 2.0|checksum:27d3217f6d83d49c8a9326ae8b688c253ecce2d39582cff24660b0e34b3e9df7,ruby:>= 2.7.8
 4.1.1 logger:>= 1.6.0,mustermann:~> 3.0,rack:< 4&>= 3.0.0,rack-protection:= 4.1.1,rack-session:< 3&>= 2.0.0,tilt:~> 2.0|checksum:4e997b859aa1b5d2e624f85d5b0fd0f0b3abc0da44daa6cbdf10f7c0da9f4d00,ruby:>= 2.7.8
 4.0.1 logger:>= 1.6.0,mustermann:~> 3.0,rack:< 4&>= 3.0.0,rack-protection:= 4.0.1,rack-session:< 3&>= 2.0.0,tilt:~> 2.0|checksum:a988fc5e4be15ccc63b466f4a8695b9ac7e4d24bf8a68f9ba8669da5758a25e7,ruby:>= 2.7.8
+4.2.0 logger:>= 1.6.0,mustermann:~> 3.0,rack:< 4&>= 3.0.0,rack-protection:= 4.2.0,rack-session:< 3&>= 2.0.0,tilt:~> 2.0|checksum:3fab45063312c298dc4153ba35736b755eda329695d2bdf28129ad99131964ef,ruby:>= 2.7.8
+4.2.1 logger:>= 1.6.0,mustermann:~> 3.0,rack:< 4&>= 3.0.0,rack-protection:= 4.2.1,rack-session:< 3&>= 2.0.0,tilt:~> 2.0|checksum:b7aeb9b11d046b552972ade834f1f9be98b185fa8444480688e3627625377080,ruby:>= 2.7.8
