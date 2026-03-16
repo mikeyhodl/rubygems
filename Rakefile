@@ -68,6 +68,11 @@ Rake::TestTask.new do |t|
   t.ruby_opts = %w[-w]
   t.ruby_opts << "-rdevkit" if RbConfig::CONFIG["host_os"].include?("mingw")
 
+  unless ENV["GEM_COMMAND"]
+    coverage_setup = File.expand_path("test/rubygems/coverage_setup.rb", __dir__)
+    t.ruby_opts.unshift("--disable-gems", "-r#{coverage_setup}")
+  end
+
   t.libs << "test"
   t.test_files = FileList["test/**/test_*.rb"]
 end
@@ -82,6 +87,36 @@ namespace "test" do
 end
 
 task default: [:test, :spec]
+
+desc "Generate coverage report from collected results"
+task "coverage:report" do
+  resultset = File.join(__dir__, "coverage", ".resultset.json")
+  next unless File.exist?(resultset)
+
+  begin
+    require "simplecov"
+  rescue LoadError
+    next
+  end
+
+  SimpleCov.collate Dir[resultset] do
+    coverage_dir "coverage"
+    add_filter "/test/"
+    add_filter "/spec/"
+    add_filter "/tool/"
+    add_filter "/lib/rubygems/vendor/"
+    add_filter "/lib/bundler/vendor/"
+    add_filter "/bundler/tmp/"
+    add_filter ".gemspec"
+
+    add_group "RubyGems" do |src|
+      src.filename.include?("/lib/rubygems/") || src.filename.end_with?("/lib/rubygems.rb")
+    end
+    add_group "Bundler" do |src|
+      src.filename.include?("/lib/bundler/") || src.filename.end_with?("/lib/bundler.rb")
+    end
+  end
+end
 
 spec = Gem::Specification.load(File.expand_path("rubygems-update.gemspec", __dir__))
 v = spec.version
@@ -738,3 +773,10 @@ namespace :bundler do
     end
   end
 end
+
+Rake::Task[:test].enhance do
+  Rake::Task["coverage:report"].reenable
+  Rake::Task["coverage:report"].invoke end
+Rake::Task["spec:regular"].enhance do
+  Rake::Task["coverage:report"].reenable
+  Rake::Task["coverage:report"].invoke end
