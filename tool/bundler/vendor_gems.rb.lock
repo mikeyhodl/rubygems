@@ -1,11 +1,4 @@
 GIT
-  remote: https://github.com/cocoapods/molinillo.git
-  revision: 1d62d7d5f448e79418716dc779a4909509ccda2a
-  ref: 1d62d7d5f448e79418716dc779a4909509ccda2a
-  specs:
-    molinillo (0.8.0)
-
-GIT
   remote: https://github.com/jhawthorn/pub_grub.git
   revision: df6add45d1b4d122daff2f959c9bd1ca93d14261
   ref: df6add45d1b4d122daff2f959c9bd1ca93d14261
@@ -42,7 +35,6 @@ PLATFORMS
 
 DEPENDENCIES
   fileutils (= 1.8.0)
-  molinillo!
   net-http (= 0.9.1)
   net-http-persistent (= 4.0.6)
   net-protocol (= 0.2.2)
@@ -58,7 +50,6 @@ DEPENDENCIES
 CHECKSUMS
   connection_pool (2.5.5) sha256=e54ff92855753df1fd7c59fa04a398833355f27dd14c074f8c83a05f72a716ad
   fileutils (1.8.0) sha256=8c6b1df54e2540bdb2f39258f08af78853aa70bad52b4d394bbc6424593c6e02
-  molinillo (0.8.0)
   net-http (0.9.1) sha256=25ba0b67c63e89df626ed8fac771d0ad24ad151a858af2cc8e6a716ca4336996
   net-http-persistent (4.0.6) sha256=2abb3a04438edf6cb9e0e7e505969605f709eda3e3c5211beadd621a2c84dd5d
   net-protocol (0.2.2) sha256=aa73e0cba6a125369de9837b8d8ef82a61849360eba0521900e2c3713aa162a8
