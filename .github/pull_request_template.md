@@ -19,4 +19,4 @@ alternatives, explain why you end up choosing the current implementation -->
 - [ ] Describe the problem / feature
 - [ ] Write [tests](https://github.com/ruby/rubygems/blob/master/doc/bundler/development/PULL_REQUESTS.md#tests) for features and bug fixes
 - [ ] Write code to solve the problem
-- [ ] Make sure you follow the [current code style](https://github.com/ruby/rubygems/blob/master/doc/bundler/development/PULL_REQUESTS.md#code-formatting) and [write meaningful commit messages without tags](https://github.com/ruby/rubygems/blob/master/doc/bundler/development/PULL_REQUESTS.md#commit-messages)
+- [ ] Make sure you follow the [current code style](https://github.com/ruby/rubygems/blob/master/doc/PULL_REQUESTS.md#code-formatting) and [write meaningful commit messages without tags](https://github.com/ruby/rubygems/blob/master/doc/PULL_REQUESTS.md#commit-messages)
