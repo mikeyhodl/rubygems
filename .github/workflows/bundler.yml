@@ -96,7 +96,7 @@ jobs:
       - name: Run a warbler project
         run: |
           bin/rake bundler:install:local
-          cd bundler/spec/realworld/fixtures/warbler
+          cd spec/realworld/fixtures/warbler
           bundle install
           bundle exec warble
           java -jar warbler.jar

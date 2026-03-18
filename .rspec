@@ -1,7 +1,5 @@
 --color
 --warnings
 --backtrace
--I bundler/spec
 --require spec_helper
 --order random
---default-path bundler/spec

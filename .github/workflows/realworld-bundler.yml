@@ -55,7 +55,7 @@ jobs:
         uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
           name: cassettes-bundler-${{ matrix.os.value }}-${{ matrix.ruby.name }}
-          path: ./bundler/spec/support/artifice/used_cassettes.txt
+          path: ./spec/support/artifice/used_cassettes.txt
     timeout-minutes: 20
 
   tapioca:
@@ -71,11 +71,11 @@ jobs:
           ruby-version: 3.4.8
           bundler: none
       - name: Prepare tapioca
-        run: ../../../../../bin/bundle install
-        working-directory: bundler/spec/realworld/fixtures/tapioca
+        run: ../../../../bin/bundle install
+        working-directory: spec/realworld/fixtures/tapioca
       - name: Run tapioca
-        run: ../../../../../bin/bundle exec tapioca init
-        working-directory: bundler/spec/realworld/fixtures/tapioca
+        run: ../../../../bin/bundle exec tapioca init
+        working-directory: spec/realworld/fixtures/tapioca
     timeout-minutes: 20
 
   system_rubygems_bundler:
@@ -105,7 +105,7 @@ jobs:
         uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
           name: cassettes-system-rubygems-bundler-${{ matrix.ruby.name }}
-          path: ./bundler/spec/support/artifice/used_cassettes.txt
+          path: ./spec/support/artifice/used_cassettes.txt
     timeout-minutes: 20
 
   check_unused_cassettes:
@@ -126,7 +126,7 @@ jobs:
       - name: Download all used cassettes as artifacts
         uses: actions/download-artifact@70fc10c6e5e1ce46ad2ea6f2b72d43f7d47b13c3 # v8.0.0
         with:
-          path: ./bundler/spec/support/artifice/used_vcr_cassettes
+          path: ./spec/support/artifice/used_vcr_cassettes
       - name: Check unused cassettes
         run: bin/rake spec:realworld:check_unused_cassettes
 

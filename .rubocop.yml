@@ -80,7 +80,7 @@ Gemspec/OrderedDependencies:
 Gemspec/RequiredRubyVersion:
   Enabled: true
   Exclude:
-    - bundler/spec/realworld/fixtures/warbler/demo/demo.gemspec
+    - spec/realworld/fixtures/warbler/demo/demo.gemspec
     - test/rubygems/specifications/*.gemspec
     - test/rubygems/test_gem_ext_cargo_builder/**/*.gemspec
 
@@ -486,7 +486,7 @@ Naming/ClassAndModuleCamelCase:
 Naming/FileName:
   Enabled: true
   Exclude:
-    - bundler/spec/realworld/fixtures/warbler/bin/warbler-example.rb
+    - spec/realworld/fixtures/warbler/bin/warbler-example.rb
 
 Naming/MemoizedInstanceVariableName:
   Enabled: true
