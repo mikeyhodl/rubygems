@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-require_relative "../spec/support/activate"
+require_relative "../bundler/spec/support/activate"
 
 load File.expand_path("bundle", Spec::Path.exedir)

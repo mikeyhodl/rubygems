@@ -140,12 +140,12 @@ end
 namespace :vendor do
   desc "Download vendored gems to tmp"
   task :bundle do
-    sh({ "BUNDLE_PATH" => "../../tmp/vendor", "BUNDLER_GEM_DEFAULT_DIR" => "../../tmp/vendor", "RUBYOPT" => "--disable-gems -r#{File.expand_path("bundler/spec/support/hax.rb", __dir__)} -Ilib" }, "bundler/bin/bundle", "install", "--gemfile=tool/bundler/vendor_gems.rb")
+    sh({ "BUNDLE_PATH" => "../../tmp/vendor", "BUNDLER_GEM_DEFAULT_DIR" => "../../tmp/vendor", "RUBYOPT" => "--disable-gems -r#{File.expand_path("bundler/spec/support/hax.rb", __dir__)} -Ilib" }, "bin/bundle", "install", "--gemfile=tool/bundler/vendor_gems.rb")
   end
 
   desc "Install patched vendored gems"
   task install: :bundle do
-    sh({ "BUNDLE_GEMFILE" => "tool/bundler/vendor_gems.rb", "BUNDLE_PATH" => "../../tmp/vendor", "BUNDLER_GEM_DEFAULT_DIR" => "../../tmp/vendor", "RUBYOPT" => "-rpathname -r#{File.expand_path("bundler/spec/support/hax.rb", __dir__)} -Ilib" }, "bundler/bin/bundle", "exec", "tool/automatiek/vendor.rb")
+    sh({ "BUNDLE_GEMFILE" => "tool/bundler/vendor_gems.rb", "BUNDLE_PATH" => "../../tmp/vendor", "BUNDLER_GEM_DEFAULT_DIR" => "../../tmp/vendor", "RUBYOPT" => "-rpathname -r#{File.expand_path("bundler/spec/support/hax.rb", __dir__)} -Ilib" }, "bin/bundle", "exec", "tool/automatiek/vendor.rb")
   end
 
   desc "Check vendored gems are up to date"
@@ -160,7 +160,7 @@ end
 namespace :rubocop do
   desc "Setup gems necessary to lint Ruby code"
   task(:setup) do
-    sh({ "RUBYOPT" => "-Ilib" }, "bundler/bin/bundle", "install", "--gemfile=tool/bundler/lint_gems.rb")
+    sh({ "RUBYOPT" => "-Ilib" }, "bin/bundle", "install", "--gemfile=tool/bundler/lint_gems.rb")
   end
 
   desc "Run rubocop. Pass positional arguments as Rake arguments, e.g. `rake 'rubocop:run[-a]'`"
@@ -571,9 +571,7 @@ end
 
 desc "Run specs"
 task :spec do
-  chdir("bundler") do
-    sh("bin/rspec")
-  end
+  sh("bin/rspec")
 end
 
 namespace :dev do
@@ -607,36 +605,28 @@ namespace :spec do
 
   desc "Run the regular spec suite"
   task :regular do
-    chdir("bundler") do
-      sh("bin/parallel_rspec")
-    end
+    sh("bin/parallel_rspec")
   end
 
   desc "Run the real-world spec suite"
   task :realworld do
-    chdir("bundler") do
-      sh("BUNDLER_SPEC_PRE_RECORDED=1 bin/rspec --tag realworld")
-    end
+    sh("BUNDLER_SPEC_PRE_RECORDED=1 bin/rspec --tag realworld")
   end
 
   namespace :realworld do
     desc "Re-record cassettes for the realworld specs"
     task :record do
-      chdir("bundler") do
-        sh("rm -rf spec/support/artifice/vcr_cassettes && bin/rspec --tag realworld")
-      end
+      sh("rm -rf bundler/spec/support/artifice/vcr_cassettes && bin/rspec --tag realworld")
     end
 
     task :check_unused_cassettes do
-      chdir("bundler") do
-        used_cassettes = Dir.glob("spec/support/artifice/used_vcr_cassettes/**/*.txt").flat_map {|f| File.readlines(f).map(&:strip) }
-        all_cassettes = Dir.glob("spec/support/artifice/vcr_cassettes/**/*").select {|f| File.file?(f) }
-        unused_cassettes = all_cassettes - used_cassettes
+      used_cassettes = Dir.glob("bundler/spec/support/artifice/used_vcr_cassettes/**/*.txt").flat_map {|f| File.readlines(f).map(&:strip) }
+      all_cassettes = Dir.glob("bundler/spec/support/artifice/vcr_cassettes/**/*").select {|f| File.file?(f) }
+      unused_cassettes = all_cassettes - used_cassettes
 
-        raise "The following cassettes are unused:\n#{unused_cassettes.join("\n")}\n" if unused_cassettes.any?
+      raise "The following cassettes are unused:\n#{unused_cassettes.join("\n")}\n" if unused_cassettes.any?
 
-        puts "No cassettes unused"
-      end
+      puts "No cassettes unused"
     end
   end
 end

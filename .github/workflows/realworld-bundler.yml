@@ -36,7 +36,7 @@ jobs:
           - { os: { name: macOS, value: macos-15 }, ruby: { name: ruby-3.4, value: 3.4.8 } }
           - { os: { name: macOS, value: macos-15 }, ruby: { name: ruby-4.0, value: 4.0.0 } }
     env:
-      RGV: ..
+      RGV: .
       RUBYOPT: --disable-gems
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
@@ -71,10 +71,10 @@ jobs:
           ruby-version: 3.4.8
           bundler: none
       - name: Prepare tapioca
-        run: ../../../../bin/bundle install
+        run: ../../../../../bin/bundle install
         working-directory: bundler/spec/realworld/fixtures/tapioca
       - name: Run tapioca
-        run: ../../../../bin/bundle exec tapioca init
+        run: ../../../../../bin/bundle exec tapioca init
         working-directory: bundler/spec/realworld/fixtures/tapioca
     timeout-minutes: 20
 

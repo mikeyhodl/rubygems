@@ -60,7 +60,7 @@ jobs:
           - { os: { name: Ubuntu, value: ubuntu-24.04 }, ruby: { name: ruby-4.0 (psych), value: 4.0.0 }, use_psych: true }
 
     env:
-      RGV: ..
+      RGV: .
       RUBYOPT: --disable-gems
       RUBYGEMS_USE_PSYCH: ${{ matrix.use_psych || 'false' }}
     steps:
@@ -84,17 +84,14 @@ jobs:
       - name: Run Test (CRuby)
         run: |
           bin/parallel_rspec
-        working-directory: ./bundler
         if: matrix.ruby.name != 'jruby' && matrix.os.name != 'Windows'
       - name: Run Test (CRuby on Windows - Group ${{ matrix.group }})
         run: |
           bin/parallel_rspec --tag windows_${{ matrix.group }}
-        working-directory: ./bundler
         if: matrix.ruby.name != 'jruby' && matrix.os.name == 'Windows'
       - name: Run Test (JRuby)
         run: |
           bin/parallel_rspec --tag jruby_only --tag jruby
-        working-directory: ./bundler
         if: matrix.ruby.name == 'jruby' && matrix.os.name == 'Ubuntu'
       - name: Run a warbler project
         run: |
