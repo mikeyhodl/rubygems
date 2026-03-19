@@ -10,8 +10,9 @@
 /rdoc
 /misc
 /notes.txt
-/pkg
+pkg
 tmp
 /coverage
 .rspec_status
+/spec/support/artifice/used_cassettes.txt
 /.venv
