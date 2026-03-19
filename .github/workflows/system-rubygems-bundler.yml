@@ -4,6 +4,9 @@ on:
   pull_request:
     paths:
       - bundler/**
+      - spec/**
+      - bin/rspec
+      - bin/parallel_rspec
       - .github/workflows/system-rubygems-bundler.yml
 
   push:
@@ -47,7 +50,6 @@ jobs:
       - name: Run Test
         run: |
           bin/parallel_rspec
-        working-directory: ./bundler
       - name: Save system RubyGems version to ENV
         run: |
           RGV=$(ruby -e 'puts Gem::VERSION.split(".")[0..2].join(".")')
