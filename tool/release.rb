@@ -110,7 +110,7 @@ class Release
   def self.install_dependencies!
     system(
       { "RUBYOPT" => "-I#{File.expand_path("../lib", __dir__)}" },
-      File.expand_path("../bundler/bin/bundle", __dir__),
+      File.expand_path("../bin/bundle", __dir__),
       "install",
       "--gemfile=#{File.expand_path("bundler/release_gems.rb", __dir__)}",
       exception: true

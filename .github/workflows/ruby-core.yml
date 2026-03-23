@@ -58,8 +58,12 @@ jobs:
         if: matrix.branch != 'ruby_3_4'
       - name: Sync tools
         run: |
+          sed -i 's|\["bundler/spec", "spec/bundler"\]|["spec", "spec/bundler"]|' tool/sync_default_gems.rb
+          sed -i 's|\["bundler/bin/#{binstub}", "spec/bin/#{binstub}"\]|["bin/#{binstub}", "spec/bin/#{binstub}"]|' tool/sync_default_gems.rb
+          sed -i 's|/bundler/spec"|/spec"|g' tool/sync_default_gems.rb
+          sed -i 's|/bundler/bin/|/bin/|g' tool/sync_default_gems.rb
           ruby tool/sync_default_gems.rb rubygems
-          mv spec/bundler/support/bundle spec/bin/bundle # TODO: fix `sync_default_gems.rb` script so we don't need to vendor the ruby-core binstub ourselves
+          mv spec/bundler/support/bundle spec/bin/bundle 2>/dev/null || true
         working-directory: ruby/ruby
       - name: Test RubyGems
         run: make -s test-all TESTS="--no-retry -j$((1 + $(nproc)))"

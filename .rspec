@@ -1,5 +1,6 @@
 --color
 --warnings
 --backtrace
+-I bundler/lib
 --require spec_helper
 --order random
