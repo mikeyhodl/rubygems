@@ -41,6 +41,7 @@ class Changelog
   def self.for_rubygems(version)
     @for_rubygems ||= new(
       File.expand_path("../CHANGELOG.md", __dir__),
+      "rubygems",
       version,
     )
   end
@@ -48,14 +49,16 @@ class Changelog
   def self.for_bundler(version)
     @for_bundler ||= new(
       File.expand_path("../bundler/CHANGELOG.md", __dir__),
+      "bundler",
       version,
     )
   end
 
-  def initialize(file, version)
+  def initialize(file, config_key, version)
     @version = Gem::Version.new(version)
     @file = File.expand_path(file)
-    @config = Psych.load_file("#{File.dirname(file)}/.changelog.yml")
+    config = Psych.load_file(File.expand_path("../.changelog.yml", __dir__))
+    @config = config[config_key]
     @level = @version.segments[2] != 0 ? :patch : :minor_or_major
   end
 
