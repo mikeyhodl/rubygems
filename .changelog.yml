@@ -1,29 +1,55 @@
 ---
 
-header_template: "## %new_version / %release_date"
+rubygems:
+  header_template: "## %new_version / %release_date"
 
-entry_template: "* %title. Pull request [#%pull_request_number](%pull_request_url) by %pull_request_author"
+  entry_template: "* %title. Pull request [#%pull_request_number](%pull_request_url) by %pull_request_author"
 
-extra_entry:
-  template: "* %title."
-  label: "rubygems: enhancement"
+  extra_entry:
+    template: "* %title."
+    label: "rubygems: enhancement"
 
-release_date_format: "%Y-%m-%d"
+  release_date_format: "%Y-%m-%d"
 
-changelog_label_mapping:
-  "rubygems: feature": "### Features:"
-  "rubygems: performance": "### Performance:"
-  "rubygems: enhancement": "### Enhancements:"
-  "rubygems: bug fix": "### Bug fixes:"
-  "rubygems: security": "### Security:"
-  "rubygems: breaking change": "### Breaking changes:"
-  "rubygems: deprecation": "### Deprecations:"
-  "rubygems: documentation": "### Documentation:"
-  "rubygems: skip changelog": null
+  changelog_label_mapping:
+    "rubygems: feature": "### Features:"
+    "rubygems: performance": "### Performance:"
+    "rubygems: enhancement": "### Enhancements:"
+    "rubygems: bug fix": "### Bug fixes:"
+    "rubygems: security": "### Security:"
+    "rubygems: breaking change": "### Breaking changes:"
+    "rubygems: deprecation": "### Deprecations:"
+    "rubygems: documentation": "### Documentation:"
+    "rubygems: skip changelog": null
 
-patch_level_labels:
-  - "rubygems: enhancement"
-  - "rubygems: bug fix"
-  - "rubygems: security"
-  - "rubygems: documentation"
-  - "rubygems: skip changelog"
+  patch_level_labels:
+    - "rubygems: enhancement"
+    - "rubygems: bug fix"
+    - "rubygems: security"
+    - "rubygems: documentation"
+    - "rubygems: skip changelog"
+
+bundler:
+  header_template: "## %new_version / %release_date"
+
+  entry_template: "* %title. Pull request [#%pull_request_number](%pull_request_url) by %pull_request_author"
+
+  release_date_format: "%Y-%m-%d"
+
+  changelog_label_mapping:
+    "bundler: feature": "### Features:"
+    "bundler: performance": "### Performance:"
+    "bundler: enhancement": "### Enhancements:"
+    "bundler: bug fix": "### Bug fixes:"
+    "bundler: security": "### Security:"
+    "bundler: breaking change": "### Breaking changes:"
+    "bundler: deprecation": "### Deprecations:"
+    "bundler: documentation": "### Documentation:"
+    "bundler: skip changelog": null
+
+  patch_level_labels:
+    - "bundler: enhancement"
+    - "bundler: bug fix"
+    - "bundler: security"
+    - "bundler: documentation"
+    - "bundler: skip changelog"
