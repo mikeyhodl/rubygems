@@ -4,7 +4,7 @@
 
 [Fork the ruby/rubygems repo](https://github.com/ruby/rubygems) and clone the fork onto your machine. ([Follow this tutorial](https://help.github.com/articles/fork-a-repo/) for instructions on forking a repo.)
 
-Install development dependencies from the repository root directory:
+This repository does not have a root `Gemfile`. Development dependencies are managed through purpose-specific gem files in `tool/bundler/` (e.g., `test_gems.rb`, `rubocop_gems.rb`). Use the following rake task instead of `bundle install`:
 
     bin/rake setup
 
@@ -35,7 +35,9 @@ To run Bundler commands like `bundle install` from your local copy:
 
 ## Running Tests
 
-### RubyGems Tests
+RubyGems uses [test-unit](https://github.com/test-unit/test-unit) and Bundler uses [RSpec](https://rspec.info/). Each has its own test commands.
+
+### RubyGems Tests (test-unit)
 
 To run the entire RubyGems test suite:
 
@@ -49,19 +51,25 @@ To run a specific test method named `test_default`:
 
     ruby -Ilib:test:bundler/lib test/rubygems/test_deprecate.rb -n /test_default/
 
-### Bundler Tests
+### Bundler Tests (RSpec)
 
-To run the entire Bundler test suite in parallel from the `bundler/` directory:
+To run all Bundler specs (both regular and realworld):
 
-    bin/parallel_rspec
+    bin/rake spec:all
+
+This runs `spec:regular` and `spec:realworld`. The full suite takes 20-30 minutes.
+
+To run an individual spec file:
+
+    bin/rspec spec/install/gems/standalone_spec.rb
+
+To run multiple spec files or long-running specs in parallel:
+
+    bin/parallel_rspec spec/install
 
 For realworld higher level specs (also run in CI):
 
     bin/rake spec:realworld
-
-To run an individual Bundler test file, for example `spec/install/gems/standalone_spec.rb`, from the `bundler/` directory:
-
-    bin/rspec spec/install/gems/standalone_spec.rb
 
 ## Developing Bundler and RubyGems Together
 
