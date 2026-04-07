@@ -112,7 +112,7 @@ You can set up your Gemfile with a file source pointing to the built gems from y
 ```ruby
 # frozen_string_literal: true
 
-source "file:///[path to repo's bundler directory]/tmp/1/gems/remote1/"
+source "file:///[path to repo root]/tmp/1/gems/remote1/"
 
 gem "rack", '=0.9.1'
 ```
