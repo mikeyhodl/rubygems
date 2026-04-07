@@ -105,14 +105,14 @@ Run the test suite in parallel if you haven't already.
 bin/parallel_rspec
 ```
 
-Then you'll find built gems in the `bundler/tmp` directory, e.g. `bundler/tmp/1/gems/remote1/`
+Then you'll find built gems in the `tmp` directory, e.g. `tmp/1/gems/remote1/`
 
 You can set up your Gemfile with a file source pointing to the built gems from your test run.
 
 ```ruby
 # frozen_string_literal: true
 
-source "file:///[path to repo's bundler directory]/tmp/1/gems/remote1/"
+source "file:///[path to repo root]/tmp/1/gems/remote1/"
 
 gem "rack", '=0.9.1'
 ```

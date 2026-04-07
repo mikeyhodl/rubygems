@@ -56,11 +56,11 @@ jobs:
           echo "RGV=v$RGV" >> $GITHUB_ENV
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
-          path: bundler/tmp/rubygems
+          path: tmp/rubygems
           ref: ${{ env.RGV }}
           persist-credentials: false
       - name: Run Rubygems Requirement tests against local bundler, to make sure bundler monkeypatches preserve the behaviour
         run: |
-          ruby -I../../lib:lib:test test/rubygems/test_gem_requirement.rb
-        working-directory: ./bundler/tmp/rubygems
+          ruby -I../../bundler/lib:lib:test test/rubygems/test_gem_requirement.rb
+        working-directory: ./tmp/rubygems
     timeout-minutes: 60
