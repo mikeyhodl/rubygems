@@ -6,7 +6,6 @@ AllCops:
   Exclude:
     - pkg/**/*
     - tmp/**/*
-    - bundler/tmp/**/*
     - lib/rubygems/vendor/**/*
     - bundler/lib/bundler/vendor/**/*
   CacheRootDirectory: tmp/rubocop

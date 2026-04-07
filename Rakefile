@@ -106,7 +106,7 @@ task "coverage:report" do
     add_filter "/tool/"
     add_filter "/lib/rubygems/vendor/"
     add_filter "/lib/bundler/vendor/"
-    add_filter "/bundler/tmp/"
+    add_filter "/tmp/"
     add_filter ".gemspec"
 
     add_group "RubyGems" do |src|
