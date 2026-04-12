@@ -472,6 +472,7 @@ lib/rubygems/resolver/best_set.rb
 lib/rubygems/resolver/composed_set.rb
 lib/rubygems/resolver/current_set.rb
 lib/rubygems/resolver/dependency_request.rb
+lib/rubygems/resolver/incompatibility.rb
 lib/rubygems/resolver/git_set.rb
 lib/rubygems/resolver/git_specification.rb
 lib/rubygems/resolver/index_set.rb
