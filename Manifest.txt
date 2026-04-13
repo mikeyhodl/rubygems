@@ -486,6 +486,7 @@ lib/rubygems/resolver/requirement_list.rb
 lib/rubygems/resolver/set.rb
 lib/rubygems/resolver/source_set.rb
 lib/rubygems/resolver/spec_specification.rb
+lib/rubygems/resolver/strategy.rb
 lib/rubygems/resolver/specification.rb
 lib/rubygems/resolver/vendor_set.rb
 lib/rubygems/resolver/vendor_specification.rb
