@@ -472,9 +472,9 @@ lib/rubygems/resolver/best_set.rb
 lib/rubygems/resolver/composed_set.rb
 lib/rubygems/resolver/current_set.rb
 lib/rubygems/resolver/dependency_request.rb
-lib/rubygems/resolver/incompatibility.rb
 lib/rubygems/resolver/git_set.rb
 lib/rubygems/resolver/git_specification.rb
+lib/rubygems/resolver/incompatibility.rb
 lib/rubygems/resolver/index_set.rb
 lib/rubygems/resolver/index_specification.rb
 lib/rubygems/resolver/installed_specification.rb
@@ -486,8 +486,8 @@ lib/rubygems/resolver/requirement_list.rb
 lib/rubygems/resolver/set.rb
 lib/rubygems/resolver/source_set.rb
 lib/rubygems/resolver/spec_specification.rb
-lib/rubygems/resolver/strategy.rb
 lib/rubygems/resolver/specification.rb
+lib/rubygems/resolver/strategy.rb
 lib/rubygems/resolver/vendor_set.rb
 lib/rubygems/resolver/vendor_specification.rb
 lib/rubygems/s3_uri_signer.rb
