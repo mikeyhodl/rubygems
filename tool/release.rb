@@ -268,22 +268,55 @@ class Release
 
     puts "The following unreleased prs were found:\n#{prs.map {|pr| "* #{pr.url}" }.join("\n")}"
 
-    unless system("git", "cherry-pick", "-x", "-m", "1", *prs.map(&:merge_commit_sha))
+    prs.each do |pr|
+      args = cherry_pick_args_for(pr)
+      next if system("git", "cherry-pick", "-x", *args)
+
       warn <<~MSG
 
-        Opening a new shell to fix the cherry-pick errors manually. You can do the following now:
+        Cherry-picking #{pr.url} failed. Opening a new shell to fix the errors manually. You can do the following now:
 
-        * Find the PR that caused the merge conflict.
-        * If you'd like to include that PR in the release, tag it with an appropriate label. Then type `exit 1` and rerun the task so that the PR is cherry-picked before and the conflict is fixed.
-        * If you don't want to include that PR in the release, fix conflicts manually, run `git add . && git cherry-pick --continue` once done, and if it succeeds, run `exit 0` to resume the release preparation.
+        * If you'd like to include that PR in the release, fix conflicts manually, run `git add . && git cherry-pick --continue` once done, and if it succeeds, run `exit 0` to resume the release preparation.
+        * If you don't want to include that PR in the release, run `git cherry-pick --abort` and then `exit 0` to skip it and resume.
+        * To abort the entire release preparation, run `exit 1`.
 
       MSG
 
       unless system(ENV["SHELL"] || "zsh")
-        system("git", "cherry-pick", "--abort", exception: true)
+        system("git", "cherry-pick", "--abort")
         raise "Failed to resolve conflicts, resetting original state"
       end
     end
+  end
+
+  # Builds the `git cherry-pick` arguments for a PR by detecting which merge
+  # strategy GitHub used. PRs merged with "Create a merge commit" are picked
+  # with `-m 1` against the merge commit. PRs merged with "Squash and merge"
+  # produce a single commit, which is picked directly. PRs merged with
+  # "Rebase and merge" produce N linear commits ending at `merge_commit_sha`,
+  # so we cherry-pick the full range to avoid silently dropping commits.
+  def cherry_pick_args_for(pr)
+    sha = pr.merge_commit_sha
+    parents = `git rev-list --parents -n 1 #{sha}`.strip.split.drop(1)
+
+    if parents.size >= 2
+      ["-m", "1", sha]
+    else
+      pr_commits = gh_client.pull_request_commits("ruby/rubygems", pr.number)
+
+      if pr_commits.size > 1 && rebase_merged?(sha, pr_commits)
+        ["#{sha}~#{pr_commits.size}..#{sha}"]
+      else
+        [sha]
+      end
+    end
+  end
+
+  def rebase_merged?(sha, pr_commits)
+    n = pr_commits.size
+    master_subjects = `git log -n #{n} --format=%s #{sha}`.lines.map(&:strip).reverse
+    pr_subjects = pr_commits.map {|c| c.commit.message.lines.first.strip }
+    master_subjects == pr_subjects
   end
 
   def cut_changelogs_and_bump_versions
@@ -337,13 +370,23 @@ class Release
     @unreleased_pull_requests ||= scan_unreleased_pull_requests(unreleased_pr_ids)
   end
 
-  def released_pull_requests
-    @released_pull_requests ||= begin
-      commits = `git log --oneline --grep "^Merge pull request #" #{@previous_release_tag}..#{@stable_branch}`.split("\n")
-      commits.filter_map do |commit|
-        match = commit.match(/Merge pull request #(\d+) from /)
-        match[1].to_i if match
+  # Source SHAs already cherry-picked onto the stable branch, derived from the
+  # `(cherry picked from commit X)` footer that `git cherry-pick -x` records.
+  # When the footer references a merge commit (PRs merged with "Create a merge
+  # commit", picked with `-m 1`), also include the individual PR commits the
+  # merge introduced, otherwise `gh search prs` would still re-discover the PR
+  # through those commits left on master.
+  def released_commit_shas
+    @released_commit_shas ||= begin
+      log = `git log --format=%B #{@previous_release_tag}..#{@stable_branch}`
+      shas = Set.new
+      log.scan(/cherry picked from commit ([0-9a-f]+)/).flatten.each do |sha|
+        shas << sha
+        parents = `git rev-list --parents -n 1 #{sha} 2>/dev/null`.strip.split.drop(1)
+        next unless parents.size >= 2
+        shas.merge(`git log --format=%H #{parents[0]}..#{parents[1]}`.split("\n"))
       end
+      shas
     end
   end
 
@@ -351,14 +394,20 @@ class Release
     pulls = []
     ids.each do |id|
       pull = gh_client.pull_request("ruby/rubygems", id)
-      pulls << pull if pull.merged_at
+      next unless pull.merged_at
+      # `gh search prs` can associate a PR with commits left behind by
+      # force-pushes that no longer match the merged HEAD. Confirm the PR is
+      # actually unreleased by comparing its merge commit SHA directly.
+      next if @level == :patch && released_commit_shas.include?(pull.merge_commit_sha)
+      pulls << pull
     end
     pulls
   end
 
   def unreleased_pr_ids
     head = @level == :minor_or_major ? "HEAD" : "master"
-    commits = `git log --format=%h #{@previous_release_tag}..#{head}`.split("\n")
+    commits = `git log --format=%H #{@previous_release_tag}..#{head}`.split("\n")
+    commits.reject! {|sha| released_commit_shas.include?(sha) } if @level == :patch
 
     # GitHub search API has a rate limit of 30 requests per minute for authenticated users
     rate_limit = 28
@@ -373,9 +422,7 @@ class Release
       result = `gh search prs --repo ruby/rubygems #{batch.join(",")} --json number --jq '.[].number'`.strip
       unless result.empty?
         result.split("\n").each do |pr_number|
-          pr_id = pr_number.to_i
-          next if @level == :patch && released_pull_requests.include?(pr_id)
-          pr_ids.add(pr_id)
+          pr_ids.add(pr_number.to_i)
         end
       end
 
