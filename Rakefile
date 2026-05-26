@@ -74,6 +74,7 @@ Rake::TestTask.new do |t|
     t.ruby_opts.unshift("--disable-gems", "-r#{coverage_setup}")
   end
 
+  t.libs << "bundler/lib"
   t.libs << "test"
   t.test_files = FileList["test/**/test_*.rb"]
 end
