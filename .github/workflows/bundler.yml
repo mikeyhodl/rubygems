@@ -49,10 +49,10 @@ jobs:
           - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-3.4, value: 3.4.8 }, timeout: 150, group: b }
           - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-3.4, value: 3.4.8 }, timeout: 150, group: c }
           - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-3.4, value: 3.4.8 }, timeout: 150, group: d }
-          # - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-4.0, value: 4.0.0 }, timeout: 150, group: a }
-          # - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-4.0, value: 4.0.0 }, timeout: 150, group: b }
-          # - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-4.0, value: 4.0.0 }, timeout: 150, group: c }
-          # - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-4.0, value: 4.0.0 }, timeout: 150, group: d }
+          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-4.0, value: 4.0.0 }, timeout: 150, group: a }
+          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-4.0, value: 4.0.0 }, timeout: 150, group: b }
+          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-4.0, value: 4.0.0 }, timeout: 150, group: c }
+          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-4.0, value: 4.0.0 }, timeout: 150, group: d }
 
           - { os: { name: Ubuntu, value: ubuntu-24.04 }, ruby: { name: jruby, value: jruby-10.0.2.0 } }
           - { os: { name: Windows, value: windows-2025 }, ruby: { name: jruby, value: jruby-10.0.2.0 } }
