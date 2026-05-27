@@ -55,6 +55,7 @@ jobs:
           - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-4.0, value: 4.0.5 }, timeout: 150, group: d }
 
           - { os: { name: Ubuntu, value: ubuntu-24.04 }, ruby: { name: jruby, value: jruby-10.0.2.0 } }
+          - { os: { name: macOS, value: macos-15 }, ruby: { name: jruby, value: jruby-10.0.2.0 } }
           - { os: { name: Windows, value: windows-2025 }, ruby: { name: jruby, value: jruby-10.0.2.0 } }
 
           - { os: { name: Ubuntu, value: ubuntu-24.04 }, ruby: { name: ruby-4.0 (psych), value: 4.0.5 }, use_psych: true }
@@ -131,7 +132,7 @@ jobs:
       - name: Run Test (JRuby)
         run: |
           bin/parallel_rspec --tag jruby_only --tag jruby
-        if: matrix.ruby.name == 'jruby' && matrix.os.name == 'Ubuntu'
+        if: matrix.ruby.name == 'jruby' && matrix.os.name != 'Windows'
       - name: Run a warbler project
         run: |
           bin/rake bundler:install:local
