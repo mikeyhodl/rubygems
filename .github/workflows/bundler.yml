@@ -29,35 +29,38 @@ jobs:
           - { name: Ubuntu, value: ubuntu-24.04 }
 
         ruby:
-          - { name: ruby-3.2, value: 3.2.9 }
-          - { name: ruby-3.3, value: 3.3.10 }
-          - { name: ruby-3.4, value: 3.4.8 }
-          - { name: ruby-4.0, value: 4.0.0 }
+          - { name: ruby-3.2, value: 3.2.11 }
+          - { name: ruby-3.3, value: 3.3.11 }
+          - { name: ruby-3.4, value: 3.4.9 }
+          - { name: ruby-4.0, value: 4.0.5 }
 
         include:
-          - { os: { name: macOS, value: macos-15 }, ruby: { name: ruby-3.2, value: 3.2.9 }, timeout: 90 }
-          - { os: { name: macOS, value: macos-15 }, ruby: { name: ruby-3.3, value: 3.3.10 }, timeout: 90 }
-          - { os: { name: macOS, value: macos-15 }, ruby: { name: ruby-3.4, value: 3.4.8 }, timeout: 90 }
-          - { os: { name: macOS, value: macos-15 }, ruby: { name: ruby-4.0, value: 4.0.0 }, timeout: 90 }
+          - { os: { name: macOS, value: macos-15 }, ruby: { name: ruby-3.2, value: 3.2.11 }, timeout: 90 }
+          - { os: { name: macOS, value: macos-15 }, ruby: { name: ruby-3.3, value: 3.3.11 }, timeout: 90 }
+          - { os: { name: macOS, value: macos-15 }, ruby: { name: ruby-3.4, value: 3.4.9 }, timeout: 90 }
+          - { os: { name: macOS, value: macos-15 }, ruby: { name: ruby-4.0, value: 4.0.5 }, timeout: 90 }
 
           # Ruby 3.2 is about 20 minutes slower than 3.3/3.4, so it will be excluded from testing.
-          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-3.3, value: 3.3.10 }, timeout: 150, group: a }
-          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-3.3, value: 3.3.10 }, timeout: 150, group: b }
-          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-3.3, value: 3.3.10 }, timeout: 150, group: c }
-          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-3.3, value: 3.3.10 }, timeout: 150, group: d }
-          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-3.4, value: 3.4.8 }, timeout: 150, group: a }
-          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-3.4, value: 3.4.8 }, timeout: 150, group: b }
-          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-3.4, value: 3.4.8 }, timeout: 150, group: c }
-          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-3.4, value: 3.4.8 }, timeout: 150, group: d }
-          # - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-4.0, value: 4.0.0 }, timeout: 150, group: a }
-          # - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-4.0, value: 4.0.0 }, timeout: 150, group: b }
-          # - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-4.0, value: 4.0.0 }, timeout: 150, group: c }
-          # - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-4.0, value: 4.0.0 }, timeout: 150, group: d }
+          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-3.3, value: 3.3.11 }, timeout: 150, group: a }
+          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-3.3, value: 3.3.11 }, timeout: 150, group: b }
+          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-3.3, value: 3.3.11 }, timeout: 150, group: c }
+          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-3.3, value: 3.3.11 }, timeout: 150, group: d }
+          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-3.4, value: 3.4.9 }, timeout: 150, group: a }
+          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-3.4, value: 3.4.9 }, timeout: 150, group: b }
+          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-3.4, value: 3.4.9 }, timeout: 150, group: c }
+          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-3.4, value: 3.4.9 }, timeout: 150, group: d }
+          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-4.0, value: 4.0.5 }, timeout: 150, group: a }
+          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-4.0, value: 4.0.5 }, timeout: 150, group: b }
+          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-4.0, value: 4.0.5 }, timeout: 150, group: c }
+          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-4.0, value: 4.0.5 }, timeout: 150, group: d }
 
-          - { os: { name: Ubuntu, value: ubuntu-24.04 }, ruby: { name: jruby, value: jruby-10.0.2.0 } }
-          - { os: { name: Windows, value: windows-2025 }, ruby: { name: jruby, value: jruby-10.0.2.0 } }
+          - { os: { name: Ubuntu, value: ubuntu-24.04 }, ruby: { name: jruby, value: jruby-10.1.0.0 } }
+          - { os: { name: macOS, value: macos-15 }, ruby: { name: jruby, value: jruby-10.1.0.0 } }
+          - { os: { name: Windows, value: windows-2025 }, ruby: { name: jruby, value: jruby-10.1.0.0 } }
 
-          - { os: { name: Ubuntu, value: ubuntu-24.04 }, ruby: { name: ruby-4.0 (psych), value: 4.0.0 }, use_psych: true }
+          - { os: { name: Ubuntu, value: ubuntu-24.04 }, ruby: { name: truffleruby, value: truffleruby-34.0.1 }, timeout: 20 }
+
+          - { os: { name: Ubuntu, value: ubuntu-24.04 }, ruby: { name: ruby-4.0 (psych), value: 4.0.5 }, use_psych: true }
 
     env:
       RGV: .
@@ -68,7 +71,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Setup ruby
-        uses: ruby/setup-ruby@c4e5b1316158f92e3d49443a9d58b31d25ac0f8f # v1.306.0
+        uses: ruby/setup-ruby@afeafc3d1ab54a631816aba4c914a0081c12ff2f # v1.310.0
         with:
           ruby-version: ${{ matrix.ruby.value }}
           bundler: none
@@ -123,15 +126,19 @@ jobs:
       - name: Run Test (CRuby)
         run: |
           bin/parallel_rspec
-        if: matrix.ruby.name != 'jruby' && matrix.os.name != 'Windows'
+        if: matrix.ruby.name != 'jruby' && matrix.ruby.name != 'truffleruby' && matrix.os.name != 'Windows'
       - name: Run Test (CRuby on Windows - Group ${{ matrix.group }})
         run: |
           bin/parallel_rspec --tag windows_${{ matrix.group }}
-        if: matrix.ruby.name != 'jruby' && matrix.os.name == 'Windows'
+        if: matrix.ruby.name != 'jruby' && matrix.ruby.name != 'truffleruby' && matrix.os.name == 'Windows'
       - name: Run Test (JRuby)
         run: |
           bin/parallel_rspec --tag jruby_only --tag jruby
-        if: matrix.ruby.name == 'jruby' && matrix.os.name == 'Ubuntu'
+        if: matrix.ruby.name == 'jruby' && matrix.os.name != 'Windows'
+      - name: Run Test (TruffleRuby)
+        run: |
+          bin/rspec --tag truffleruby_only --tag truffleruby
+        if: matrix.ruby.name == 'truffleruby'
       - name: Run a warbler project
         run: |
           bin/rake bundler:install:local

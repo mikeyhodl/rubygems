@@ -14,6 +14,10 @@ concurrency:
 permissions:  # added using https://github.com/step-security/secure-workflows
   contents: read
 
+defaults:
+  run:
+    shell: bash
+
 jobs:
   rubygems:
     name: Rubygems on ${{ matrix.os.name }} (${{ matrix.ruby.name }})
@@ -27,23 +31,29 @@ jobs:
           - { name: Windows, value: windows-2025 }
 
         ruby:
-          - { name: "3.2", value: 3.2.9 }
-          - { name: "3.3", value: 3.3.10 }
-          - { name: "3.4", value: 3.4.8 }
-          - { name: "4.0", value: 4.0.0 }
+          - { name: "3.2", value: 3.2.11 }
+          - { name: "3.3", value: 3.3.11 }
+          - { name: "3.4", value: 3.4.9 }
+          - { name: "4.0", value: 4.0.5 }
 
         include:
-          - ruby: { name: jruby, value: jruby-10.0.2.0 }
+          - ruby: { name: jruby, value: jruby-10.1.0.0 }
             os: { name: Ubuntu, value: ubuntu-24.04 }
 
-          - ruby: { name: truffleruby, value: truffleruby-24.2.1 }
+          - ruby: { name: jruby, value: jruby-10.1.0.0 }
+            os: { name: macOS, value: macos-15 }
+
+          - ruby: { name: jruby, value: jruby-10.1.0.0 }
+            os: { name: Windows, value: windows-2025 }
+
+          - ruby: { name: truffleruby, value: truffleruby-34.0.1 }
             os: { name: Ubuntu, value: ubuntu-24.04 }
 
-          - ruby: { name: 4.0 (psych), value: 4.0.0 }
+          - ruby: { name: 4.0 (psych), value: 4.0.5 }
             os: { name: Ubuntu, value: ubuntu-24.04 }
             use_psych: true
 
-          - ruby: { name: no symlinks, value: 4.0.0 }
+          - ruby: { name: no symlinks, value: 4.0.5 }
             os: { name: Windows, value: windows-2025 }
             symlink: off
     env:
@@ -57,7 +67,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Setup ruby
-        uses: ruby/setup-ruby@c4e5b1316158f92e3d49443a9d58b31d25ac0f8f # v1.306.0
+        uses: ruby/setup-ruby@afeafc3d1ab54a631816aba4c914a0081c12ff2f # v1.310.0
         with:
           ruby-version: ${{ matrix.ruby.value }}
           bundler: none

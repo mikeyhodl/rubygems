@@ -22,11 +22,11 @@ jobs:
       fail-fast: false
       matrix:
         ruby:
-          - { name: "3.2", value: 3.2.9 }
-          - { name: "3.3", value: 3.3.9 }
-          - { name: "3.4", value: 3.4.5 }
-          - { name: jruby, value: jruby-10.0.2.0 }
-          - { name: truffleruby, value: truffleruby-24.1.2 }
+          - { name: "3.2", value: 3.2.11 }
+          - { name: "3.3", value: 3.3.11 }
+          - { name: "3.4", value: 3.4.9 }
+          - { name: jruby, value: jruby-10.1.0.0 }
+          - { name: truffleruby, value: truffleruby-34.0.1 }
         openssl:
           - { name: openssl, value: true }
           - { name: no-openssl, value: false }
@@ -35,7 +35,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Setup ruby
-        uses: ruby/setup-ruby@c4e5b1316158f92e3d49443a9d58b31d25ac0f8f # v1.306.0
+        uses: ruby/setup-ruby@afeafc3d1ab54a631816aba4c914a0081c12ff2f # v1.310.0
         with:
           ruby-version: ${{ matrix.ruby.value }}
           bundler: none
@@ -122,16 +122,16 @@ jobs:
       fail-fast: false
       matrix:
         ruby:
-          - { name: "3.2", value: 3.2.9 }
-          - { name: "3.3", value: 3.3.9 }
-          - { name: "3.4", value: 3.4.5 }
-          - { name: jruby, value: jruby-10.0.2.0, rails-args: --skip-webpack-install }
+          - { name: "3.2", value: 3.2.11 }
+          - { name: "3.3", value: 3.3.11 }
+          - { name: "3.4", value: 3.4.9 }
+          - { name: jruby, value: jruby-10.1.0.0, rails-args: --skip-webpack-install }
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
       - name: Setup ruby
-        uses: ruby/setup-ruby@c4e5b1316158f92e3d49443a9d58b31d25ac0f8f # v1.306.0
+        uses: ruby/setup-ruby@afeafc3d1ab54a631816aba4c914a0081c12ff2f # v1.310.0
         with:
           ruby-version: ${{ matrix.ruby.value }}
           bundler: none
@@ -173,7 +173,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Setup original ruby
-        uses: ruby/setup-ruby@c4e5b1316158f92e3d49443a9d58b31d25ac0f8f # v1.306.0
+        uses: ruby/setup-ruby@afeafc3d1ab54a631816aba4c914a0081c12ff2f # v1.310.0
         with:
           ruby-version: 3.2
           bundler: none
@@ -194,7 +194,7 @@ jobs:
           GEM_HOME: bar
           GEM_PATH: bar
       - name: Setup final ruby
-        uses: ruby/setup-ruby@c4e5b1316158f92e3d49443a9d58b31d25ac0f8f # v1.306.0
+        uses: ruby/setup-ruby@afeafc3d1ab54a631816aba4c914a0081c12ff2f # v1.310.0
         with:
           ruby-version: 3.3
           bundler: none
@@ -214,16 +214,16 @@ jobs:
       fail-fast: false
       matrix:
         ruby:
-          - { name: "3.2", value: 3.2.9 }
-          - { name: "3.3", value: 3.3.9 }
-          - { name: "3.4", value: 3.4.5 }
+          - { name: "3.2", value: 3.2.11 }
+          - { name: "3.3", value: 3.3.11 }
+          - { name: "3.4", value: 3.4.9 }
 
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
       - name: Setup ruby
-        uses: ruby/setup-ruby@c4e5b1316158f92e3d49443a9d58b31d25ac0f8f # v1.306.0
+        uses: ruby/setup-ruby@afeafc3d1ab54a631816aba4c914a0081c12ff2f # v1.310.0
         with:
           ruby-version: ${{ matrix.ruby.value }}
           bundler: none
