@@ -14,6 +14,10 @@ concurrency:
 permissions:  # added using https://github.com/step-security/secure-workflows
   contents: read
 
+defaults:
+  run:
+    shell: bash
+
 jobs:
   rubygems:
     name: Rubygems on ${{ matrix.os.name }} (${{ matrix.ruby.name }})
