@@ -36,6 +36,12 @@ jobs:
           - ruby: { name: jruby, value: jruby-10.0.2.0 }
             os: { name: Ubuntu, value: ubuntu-24.04 }
 
+          - ruby: { name: jruby, value: jruby-10.0.2.0 }
+            os: { name: macOS, value: macos-15 }
+
+          - ruby: { name: jruby, value: jruby-10.0.2.0 }
+            os: { name: Windows, value: windows-2025 }
+
           - ruby: { name: truffleruby, value: truffleruby-24.2.1 }
             os: { name: Ubuntu, value: ubuntu-24.04 }
 
