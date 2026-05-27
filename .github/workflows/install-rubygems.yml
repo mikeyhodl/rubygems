@@ -22,9 +22,9 @@ jobs:
       fail-fast: false
       matrix:
         ruby:
-          - { name: "3.2", value: 3.2.9 }
-          - { name: "3.3", value: 3.3.9 }
-          - { name: "3.4", value: 3.4.5 }
+          - { name: "3.2", value: 3.2.11 }
+          - { name: "3.3", value: 3.3.11 }
+          - { name: "3.4", value: 3.4.9 }
           - { name: jruby, value: jruby-10.0.2.0 }
           - { name: truffleruby, value: truffleruby-24.1.2 }
         openssl:
@@ -122,9 +122,9 @@ jobs:
       fail-fast: false
       matrix:
         ruby:
-          - { name: "3.2", value: 3.2.9 }
-          - { name: "3.3", value: 3.3.9 }
-          - { name: "3.4", value: 3.4.5 }
+          - { name: "3.2", value: 3.2.11 }
+          - { name: "3.3", value: 3.3.11 }
+          - { name: "3.4", value: 3.4.9 }
           - { name: jruby, value: jruby-10.0.2.0, rails-args: --skip-webpack-install }
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
@@ -214,9 +214,9 @@ jobs:
       fail-fast: false
       matrix:
         ruby:
-          - { name: "3.2", value: 3.2.9 }
-          - { name: "3.3", value: 3.3.9 }
-          - { name: "3.4", value: 3.4.5 }
+          - { name: "3.2", value: 3.2.11 }
+          - { name: "3.3", value: 3.3.11 }
+          - { name: "3.4", value: 3.4.9 }
 
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
