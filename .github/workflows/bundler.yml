@@ -58,6 +58,8 @@ jobs:
           - { os: { name: macOS, value: macos-15 }, ruby: { name: jruby, value: jruby-10.1.0.0 } }
           - { os: { name: Windows, value: windows-2025 }, ruby: { name: jruby, value: jruby-10.1.0.0 } }
 
+          - { os: { name: Ubuntu, value: ubuntu-24.04 }, ruby: { name: truffleruby, value: truffleruby-34.0.1 }, timeout: 20 }
+
           - { os: { name: Ubuntu, value: ubuntu-24.04 }, ruby: { name: ruby-4.0 (psych), value: 4.0.5 }, use_psych: true }
 
     env:
@@ -124,15 +126,19 @@ jobs:
       - name: Run Test (CRuby)
         run: |
           bin/parallel_rspec
-        if: matrix.ruby.name != 'jruby' && matrix.os.name != 'Windows'
+        if: matrix.ruby.name != 'jruby' && matrix.ruby.name != 'truffleruby' && matrix.os.name != 'Windows'
       - name: Run Test (CRuby on Windows - Group ${{ matrix.group }})
         run: |
           bin/parallel_rspec --tag windows_${{ matrix.group }}
-        if: matrix.ruby.name != 'jruby' && matrix.os.name == 'Windows'
+        if: matrix.ruby.name != 'jruby' && matrix.ruby.name != 'truffleruby' && matrix.os.name == 'Windows'
       - name: Run Test (JRuby)
         run: |
           bin/parallel_rspec --tag jruby_only --tag jruby
         if: matrix.ruby.name == 'jruby' && matrix.os.name != 'Windows'
+      - name: Run Test (TruffleRuby)
+        run: |
+          bin/rspec --tag truffleruby_only --tag truffleruby
+        if: matrix.ruby.name == 'truffleruby'
       - name: Run a warbler project
         run: |
           bin/rake bundler:install:local
