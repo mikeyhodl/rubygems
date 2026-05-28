@@ -6,4 +6,10 @@ require_relative "../spec/support/rubygems_ext"
 
 $LOAD_PATH.unshift File.expand_path("../test", __dir__)
 
+# Propagate bundler/lib and test/ to subprocesses (e.g. test-unit
+# --parallel=process workers) via RUBYOPT so they pick up the local bundler
+# instead of the one shipped with the host Ruby.
+extra_opts = %w[bundler/lib test].map {|rel| "-I#{File.expand_path("../#{rel}", __dir__)}" }
+ENV["RUBYOPT"] = [*extra_opts, ENV["RUBYOPT"]].compact.join(" ")
+
 Spec::Rubygems.gem_load("test-unit", "test-unit")
