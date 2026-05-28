@@ -45,11 +45,11 @@ To run the entire RubyGems test suite:
 
 To run an individual test file, for example `test/rubygems/test_deprecate.rb`:
 
-    ruby -Ilib:test:bundler/lib test/rubygems/test_deprecate.rb
+    bin/test-unit test/rubygems/test_deprecate.rb
 
 To run a specific test method named `test_default`:
 
-    ruby -Ilib:test:bundler/lib test/rubygems/test_deprecate.rb -n /test_default/
+    bin/test-unit test/rubygems/test_deprecate.rb -n /test_default/
 
 ### Bundler Tests (RSpec)
 
