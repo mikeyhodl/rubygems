@@ -42,24 +42,24 @@ jobs:
 
           # Regression coverage for the Intel architecture with the latest Ruby only.
           # Split across runners using the test shards to keep each run reasonable.
-          - { os: { name: macOS-intel, value: macos-15-intel }, ruby: { name: ruby-4.0, value: 4.0.5 }, timeout: 90, group: a }
-          - { os: { name: macOS-intel, value: macos-15-intel }, ruby: { name: ruby-4.0, value: 4.0.5 }, timeout: 90, group: b }
-          - { os: { name: macOS-intel, value: macos-15-intel }, ruby: { name: ruby-4.0, value: 4.0.5 }, timeout: 90, group: c }
-          - { os: { name: macOS-intel, value: macos-15-intel }, ruby: { name: ruby-4.0, value: 4.0.5 }, timeout: 90, group: d }
+          - { os: { name: macOS-intel, value: macos-15-intel }, ruby: { name: ruby-4.0, value: 4.0.5 }, timeout: 90, shard: a }
+          - { os: { name: macOS-intel, value: macos-15-intel }, ruby: { name: ruby-4.0, value: 4.0.5 }, timeout: 90, shard: b }
+          - { os: { name: macOS-intel, value: macos-15-intel }, ruby: { name: ruby-4.0, value: 4.0.5 }, timeout: 90, shard: c }
+          - { os: { name: macOS-intel, value: macos-15-intel }, ruby: { name: ruby-4.0, value: 4.0.5 }, timeout: 90, shard: d }
 
           # Ruby 3.2 is about 20 minutes slower than 3.3/3.4, so it will be excluded from testing.
-          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-3.3, value: 3.3.11 }, timeout: 150, group: a }
-          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-3.3, value: 3.3.11 }, timeout: 150, group: b }
-          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-3.3, value: 3.3.11 }, timeout: 150, group: c }
-          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-3.3, value: 3.3.11 }, timeout: 150, group: d }
-          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-3.4, value: 3.4.9 }, timeout: 150, group: a }
-          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-3.4, value: 3.4.9 }, timeout: 150, group: b }
-          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-3.4, value: 3.4.9 }, timeout: 150, group: c }
-          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-3.4, value: 3.4.9 }, timeout: 150, group: d }
-          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-4.0, value: 4.0.5 }, timeout: 150, group: a }
-          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-4.0, value: 4.0.5 }, timeout: 150, group: b }
-          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-4.0, value: 4.0.5 }, timeout: 150, group: c }
-          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-4.0, value: 4.0.5 }, timeout: 150, group: d }
+          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-3.3, value: 3.3.11 }, timeout: 150, shard: a }
+          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-3.3, value: 3.3.11 }, timeout: 150, shard: b }
+          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-3.3, value: 3.3.11 }, timeout: 150, shard: c }
+          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-3.3, value: 3.3.11 }, timeout: 150, shard: d }
+          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-3.4, value: 3.4.9 }, timeout: 150, shard: a }
+          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-3.4, value: 3.4.9 }, timeout: 150, shard: b }
+          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-3.4, value: 3.4.9 }, timeout: 150, shard: c }
+          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-3.4, value: 3.4.9 }, timeout: 150, shard: d }
+          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-4.0, value: 4.0.5 }, timeout: 150, shard: a }
+          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-4.0, value: 4.0.5 }, timeout: 150, shard: b }
+          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-4.0, value: 4.0.5 }, timeout: 150, shard: c }
+          - { os: { name: Windows, value: windows-2025 }, ruby: { name: ruby-4.0, value: 4.0.5 }, timeout: 150, shard: d }
 
           - { os: { name: Ubuntu, value: ubuntu-24.04 }, ruby: { name: jruby, value: jruby-10.1.0.0 } }
           - { os: { name: macOS, value: macos-26 }, ruby: { name: jruby, value: jruby-10.1.0.0 } }
@@ -134,13 +134,13 @@ jobs:
         run: |
           bin/parallel_rspec
         if: matrix.ruby.name != 'jruby' && matrix.ruby.name != 'truffleruby' && matrix.os.name != 'Windows' && matrix.os.name != 'macOS-intel'
-      - name: Run Test (CRuby on Windows - Group ${{ matrix.group }})
+      - name: Run Test (CRuby on Windows - Shard ${{ matrix.shard }})
         run: |
-          bin/parallel_rspec --tag shard_${{ matrix.group }}
+          bin/parallel_rspec --tag shard_${{ matrix.shard }}
         if: matrix.ruby.name != 'jruby' && matrix.ruby.name != 'truffleruby' && matrix.os.name == 'Windows'
-      - name: Run Test (CRuby on macOS Intel - Group ${{ matrix.group }})
+      - name: Run Test (CRuby on macOS Intel - Shard ${{ matrix.shard }})
         run: |
-          bin/parallel_rspec --tag shard_${{ matrix.group }}
+          bin/parallel_rspec --tag shard_${{ matrix.shard }}
         if: matrix.ruby.name != 'jruby' && matrix.ruby.name != 'truffleruby' && matrix.os.name == 'macOS-intel'
       - name: Run Test (JRuby)
         run: |
