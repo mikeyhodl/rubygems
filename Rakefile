@@ -86,6 +86,11 @@ namespace "test" do
       sh Gem.ruby, "-Ilib:test:bundler/lib", file
     end
   end
+
+  desc "Run RubyGems tests using test-unit's process-based parallel runner"
+  task "parallel" do
+    sh File.expand_path("bin/test-unit", __dir__), "test", "--parallel=process"
+  end
 end
 
 task default: [:test, :spec]
