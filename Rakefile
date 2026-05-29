@@ -33,7 +33,7 @@ namespace :vendor do
       lib/compact_index/versions_file.rb
     ]
 
-    target_root = "tmp/compact_index"
+    target_root = Spec::Path.tmp_root.join("compact_index")
     paths.each do |path|
       url = "https://raw.githubusercontent.com/#{repo}/#{ref}/#{path}"
       puts "Fetching #{url}"
