@@ -18,12 +18,14 @@ task setup: [:"dev:deps", "vendor:compact_index"] do
 end
 
 namespace :vendor do
-  desc "Sync vendored compact_index from rubygems/rubygems.org (REF=master)"
+  # Pinned to rubygems/rubygems.org#6504 so `rake setup` stays reproducible.
+  # Override with REF=<sha> to test against a newer compact_index.
+  desc "Sync vendored compact_index from rubygems/rubygems.org"
   task :compact_index do
     require "open-uri"
     require "fileutils"
 
-    ref = ENV["REF"] || "master"
+    ref = ENV["REF"] || "7c68a7b39761c61a66f9299f85b889ec39afc02c"
     repo = "rubygems/rubygems.org"
     paths = %w[
       lib/compact_index.rb
