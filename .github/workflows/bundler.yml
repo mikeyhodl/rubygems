@@ -41,7 +41,7 @@ jobs:
           - { os: { name: macOS, value: macos-26 }, ruby: { name: ruby-4.0, value: 4.0.5 }, timeout: 90 }
 
           # Regression coverage for the Intel architecture with the latest Ruby only.
-          # Split across runners using the Windows tag groups to keep each run reasonable.
+          # Split across runners using the test shards to keep each run reasonable.
           - { os: { name: macOS-intel, value: macos-15-intel }, ruby: { name: ruby-4.0, value: 4.0.5 }, timeout: 90, group: a }
           - { os: { name: macOS-intel, value: macos-15-intel }, ruby: { name: ruby-4.0, value: 4.0.5 }, timeout: 90, group: b }
           - { os: { name: macOS-intel, value: macos-15-intel }, ruby: { name: ruby-4.0, value: 4.0.5 }, timeout: 90, group: c }
@@ -136,11 +136,11 @@ jobs:
         if: matrix.ruby.name != 'jruby' && matrix.ruby.name != 'truffleruby' && matrix.os.name != 'Windows' && matrix.os.name != 'macOS-intel'
       - name: Run Test (CRuby on Windows - Group ${{ matrix.group }})
         run: |
-          bin/parallel_rspec --tag windows_${{ matrix.group }}
+          bin/parallel_rspec --tag shard_${{ matrix.group }}
         if: matrix.ruby.name != 'jruby' && matrix.ruby.name != 'truffleruby' && matrix.os.name == 'Windows'
       - name: Run Test (CRuby on macOS Intel - Group ${{ matrix.group }})
         run: |
-          bin/parallel_rspec --tag windows_${{ matrix.group }}
+          bin/parallel_rspec --tag shard_${{ matrix.group }}
         if: matrix.ruby.name != 'jruby' && matrix.ruby.name != 'truffleruby' && matrix.os.name == 'macOS-intel'
       - name: Run Test (JRuby)
         run: |
