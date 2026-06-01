@@ -136,6 +136,7 @@ task "coverage:report" do
     next
   end
 
+  $stdout = File.open(File::NULL, "w")
   SimpleCov.collate Dir[resultset] do
     coverage_dir "coverage"
     add_filter "/test/"
@@ -153,6 +154,8 @@ task "coverage:report" do
       src.filename.include?("/lib/bundler/") || src.filename.end_with?("/lib/bundler.rb")
     end
   end
+ensure
+  $stdout = STDOUT
 end
 
 spec = Gem::Specification.load(File.expand_path("rubygems-update.gemspec", __dir__))
