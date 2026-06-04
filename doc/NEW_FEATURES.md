@@ -2,13 +2,13 @@
 
 ## Substantial Features
 
-To request substantial changes to Bundler or Bundler documentation, please refer to the [RFC repository](https://github.com/rubygems/rfcs). See the [README](https://github.com/rubygems/rfcs/blob/master/README.md) for detailed instructions on the RFC process.
+To request substantial changes to Bundler or Bundler documentation, please start a discussion in [GitHub Discussions](https://github.com/rubygems/rubygems/discussions).
 
 ## Contributing New Features
 
 To add a new feature to Bundler:
 
-1. **Discuss your idea** - [Open an issue](https://github.com/ruby/rubygems/issues/new) to discuss your proposed feature
+1. **Discuss your idea** - If the goal is already clear, link the existing [issue](https://github.com/rubygems/rubygems/issues) or [discussion](https://github.com/rubygems/rubygems/discussions) that covers it. Otherwise, post your idea in [GitHub Discussions](https://github.com/rubygems/rubygems/discussions) first so it can be talked through
 2. **Base on master branch** - We follow [SemVer](https://semver.org), so new features go in the master branch only, not old releases
 3. **Write tests** - Include at least one test covering your changes in your feature branch
 4. **Submit a pull request** - See [PULL_REQUESTS.md](PULL_REQUESTS.md) for detailed guidelines

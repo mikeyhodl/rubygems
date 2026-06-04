@@ -93,9 +93,9 @@ avoid breaking things, and we may even intentionally introduce this kind of
 cases. So be aware when using internals and ideally get in touch with us
 before doing so, so that we can help find the right APIs.
 
-## RFC guidelines
+## Discussing large changes
 
-Large changes often benefit from being written out more completely, read by others, and discussed. The [Bundler RFC repo](https://github.com/rubygems/rfcs) is the preferred place for that to happen.
+Large changes often benefit from being written out more completely, read by others, and discussed. [GitHub Discussions](https://github.com/rubygems/rubygems/discussions) is the preferred place for that to happen.
 
 ## Committer Access
 
