@@ -59,7 +59,10 @@ If these instructions don't work, or you can't find any appropriate instructions
     # Remove the saved resolve of the Gemfile
     rm -rf Gemfile.lock
 
-    # Uninstall the rubygems-bundler and open_gem gems
+    # Check whether the known-problematic rubygems-bundler and open_gem gems are installed
+    gem list rubygems-bundler open_gem
+
+    # Uninstall them if present
     rvm gemset use global # if using rvm
     gem uninstall rubygems-bundler open_gem
 
