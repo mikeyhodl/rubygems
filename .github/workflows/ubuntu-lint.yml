@@ -128,7 +128,7 @@ jobs:
       - name: Simulate a release version by stripping .dev
         run: |
           ruby -i -pe 'sub(/^(\s*VERSION = ")(\d+\.\d+\.\d+)\.dev/, "\\1\\2")' lib/rubygems.rb bundler/lib/bundler/version.rb
-          bin/rake version:update_locked_bundler
+          bin/rake dev:deps version:update_locked_bundler
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git commit -am "Simulate release version"
