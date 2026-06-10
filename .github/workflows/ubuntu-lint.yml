@@ -111,6 +111,36 @@ jobs:
         if: matrix.ruby.name != 'jruby'
     timeout-minutes: 15
 
+  release_version:
+    name: Check release version simulation
+    runs-on: ubuntu-24.04
+    env:
+      RUBYOPT: -Ilib
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          persist-credentials: false
+      - name: Setup ruby
+        uses: ruby/setup-ruby@afeafc3d1ab54a631816aba4c914a0081c12ff2f # v1.310.0
+        with:
+          ruby-version: ruby
+          bundler: none
+      - name: Simulate a release version by stripping .dev
+        run: |
+          ruby -i -pe 'sub(/^(\s*VERSION = ")(\d+\.\d+\.\d+)\.dev/, "\\1\\2")' lib/rubygems.rb bundler/lib/bundler/version.rb
+          bin/rake dev:deps version:update_locked_bundler
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -am "Simulate release version"
+      - name: Check lockfiles do not depend on the local gem cache
+        run: |
+          version=$(ruby -Ibundler/lib -rbundler/version -e 'puts Bundler::VERSION')
+          mkdir -p cache
+          (cd bundler && gem build bundler.gemspec --output "../cache/bundler-${version}.gem")
+          echo "cache/" >> .git/info/exclude
+          bin/rake version:check dev:frozen_deps
+    timeout-minutes: 15
+
   all-pass:
     name: All ubuntu-lint jobs pass
 
@@ -120,6 +150,7 @@ jobs:
       - python_linters
       - ruby_linters
       - check_misc
+      - release_version
     runs-on: ubuntu-latest
 
     steps:
