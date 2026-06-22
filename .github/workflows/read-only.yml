@@ -35,7 +35,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Basic usage on a read-only filesystem
-        run: docker run --mount type=bind,source=.,target=/rubygems --rm --read-only ruby:${{ matrix.ruby.value }} ruby -I/rubygems/bundler/lib -r'bundler/inline' -e 'gemfile {}; puts :ok'
+        run: docker run --mount type=bind,source=.,target=/rubygems --rm --read-only ruby:${{ matrix.ruby.value }} ruby -I/rubygems/lib -r'bundler/inline' -e 'gemfile {}; puts :ok'
 
     timeout-minutes: 15
 

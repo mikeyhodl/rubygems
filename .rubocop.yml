@@ -7,7 +7,7 @@ AllCops:
     - pkg/**/*
     - tmp/**/*
     - lib/rubygems/vendor/**/*
-    - bundler/lib/bundler/vendor/**/*
+    - lib/bundler/vendor/**/*
   CacheRootDirectory: tmp/rubocop
   MaxFilesInCache: 5000
 
@@ -19,13 +19,13 @@ AllCops:
 Naming/ConstantName:
   Enabled: true
   Exclude:
-    - lib/**/*
+    - lib/rubygems/**/*
     - test/**/*
 
 Naming/MethodName:
   Enabled: true
   Exclude:
-    - lib/**/*
+    - lib/rubygems/**/*
     - test/**/*
 
 Naming/VariableName:
@@ -34,7 +34,7 @@ Naming/VariableName:
 Naming/VariableNumber:
   Enabled: true
   Exclude:
-    - lib/**/*
+    - lib/rubygems/**/*
     - test/**/*
     - tool/**/*
 
@@ -43,7 +43,7 @@ Naming/VariableNumber:
 Style/ClassVars:
   Enabled: true
   Exclude:
-    - lib/**/*
+    - lib/rubygems/**/*
     - test/**/*
 
 Style/FormatString:
@@ -230,7 +230,7 @@ Lint/SafeNavigationConsistency:
 Lint/ScriptPermission:
   Enabled: true
   Exclude:
-    - bundler/lib/bundler/templates/Executable
+    - lib/bundler/templates/Executable
 
 Lint/ShadowedArgument:
   Enabled: true
@@ -397,8 +397,8 @@ Layout/SpaceInsideBlockBraces:
   Enabled: true
   SpaceBeforeBlockParameters: false
   Exclude:
-    - bundler/lib/bundler/templates/Gemfile
-    - bundler/lib/bundler/templates/gems.rb
+    - lib/bundler/templates/Gemfile
+    - lib/bundler/templates/gems.rb
 
 Layout/SpaceInsideHashLiteralBraces:
   Enabled: true

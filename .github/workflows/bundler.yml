@@ -87,7 +87,7 @@ jobs:
           ruby-version: ${{ matrix.ruby.value }}
           bundler: none
       - name: Simulate a release version by stripping .dev
-        run: ruby -i -pe 'sub(/^(\s*VERSION = ")(\d+\.\d+\.\d+)\.dev/, "\\1\\2")' lib/rubygems.rb bundler/lib/bundler/version.rb
+        run: ruby -i -pe 'sub(/^(\s*VERSION = ")(\d+\.\d+\.\d+)\.dev/, "\\1\\2")' lib/rubygems.rb lib/bundler/version.rb
         if: matrix.strip_dev
       - name: Restore gem caches
         uses: actions/cache/restore@v5

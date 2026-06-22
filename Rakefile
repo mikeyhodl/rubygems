@@ -74,7 +74,6 @@ Rake::TestTask.new do |t|
     t.ruby_opts.unshift("--disable-gems", "-r#{coverage_setup}")
   end
 
-  t.libs << "bundler/lib"
   t.libs << "test"
   t.test_files = FileList["test/**/test_*.rb"]
 end
@@ -83,7 +82,7 @@ namespace "test" do
   desc "Run each test isolatedly by specifying the relative test file path"
   task "isolated" do
     FileList["test/**/{bundler_,}test_*.rb"].each do |file|
-      sh Gem.ruby, "-Ilib:test:bundler/lib", file
+      sh Gem.ruby, "-Ilib:test", file
     end
   end
 
@@ -137,7 +136,7 @@ RDoc::Task.new rdoc: "docs", clobber_rdoc: "clobber_docs" do |doc|
   doc.main   = "README.md"
   doc.title  = "RubyGems #{v} API Documentation"
 
-  rdoc_files = Rake::FileList.new %w[lib bundler/lib]
+  rdoc_files = Rake::FileList.new %w[lib]
   rdoc_files.add %w[CHANGELOG.md LICENSE.txt MIT.txt CODE_OF_CONDUCT.md CONTRIBUTING.md
                     doc/MAINTAINERS.txt Manifest.txt doc/POLICIES.md README.md doc/UPGRADING.md bundler/CHANGELOG.md
                     bundler/LICENSE.md bundler/README.md hide_lib_for_update/note.txt].map(&:freeze)
@@ -646,10 +645,10 @@ task :check_rubygems_integration do
   # Bundler monkeypatches RubyGems in some ways that could potentially break gem activation.
 
   # Run a non trivial binstub activation, with two different versions of a dependent gem installed.
-  sh("ruby -Ilib -S gem install reline:0.3.0 reline:0.3.1 irb && ruby -Ibundler/lib -rbundler -S irb --version")
+  sh("ruby -Ilib -S gem install reline:0.3.0 reline:0.3.1 irb && ruby -Ilib -rbundler -S irb --version")
 
   # With two psych versions installed, load a gem that depends on pysch and then load rubygems extensions.
-  sh("ruby -Ilib -S gem install psych:5.1.1 psych:5.1.2 rdoc && ruby -Ibundler/lib -rrdoc/task -rbundler/rubygems_ext -e1")
+  sh("ruby -Ilib -S gem install psych:5.1.1 psych:5.1.2 rdoc && ruby -Ilib -rrdoc/task -rbundler/rubygems_ext -e1")
 end
 
 desc "Check release preparations"
@@ -667,7 +666,7 @@ namespace :man do
     task(:build) {}
   else
     file "index.txt" do
-      index = Dir["bundler/lib/bundler/man/*.ronn"].map do |ronn|
+      index = Dir["lib/bundler/man/*.ronn"].map do |ronn|
         roff = "#{File.dirname(ronn)}/#{File.basename(ronn, ".ronn")}"
         [ronn, roff]
       end
@@ -678,7 +677,7 @@ namespace :man do
       end
       index = index.sort_by(&:first)
       justification = index.map {|(n, _f)| n.length }.max + 4
-      File.open("bundler/lib/bundler/man/index.txt", "w") do |f|
+      File.open("lib/bundler/man/index.txt", "w") do |f|
         index.each do |name, filename|
           f << name.ljust(justification) << filename << "\n"
         end
@@ -695,7 +694,7 @@ namespace :man do
 
     desc "Remove all built man pages"
     task :clean do
-      leftovers = Dir["bundler/lib/bundler/man/*"].reject do |f|
+      leftovers = Dir["lib/bundler/man/*"].reject do |f|
         File.extname(f) == ".ronn"
       end
       rm leftovers if leftovers.any?
@@ -707,7 +706,7 @@ namespace :man do
     desc "Sets target date for building man pages to the one currently present"
     task :set_current_date do
       require "date"
-      ENV["MAN_PAGES_DATE"] = Date.parse(File.readlines("bundler/lib/bundler/man/bundle-add.1")[2].split('"')[5]).strftime("%Y-%m-%d")
+      ENV["MAN_PAGES_DATE"] = Date.parse(File.readlines("lib/bundler/man/bundle-add.1")[2].split('"')[5]).strftime("%Y-%m-%d")
     end
 
     desc "Verify man pages are in sync"
@@ -721,9 +720,10 @@ namespace :man do
 end
 
 namespace :bundler do
-  chdir(File.expand_path("bundler", __dir__)) do
-    require_relative "bundler/lib/bundler/gem_tasks"
-  end
+  require "rake/clean"
+  CLOBBER.include "pkg"
+  require_relative "lib/bundler/gem_helper"
+  Bundler::GemHelper.install_tasks(name: "bundler")
   require_relative "spec/support/build_metadata"
   require_relative "tool/release"
 

@@ -127,16 +127,16 @@ jobs:
           bundler: none
       - name: Simulate a release version by stripping .dev
         run: |
-          ruby -i -pe 'sub(/^(\s*VERSION = ")(\d+\.\d+\.\d+)\.dev/, "\\1\\2")' lib/rubygems.rb bundler/lib/bundler/version.rb
+          ruby -i -pe 'sub(/^(\s*VERSION = ")(\d+\.\d+\.\d+)\.dev/, "\\1\\2")' lib/rubygems.rb lib/bundler/version.rb
           bin/rake dev:deps version:update_locked_bundler
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git commit -am "Simulate release version"
       - name: Check lockfiles do not depend on the local gem cache
         run: |
-          version=$(ruby -Ibundler/lib -rbundler/version -e 'puts Bundler::VERSION')
+          version=$(ruby -Ilib -rbundler/version -e 'puts Bundler::VERSION')
           mkdir -p cache
-          (cd bundler && gem build bundler.gemspec --output "../cache/bundler-${version}.gem")
+          gem build bundler.gemspec --output "cache/bundler-${version}.gem"
           echo "cache/" >> .git/info/exclude
           bin/rake version:check dev:frozen_deps
     timeout-minutes: 15

@@ -61,6 +61,6 @@ jobs:
           persist-credentials: false
       - name: Run Rubygems Requirement tests against local bundler, to make sure bundler monkeypatches preserve the behaviour
         run: |
-          ruby -I../../bundler/lib:lib:test test/rubygems/test_gem_requirement.rb
+          ruby -Ilib:../../lib:test test/rubygems/test_gem_requirement.rb
         working-directory: ./tmp/rubygems
     timeout-minutes: 60
