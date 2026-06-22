@@ -2,4 +2,4 @@
 *.rb diff=ruby
 *.gemspec diff=ruby
 bin/* diff=ruby
-bundler/exe/* diff=ruby
+exe/* diff=ruby

@@ -105,7 +105,7 @@ We only release major breaking changes when incrementing the _major_ version of 
 
 *   Run `rake prepare_release[4.0.0.beta3]`, this will:
     * Create the release branch like `release/4.0.0`.
-    * Bump up version number at `lib/rubygems.rb` and `bundler/lib/bundler/version.rb`.
+    * Bump up version number at `lib/rubygems.rb` and `lib/bundler/version.rb`.
     * Run `rake version:update_locked_bundler`.
     * Run `rake generate_changelog[4.0.0.beta1]`.
     * Push the release branch and open a PR to the stable or master branch

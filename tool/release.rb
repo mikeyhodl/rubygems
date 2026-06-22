@@ -80,7 +80,7 @@ class Release
       @version = Gem::Version.new(version)
       @stable_branch = stable_branch
       @changelog = Changelog.for_bundler(version)
-      @version_files = [File.expand_path("../bundler/lib/bundler/version.rb", __dir__)]
+      @version_files = [File.expand_path("../lib/bundler/version.rb", __dir__)]
       @tag_prefix = "bundler-v"
     end
 
