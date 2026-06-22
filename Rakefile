@@ -138,8 +138,8 @@ RDoc::Task.new rdoc: "docs", clobber_rdoc: "clobber_docs" do |doc|
 
   rdoc_files = Rake::FileList.new %w[lib]
   rdoc_files.add %w[CHANGELOG.md LICENSE.txt MIT.txt CODE_OF_CONDUCT.md CONTRIBUTING.md
-                    doc/MAINTAINERS.txt Manifest.txt doc/POLICIES.md README.md doc/UPGRADING.md bundler/CHANGELOG.md
-                    bundler/LICENSE.md bundler/README.md hide_lib_for_update/note.txt].map(&:freeze)
+                    doc/MAINTAINERS.txt Manifest.txt doc/POLICIES.md README.md doc/UPGRADING.md CHANGELOG-bundler.md
+                    LICENSE-bundler.md README-bundler.md hide_lib_for_update/note.txt].map(&:freeze)
 
   doc.rdoc_files = rdoc_files
 
