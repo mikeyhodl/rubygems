@@ -1,7 +1,7 @@
-diff --git a/bundler/lib/bundler/vendor/thor/lib/thor.rb b/bundler/lib/bundler/vendor/thor/lib/thor.rb
+diff --git a/lib/bundler/vendor/thor/lib/thor.rb b/lib/bundler/vendor/thor/lib/thor.rb
 index bfd9f5c914..945bdbd551 100644
---- a/bundler/lib/bundler/vendor/thor/lib/thor.rb
-+++ b/bundler/lib/bundler/vendor/thor/lib/thor.rb
+--- a/lib/bundler/vendor/thor/lib/thor.rb
++++ b/lib/bundler/vendor/thor/lib/thor.rb
 @@ -625,7 +625,7 @@ def normalize_command_name(meth) #:nodoc:
      # alias name.
      def find_command_possibilities(meth)
@@ -12,10 +12,10 @@ index bfd9f5c914..945bdbd551 100644
 
        if possibilities.include?(meth)
 
-diff --git a/bundler/lib/bundler/vendor/thor/lib/thor/runner.rb b/bundler/lib/bundler/vendor/thor/lib/thor/runner.rb
+diff --git a/lib/bundler/vendor/thor/lib/thor/runner.rb b/lib/bundler/vendor/thor/lib/thor/runner.rb
 index 95f8b16e31..f0ce6df96c 100644
---- a/bundler/lib/bundler/vendor/thor/lib/thor/runner.rb
-+++ b/bundler/lib/bundler/vendor/thor/lib/thor/runner.rb
+--- a/lib/bundler/vendor/thor/lib/thor/runner.rb
++++ b/lib/bundler/vendor/thor/lib/thor/runner.rb
 @@ -2,7 +2,7 @@
  require_relative "group"
 
@@ -25,10 +25,10 @@ index 95f8b16e31..f0ce6df96c 100644
 
  class Bundler::Thor::Runner < Bundler::Thor #:nodoc:
    map "-T" => :list, "-i" => :install, "-u" => :update, "-v" => :version
-diff --git a/bundler/lib/bundler/vendor/thor/lib/thor/shell/color.rb b/bundler/lib/bundler/vendor/thor/lib/thor/shell/color.rb
+diff --git a/lib/bundler/vendor/thor/lib/thor/shell/color.rb b/lib/bundler/vendor/thor/lib/thor/shell/color.rb
 index 6a9176331..5d708fadc 100644
---- a/bundler/lib/bundler/vendor/thor/lib/thor/shell/color.rb
-+++ b/bundler/lib/bundler/vendor/thor/lib/thor/shell/color.rb
+--- a/lib/bundler/vendor/thor/lib/thor/shell/color.rb
++++ b/lib/bundler/vendor/thor/lib/thor/shell/color.rb
 @@ -1,5 +1,4 @@
  require_relative "basic"
 -require_relative "lcs_diff"
@@ -44,10 +44,10 @@ index 6a9176331..5d708fadc 100644
        # Embed in a String to clear all previous ANSI sequences.
        CLEAR      = "\e[0m"
        # The start of an ANSI bold sequence.
-diff --git a/bundler/lib/bundler/vendor/thor/lib/thor/shell/html.rb b/bundler/lib/bundler/vendor/thor/lib/thor/shell/html.rb
+diff --git a/lib/bundler/vendor/thor/lib/thor/shell/html.rb b/lib/bundler/vendor/thor/lib/thor/shell/html.rb
 index 6091485ac..0277b882b 100644
---- a/bundler/lib/bundler/vendor/thor/lib/thor/shell/html.rb
-+++ b/bundler/lib/bundler/vendor/thor/lib/thor/shell/html.rb
+--- a/lib/bundler/vendor/thor/lib/thor/shell/html.rb
++++ b/lib/bundler/vendor/thor/lib/thor/shell/html.rb
 @@ -1,5 +1,4 @@
  require_relative "basic"
 -require_relative "lcs_diff"
@@ -63,10 +63,10 @@ index 6091485ac..0277b882b 100644
        # The start of an HTML bold sequence.
        BOLD       = "font-weight: bold"
  
-diff --git a/bundler/lib/bundler/vendor/thor/lib/thor/shell/lcs_diff.rb b/bundler/lib/bundler/vendor/thor/lib/thor/shell/lcs_diff.rb
+diff --git a/lib/bundler/vendor/thor/lib/thor/shell/lcs_diff.rb b/lib/bundler/vendor/thor/lib/thor/shell/lcs_diff.rb
 deleted file mode 100644
 index 81268a9f0..000000000
---- a/bundler/lib/bundler/vendor/thor/lib/thor/shell/lcs_diff.rb
+--- a/lib/bundler/vendor/thor/lib/thor/shell/lcs_diff.rb
 +++ /dev/null
 @@ -1,49 +0,0 @@
 -module LCSDiff

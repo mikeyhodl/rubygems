@@ -1,17 +1,17 @@
-diff --git b/bundler/lib/bundler/vendor/net-http-persistent/lib/net/http/persistent.rb a/bundler/lib/bundler/vendor/net-http-persistent/lib/net/http/persistent.rb
+diff --git b/lib/bundler/vendor/net-http-persistent/lib/net/http/persistent.rb a/lib/bundler/vendor/net-http-persistent/lib/net/http/persistent.rb
 index f57e64df9c..52a8051183 100644
---- b/bundler/lib/bundler/vendor/net-http-persistent/lib/net/http/persistent.rb
-+++ a/bundler/lib/bundler/vendor/net-http-persistent/lib/net/http/persistent.rb
+--- b/lib/bundler/vendor/net-http-persistent/lib/net/http/persistent.rb
++++ a/lib/bundler/vendor/net-http-persistent/lib/net/http/persistent.rb
 @@ -1,12 +1,11 @@
--require_relative '../../../../../../../../lib/rubygems/vendor/net-http/lib/net/http'
--require_relative '../../../../../../../../lib/rubygems/vendor/uri/lib/uri'
+-require_relative '../../../../../../rubygems/vendor/net-http/lib/net/http'
+-require_relative '../../../../../../rubygems/vendor/uri/lib/uri'
 -require 'cgi' # for escaping
 -require_relative '../../../../connection_pool/lib/connection_pool'
 -
 +require_relative '../../../../../vendored_net_http'
 +require_relative '../../../../../vendored_uri'
  begin
--  require_relative '../../../../../../../../lib/rubygems/vendor/net-http/lib/net/http/pipeline'
+-  require_relative '../../../../../../rubygems/vendor/net-http/lib/net/http/pipeline'
 +  require 'cgi/escape'
  rescue LoadError
 +  require 'cgi/util' # for escaping
