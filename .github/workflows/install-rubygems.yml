@@ -174,16 +174,8 @@ jobs:
         with:
           ruby-version: 3.2
           bundler: none
-      - name: Save system RubyGems version to ENV
-        run: |
-          RGV=$(ruby -e 'puts Gem::VERSION.split(".")[0..2].join(".")')
-          echo "RGV=v$RGV" >> $GITHUB_ENV
-        if: matrix.rubygems == 'system'
-      - name: Set dev RubyGems version
-        run: |
-          RGV=..
-          echo "RGV=v$RGV" >> $GITHUB_ENV
-        if: matrix.rubygems == 'dev'
+      - name: Use the worktree RubyGems
+        run: echo "RGV=." >> $GITHUB_ENV
       - name: Setup app depending on psych with initial Ruby
         run: mkdir foo && cd foo && ../bin/bundle init && ../bin/bundle add psych -v 5.1.2
         shell: bash
