@@ -154,6 +154,10 @@ class Release
       "v#{@stable_branch}.0"
     end
 
+    # The most recent release on this line. For patch releases it bounds the
+    # search for backport PRs merged straight onto the stable branch since then.
+    @last_release_tag = @level == :patch ? "v#{@stable_branch}.#{segments[2] - 1}" : @previous_release_tag
+
     rubygems_version = segments.join(".").gsub(/([a-z])\.(\d)/i, '\1\2')
     @rubygems = Rubygems.new(rubygems_version, @stable_branch)
 
@@ -271,6 +275,11 @@ class Release
     prs = relevant_unreleased_pull_requests
     raise "No unreleased PRs were found. Make sure to tag them with appropriate labels so that they are selected for backport." unless prs.any?
 
+    # Dedicated backport PRs target the stable branch directly, so they are
+    # already on the release branch and only need a changelog entry, not
+    # another cherry-pick.
+    prs = prs.reject {|pr| already_on_stable_branch?(pr) }
+
     puts "The following unreleased prs were found:\n#{prs.map {|pr| "* #{pr.url}" }.join("\n")}"
 
     prs.each do |pr|
@@ -375,6 +384,22 @@ class Release
     @unreleased_pull_requests ||= scan_unreleased_pull_requests(unreleased_pr_ids)
   end
 
+  # True when the PR's merged commit is already reachable from the release
+  # branch, e.g. a backport PR merged straight onto the stable branch rather
+  # than cherry-picked from master.
+  def already_on_stable_branch?(pr)
+    system("git", "merge-base", "--is-ancestor", pr.merge_commit_sha, "HEAD", out: IO::NULL, err: IO::NULL)
+  end
+
+  # Commits merged directly onto the stable branch since the last release, such
+  # as dedicated backport PRs that target the stable branch instead of being
+  # cherry-picked from master. They never land on master, so the master scan in
+  # `unreleased_pr_ids` cannot see them and their changelog entries would
+  # otherwise be dropped from the release.
+  def stable_branch_backport_commits
+    `git log --format=%H #{@last_release_tag}..#{@stable_branch}`.split("\n").reject(&:empty?)
+  end
+
   # Source SHAs already cherry-picked onto the stable branch, derived from the
   # `(cherry picked from commit X)` footer that `git cherry-pick -x` records.
   # When the footer references a merge commit (PRs merged with "Create a merge
@@ -413,6 +438,7 @@ class Release
     head = @level == :minor_or_major ? "HEAD" : "master"
     commits = `git log --format=%H #{@previous_release_tag}..#{head}`.split("\n")
     commits.reject! {|sha| released_commit_shas.include?(sha) } if @level == :patch
+    commits.concat(stable_branch_backport_commits) if @level == :patch
 
     # GitHub search API has a rate limit of 30 requests per minute for authenticated users
     rate_limit = 28
