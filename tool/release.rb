@@ -178,19 +178,33 @@ class Release
   def prepare!
     initial_branch = `git rev-parse --abbrev-ref HEAD`.strip
 
+    # Refresh the upstream refs first so the release is cut from the latest
+    # origin state. A stale local `master` or stable branch would otherwise
+    # silently drop PRs merged after the last local fetch.
+    system("git", "fetch", "--prune", "origin", exception: true)
+
     check_git_state!
 
     unless @prerelease
-      create_if_not_exist_and_switch_to(@stable_branch, from: "master")
+      create_if_not_exist_and_switch_to(@stable_branch, from: "origin/master")
       system("git", "push", "origin", @stable_branch, exception: true) if @level == :minor_or_major && !ENV["DRYRUN"]
     end
 
-    from_branch = if @level == :minor_or_major && @prerelease
+    base_branch = if @level == :minor_or_major && @prerelease
       "master"
     else
       @stable_branch
     end
-    create_if_not_exist_and_switch_to(@release_branch, from: from_branch)
+
+    # The ref the release branch is cut from. Patch releases and prereleases
+    # branch straight off the upstream ref so a stale local copy can't leave
+    # commits behind; a new stable branch was just created locally above.
+    release_base = if @level == :minor_or_major
+      @prerelease ? "origin/master" : @stable_branch
+    else
+      "origin/#{@stable_branch}"
+    end
+    create_if_not_exist_and_switch_to(@release_branch, from: release_base)
 
     begin
       @bundler.set_relevant_pull_requests_from(unreleased_pull_requests)
@@ -204,14 +218,14 @@ class Release
 
       gh_client.create_pull_request(
         "ruby/rubygems",
-        from_branch,
+        base_branch,
         @release_branch,
         "Prepare RubyGems #{@rubygems.version} and Bundler #{@bundler.version}",
         release_pull_request_body
       ) unless ENV["DRYRUN"]
 
       unless @prerelease
-        create_if_not_exist_and_switch_to("cherry_pick_changelogs", from: "master")
+        create_if_not_exist_and_switch_to("cherry_pick_changelogs", from: "origin/master")
 
         begin
           system("git", "cherry-pick", bundler_changelog, rubygems_changelog, exception: true)
@@ -397,7 +411,7 @@ class Release
   # `unreleased_pr_ids` cannot see them and their changelog entries would
   # otherwise be dropped from the release.
   def stable_branch_backport_commits
-    `git log --format=%H #{@last_release_tag}..#{@stable_branch}`.split("\n").reject(&:empty?)
+    `git log --format=%H #{@last_release_tag}..origin/#{@stable_branch}`.split("\n").reject(&:empty?)
   end
 
   # Source SHAs already cherry-picked onto the stable branch, derived from the
@@ -408,7 +422,7 @@ class Release
   # through those commits left on master.
   def released_commit_shas
     @released_commit_shas ||= begin
-      log = `git log --format=%B #{@previous_release_tag}..#{@stable_branch}`
+      log = `git log --format=%B #{@previous_release_tag}..origin/#{@stable_branch}`
       shas = Set.new
       log.scan(/cherry picked from commit ([0-9a-f]+)/).flatten.each do |sha|
         shas << sha
@@ -435,7 +449,7 @@ class Release
   end
 
   def unreleased_pr_ids
-    head = @level == :minor_or_major ? "HEAD" : "master"
+    head = @level == :minor_or_major ? "HEAD" : "origin/master"
     commits = `git log --format=%H #{@previous_release_tag}..#{head}`.split("\n")
     commits.reject! {|sha| released_commit_shas.include?(sha) } if @level == :patch
     commits.concat(stable_branch_backport_commits) if @level == :patch
