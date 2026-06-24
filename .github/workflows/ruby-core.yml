@@ -56,7 +56,7 @@ jobs:
           path: ruby/rubygems
           persist-credentials: false
         if: matrix.branch != 'ruby_3_4'
-      - name: Sync tools
+      - name: Adjust sync tool for the legacy Bundler layout
         run: |
           sed -i 's|\["bundler/spec", "spec/bundler"\]|["spec", "spec/bundler"]|' tool/sync_default_gems.rb
           sed -i 's|\["bundler/bin/#{binstub}", "spec/bin/#{binstub}"\]|["bin/#{binstub}", "spec/bin/#{binstub}"]|' tool/sync_default_gems.rb
@@ -70,6 +70,10 @@ jobs:
           sed -i 's|upstream}/bundler/lib/|upstream}/lib/|g' tool/sync_default_gems.rb
           sed -i 's|upstream}/bundler/exe/|upstream}/exe/|g' tool/sync_default_gems.rb
           sed -i 's|upstream}/bundler/bundler.gemspec|upstream}/bundler.gemspec|g' tool/sync_default_gems.rb
+        working-directory: ruby/ruby
+        if: matrix.branch != 'master'
+      - name: Sync tools
+        run: |
           ruby tool/sync_default_gems.rb rubygems
           mv spec/bundler/support/bundle spec/bin/bundle 2>/dev/null || true
         working-directory: ruby/ruby
