@@ -52,4 +52,4 @@ Everyone interacting in the Bundler project's codebases, issue trackers, chat ro
 
 ## License
 
-Bundler is available under an [MIT License](https://github.com/ruby/rubygems/blob/master/bundler/LICENSE.md).
+Bundler is available under an [MIT License](https://github.com/ruby/rubygems/blob/master/LICENSE-bundler.md).

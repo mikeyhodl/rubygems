@@ -62,6 +62,14 @@ jobs:
           sed -i 's|\["bundler/bin/#{binstub}", "spec/bin/#{binstub}"\]|["bin/#{binstub}", "spec/bin/#{binstub}"]|' tool/sync_default_gems.rb
           sed -i 's|/bundler/spec"|/spec"|g' tool/sync_default_gems.rb
           sed -i 's|/bundler/bin/|/bin/|g' tool/sync_default_gems.rb
+          sed -i 's|\["bundler/lib/bundler.rb", "lib/bundler.rb"\]|["lib/bundler.rb", "lib/bundler.rb"]|' tool/sync_default_gems.rb
+          sed -i 's|\["bundler/lib/bundler", "lib/bundler"\]|["lib/bundler", "lib/bundler"]|' tool/sync_default_gems.rb
+          sed -i 's|\["bundler/exe/bundle", "libexec/bundle"\]|["exe/bundle", "libexec/bundle"]|' tool/sync_default_gems.rb
+          sed -i 's|\["bundler/exe/bundler", "libexec/bundler"\]|["exe/bundler", "libexec/bundler"]|' tool/sync_default_gems.rb
+          sed -i 's|\["bundler/bundler.gemspec", "lib/bundler/bundler.gemspec"\]|["bundler.gemspec", "lib/bundler/bundler.gemspec"]|' tool/sync_default_gems.rb
+          sed -i 's|upstream}/bundler/lib/|upstream}/lib/|g' tool/sync_default_gems.rb
+          sed -i 's|upstream}/bundler/exe/|upstream}/exe/|g' tool/sync_default_gems.rb
+          sed -i 's|upstream}/bundler/bundler.gemspec|upstream}/bundler.gemspec|g' tool/sync_default_gems.rb
           ruby tool/sync_default_gems.rb rubygems
           mv spec/bundler/support/bundle spec/bin/bundle 2>/dev/null || true
         working-directory: ruby/ruby

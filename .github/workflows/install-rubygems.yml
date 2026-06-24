@@ -91,13 +91,10 @@ jobs:
           test ! -s errors.txt || (cat errors.txt && exit 1)
       - name: Build bundler
         run: gem build bundler.gemspec
-        working-directory: ./bundler
       - name: Install built bundler
         run: gem install bundler-*.gem --verbose --backtrace > output.txt
-        working-directory: ./bundler
       - name: Check bundler install didn't hit the network
         run: if grep -q 'GET http' output.txt; then false; else true; fi
-        working-directory: ./bundler
       - name: Resolve tsort dependency for Ruby 3.2
         run: gem install tsort
         if: matrix.ruby.name == '3.2'
@@ -177,16 +174,8 @@ jobs:
         with:
           ruby-version: 3.2
           bundler: none
-      - name: Save system RubyGems version to ENV
-        run: |
-          RGV=$(ruby -e 'puts Gem::VERSION.split(".")[0..2].join(".")')
-          echo "RGV=v$RGV" >> $GITHUB_ENV
-        if: matrix.rubygems == 'system'
-      - name: Set dev RubyGems version
-        run: |
-          RGV=..
-          echo "RGV=v$RGV" >> $GITHUB_ENV
-        if: matrix.rubygems == 'dev'
+      - name: Use the worktree RubyGems
+        run: echo "RGV=." >> $GITHUB_ENV
       - name: Setup app depending on psych with initial Ruby
         run: mkdir foo && cd foo && ../bin/bundle init && ../bin/bundle add psych -v 5.1.2
         shell: bash
@@ -234,7 +223,7 @@ jobs:
       - name: Check binstubs can run
         run: |
           gem install rake
-          RUBYOPT=-Ibundler/lib rake -T
+          RUBYOPT=-Ilib rake -T
       - name: Check binstubs can handle nested bundle exec
         run: |
           echo "source 'https://rubygems.org'" > Gemfile

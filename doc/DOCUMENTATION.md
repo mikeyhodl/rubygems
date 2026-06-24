@@ -7,7 +7,7 @@ Code needs explanation, and sometimes those who know the code well have trouble 
 Documentation for RubyGems and Bundler is managed in two places:
 
 - **Guides and tutorials**: [RubyGems Guides](https://guides.rubygems.org/) — hosted in the [rubygems/guides](https://github.com/rubygems/guides) repository
-- **Bundler CLI man pages**: Built from `.ronn` files in `bundler/lib/bundler/man/` in this repository and published to [bundler.io](https://bundler.io)
+- **Bundler CLI man pages**: Built from `.ronn` files in `lib/bundler/man/` in this repository and published to [bundler.io](https://bundler.io)
 
 All documentation other than Bundler command man pages — including guides, tutorials, and reference material for both RubyGems and Bundler — should be contributed to the [rubygems/guides](https://github.com/rubygems/guides) repository.
 
@@ -72,9 +72,9 @@ Don't see a man page for a command? Make a new page and send us a PR! We also we
 
 ### Creating a new man page
 
-To create a new man page, simply create a new `.ronn` file in the `bundler/lib/bundler/man/` directory.
+To create a new man page, simply create a new `.ronn` file in the `lib/bundler/man/` directory.
 
-For example: to create a man page for the command `bundle cookies` (not a real command, sadly), I would create a file `bundler/lib/bundler/man/bundle-cookies.1.ronn` and add my documentation there.
+For example: to create a man page for the command `bundle cookies` (not a real command, sadly), I would create a file `lib/bundler/man/bundle-cookies.1.ronn` and add my documentation there.
 
 ### Formatting
 
@@ -93,7 +93,7 @@ To preview your changes as they will print out for Bundler users, you'll need to
 ```
 $ bin/rake dev:deps
 $ bin/rake man:build
-$ man ./bundler/lib/bundler/man/bundle-cookies.1
+$ man ./lib/bundler/man/bundle-cookies.1
 ```
 
 If you make more changes to `bundle-cookies.1.ronn`, you'll need to run the `bin/rake man:build` again before previewing.

@@ -48,7 +48,7 @@ class Changelog
 
   def self.for_bundler(version)
     @for_bundler ||= new(
-      File.expand_path("../bundler/CHANGELOG.md", __dir__),
+      File.expand_path("../CHANGELOG-bundler.md", __dir__),
       "bundler",
       version,
     )
