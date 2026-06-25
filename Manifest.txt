@@ -292,8 +292,6 @@ lib/bundler/vendor/pub_grub/lib/pub_grub/version_constraint.rb
 lib/bundler/vendor/pub_grub/lib/pub_grub/version_range.rb
 lib/bundler/vendor/pub_grub/lib/pub_grub/version_solver.rb
 lib/bundler/vendor/pub_grub/lib/pub_grub/version_union.rb
-lib/bundler/vendor/securerandom/COPYING
-lib/bundler/vendor/securerandom/lib/securerandom.rb
 lib/bundler/vendor/thor/LICENSE.md
 lib/bundler/vendor/thor/lib/thor.rb
 lib/bundler/vendor/thor/lib/thor/actions.rb
