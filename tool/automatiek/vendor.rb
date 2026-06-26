@@ -86,7 +86,7 @@ vendored_gems = [
   VendoredGem.new(name: "net-protocol", namespace: "Net", prefix: "Gem", vendor_lib: "lib/rubygems/vendor/net-protocol", license_path: "LICENSE.txt"),
   VendoredGem.new(name: "optparse", namespace: "OptionParser", prefix: "Gem", vendor_lib: "lib/rubygems/vendor/optparse", license_path: "COPYING", extra_dependencies: %w[uri/lib/rubygems/vendor/uri], patch_name: "optparse-v0.8.0.patch"),
   VendoredGem.new(name: "resolv", namespace: "Resolv", prefix: "Gem", vendor_lib: "lib/rubygems/vendor/resolv", license_path: "COPYING", extra_dependencies: %w[securerandom/lib/rubygems/vendor/securerandom timeout], patch_name: "resolv-v0.7.0.patch"),
-  VendoredGem.new(name: "securerandom", namespace: "SecureRandom", prefix: "Gem", vendor_lib: "lib/rubygems/vendor/securerandom", license_path: "COPYING"),
+  VendoredGem.new(name: "securerandom", namespace: "SecureRandom", prefix: "Gem", vendor_lib: "lib/rubygems/vendor/securerandom", license_path: "COPYING", patch_name: "securerandom-rubygems.patch"),
   VendoredGem.new(name: "timeout", namespace: "Timeout", prefix: "Gem", vendor_lib: "lib/rubygems/vendor/timeout", license_path: "COPYING", patch_name: "timeout-v0.4.3.patch"),
   VendoredGem.new(name: "tsort", namespace: "TSort", prefix: "Gem", vendor_lib: "lib/rubygems/vendor/tsort", license_path: "LICENSE.txt"),
   VendoredGem.new(name: "uri", namespace: "URI", prefix: "Gem", vendor_lib: "lib/rubygems/vendor/uri", license_path: "COPYING", patch_name: "uri-rubygems.patch"),
@@ -95,7 +95,6 @@ vendored_gems = [
   VendoredGem.new(name: "fileutils", namespace: "FileUtils", prefix: "Bundler", vendor_lib: "lib/bundler/vendor/fileutils", license_path: "COPYING"),
   VendoredGem.new(name: "pub_grub", namespace: "PubGrub", prefix: "Bundler", vendor_lib: "lib/bundler/vendor/pub_grub", license_path: "LICENSE.txt"),
   VendoredGem.new(name: "thor", namespace: "Thor", prefix: "Bundler", vendor_lib: "lib/bundler/vendor/thor", license_path: "LICENSE.md", patch_name: "thor-v1.4.0.patch"),
-  VendoredGem.new(name: "securerandom", namespace: "SecureRandom", prefix: "Bundler", vendor_lib: "lib/bundler/vendor/securerandom", license_path: "COPYING"),
 ].group_by(&:name)
 
 Bundler.definition.resolve.materialized_for_all_platforms.reject {|s| ignore.include?(s.name) }.each do |s|
