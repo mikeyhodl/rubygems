@@ -90,7 +90,7 @@ jobs:
         run: ruby -i -pe 'sub(/^(\s*VERSION = ")(\d+\.\d+\.\d+)\.dev/, "\\1\\2")' lib/rubygems.rb lib/bundler/version.rb
         if: matrix.strip_dev
       - name: Restore gem caches
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         id: restore-cache
         with:
           path: |
@@ -121,7 +121,7 @@ jobs:
           BUNDLE_CLEAN: 1
       - name: Save gems cache
         if: steps.restore-cache.outputs.cache-hit != 'true'
-        uses: actions/cache/save@v5
+        uses: actions/cache/save@v6
         with:
           path: |
             tmp/gems/base
