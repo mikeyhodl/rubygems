@@ -80,8 +80,21 @@ class Release
       @version = Gem::Version.new(version)
       @stable_branch = stable_branch
       @changelog = Changelog.for_bundler(version)
-      @version_files = [File.expand_path("../lib/bundler/version.rb", __dir__)]
+      # Bundler's version file was flattened to lib/bundler/version.rb on
+      # master, but stays at bundler/lib/bundler/version.rb on the 4.0 and
+      # earlier release branches. The release task loads this tool from the
+      # default branch and bumps versions after switching to the release
+      # branch, so the real path is resolved lazily in #version_files against
+      # the release branch working tree.
+      @version_file_candidates = [
+        File.expand_path("../lib/bundler/version.rb", __dir__),
+        File.expand_path("../bundler/lib/bundler/version.rb", __dir__),
+      ]
       @tag_prefix = "bundler-v"
+    end
+
+    def version_files
+      [@version_file_candidates.find {|candidate| File.exist?(candidate) } || @version_file_candidates.first]
     end
 
     def extra_entry
