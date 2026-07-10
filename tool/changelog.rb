@@ -40,7 +40,7 @@ end
 class Changelog
   def self.for_rubygems(version)
     @for_rubygems ||= new(
-      File.expand_path("../CHANGELOG.md", __dir__),
+      ["../CHANGELOG.md"],
       "rubygems",
       version,
     )
@@ -48,15 +48,21 @@ class Changelog
 
   def self.for_bundler(version)
     @for_bundler ||= new(
-      File.expand_path("../CHANGELOG-bundler.md", __dir__),
+      # Bundler's changelog was flattened to CHANGELOG-bundler.md at the repo
+      # root on master, but keeps its traditional bundler/CHANGELOG.md path on
+      # the 4.0 and earlier release branches. The release task loads this tool
+      # from the default branch and cuts the changelog after switching to the
+      # release branch, so the real path is resolved lazily in #file against
+      # the release branch working tree.
+      ["../CHANGELOG-bundler.md", "../bundler/CHANGELOG.md"],
       "bundler",
       version,
     )
   end
 
-  def initialize(file, config_key, version)
+  def initialize(files, config_key, version)
     @version = Gem::Version.new(version)
-    @file = File.expand_path(file)
+    @files = Array(files).map {|file| File.expand_path(file, __dir__) }
     config = Psych.load_file(File.expand_path("../.changelog.yml", __dir__))
     @config = config[config_key]
     @level = @version.segments[2] != 0 ? :patch : :minor_or_major
@@ -110,7 +116,7 @@ class Changelog
       released_notes_until(previous_version),
     ].join("\n") + "\n"
 
-    File.write(@file, full_new_changelog)
+    File.write(file, full_new_changelog)
   end
 
   def unreleased_notes_for(included_pull_requests, extra_entry:)
@@ -250,7 +256,15 @@ class Changelog
   end
 
   def content
-    File.read(@file)
+    File.read(file)
+  end
+
+  # Resolved against the working tree at read/write time rather than at
+  # construction, because the release task cuts the changelog only after
+  # switching to the release branch. Picks the first candidate that exists so
+  # the flattened master path and the traditional subtree path both work.
+  def file
+    @files.find {|candidate| File.exist?(candidate) } || @files.first
   end
 
   def release_section_token
