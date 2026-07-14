@@ -73,13 +73,17 @@ For realworld higher level specs (also run in CI):
 
 ## Developing Bundler and RubyGems Together
 
-When developing Bundler features or bug fixes that require changes in RubyGems, you can set the `RGV` environment variable to point to the repository root so Bundler's test suite picks up those changes:
+Bundler's test suite runs against the RubyGems version selected by the `RGV` environment variable. It defaults to `.`, the RubyGems in this repository, so no setup is needed for the usual case of developing Bundler and RubyGems together:
 
-    RGV=.. bin/parallel_rspec
+    bin/parallel_rspec
 
 You can also test against specific RubyGems versions:
 
     RGV=v3.2.33 bin/parallel_rspec
+
+Or against the RubyGems copy shipped with your Ruby, as the system-rubygems-bundler CI job does:
+
+    RGV=system bin/parallel_rspec
 
 It's recommended to set this variable permanently using [direnv](https://direnv.net) for consistent development.
 
