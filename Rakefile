@@ -413,14 +413,15 @@ namespace "guides" do
   end
 
   desc "Updates and publishes the guides for the just-released RubyGems"
-  task "publish"
-
-  task "publish" => %w[
-    guides:pull
-    guides:update
-    guides:commit
-    guides:push
-  ]
+  task "publish" do
+    if v.prerelease?
+      puts "Skipping guides publish since #{v} is a prerelease."
+    else
+      %w[pull update commit push].each do |name|
+        Rake::Task["guides:#{name}"].invoke
+      end
+    end
+  end
 end
 
 directory "tmp/blog.rubygems.org" do

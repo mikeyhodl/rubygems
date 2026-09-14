@@ -120,7 +120,7 @@ We only release major breaking changes when incrementing the _major_ version of 
     * Tag the release like `v4.0.0.beta3` and push the tag to GitHub.
     * Push `rubygems-update-4.0.0.beta3` to RubyGems.org.
     * Upload RubyGems tgz and zip files to s3 and create a single GitHub release covering both RubyGems and Bundler.
-    * Update the guides website and blog posts of rubygems.org.
+    * Update the guides website and blog posts of rubygems.org. The guides are only updated for a final release.
 *   Release `bundler` with `bin/rake bundler:release`.
     * Package `bundler` gem and run `rake man:check`.
     * Push `bundler-4.0.0.beta3` to RubyGems.org. No separate tag or GitHub release is created for Bundler.
