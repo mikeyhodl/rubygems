@@ -92,6 +92,61 @@ jobs:
         working-directory: ruby/ruby
         if: matrix.target == 'Bundler'
 
+  ruby_core_master:
+    name: ${{ matrix.suite.name }} on a ruby-core master build${{ matrix.box && ' (RUBY_BOX=1)' || '' }}
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        suite:
+          - { name: Rubygems, deps: setup, task: test:parallel }
+          - { name: Bundler, deps: spec:deps, task: spec:regular, rubyopt: --disable-gems }
+        box: [false, true]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: ruby/ruby
+          path: ruby/ruby
+          ref: master
+          persist-credentials: false
+      - uses: ruby/setup-ruby@95ef2b042f9d7a56d8268cba8559e2842e2ad01b # v1.321.0
+        with:
+          ruby-version: 3.4
+          bundler: none
+      - name: Install libraries
+        run: |
+          set -x
+          sudo apt-get update -q || :
+          sudo apt-get install --no-install-recommends -q -y build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm-dev bison autoconf
+      - name: Build and install Ruby
+        run: |
+          export GNUMAKEFLAGS="-j$((1 + $(nproc)))"
+          ./autogen.sh
+          ./configure -C --disable-install-doc --prefix="$RUNNER_TEMP/ruby"
+          make
+          make install
+          echo "$RUNNER_TEMP/ruby/bin" >> "$GITHUB_PATH"
+        working-directory: ruby/ruby
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          path: rubygems
+          persist-credentials: false
+      - name: Install dependencies
+        run: |
+          ruby -v
+          bin/rake ${{ matrix.suite.deps }}
+        env:
+          RUBYOPT: ${{ matrix.suite.rubyopt }}
+        working-directory: rubygems
+      - name: Run Test
+        run: bin/rake ${{ matrix.suite.task }}
+        env:
+          RUBYOPT: ${{ matrix.suite.rubyopt }}
+          RUBY_BOX: ${{ matrix.box && '1' || '' }}
+        working-directory: rubygems
+
+    timeout-minutes: 90
+
   all-pass:
     name: All ruby-core jobs pass
 
@@ -99,6 +154,7 @@ jobs:
 
     needs:
       - ruby_core
+      - ruby_core_master
 
     runs-on: ubuntu-latest
 
