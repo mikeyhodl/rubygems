@@ -709,6 +709,39 @@ end
     assert_equal expected_value, actual_value
   end
 
+  def test_self_dirs_equals_with_unresolved_deps
+    a = util_spec "a", 1
+    b = util_spec "b", 1
+    install_gem_user a
+    install_gem b
+
+    Gem::Specification.unresolved_deps["b"] = Gem::Dependency.new("b", ">= 0")
+
+    _, err = capture_output do
+      Gem::Specification.dirs = Gem.user_dir
+    end
+
+    assert_match(/b \(>= 0\)\n.*\n      - 1\n/, err)
+    # JRuby replaces dirs= in rubygems/defaults/jruby.rb without the ABI scoped spec dir
+    assert_equal Gem::SpecificationRecord.dirs_from([Gem.user_dir]), Gem::Specification.dirs unless Gem.java_platform?
+    assert_equal %w[a-1], Gem::Specification.map(&:full_name)
+  end
+
+  def test_self_dirs_equals_keeps_specs_set_by_post_reset_hooks
+    b = util_spec "b", 1
+    install_gem b
+    stub = util_spec "stub", 1
+
+    Gem.post_reset { Gem::Specification.all = [stub] }
+    Gem::Specification.unresolved_deps["b"] = Gem::Dependency.new("b", ">= 0")
+
+    capture_output do
+      Gem::Specification.dirs = Gem.user_dir
+    end
+
+    assert_equal %w[stub-1], Gem::Specification.map(&:full_name)
+  end
+
   def test_self__load_future
     spec = Gem::Specification.new
     spec.name = "a"
