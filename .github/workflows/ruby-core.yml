@@ -40,12 +40,19 @@ jobs:
           sudo apt-get update -q || :
           sudo apt-get install --no-install-recommends -q -y build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm-dev bison autoconf
       - name: Build Ruby
+        id: build
         run: |
           export GNUMAKEFLAGS="-j$((1 + $(nproc)))"
           ./autogen.sh
           ./configure -C --disable-install-doc
           make
         working-directory: ruby/ruby
+        continue-on-error: true
+      - name: Skip tests when ruby/ruby does not build
+        run: echo "::warning::ruby/ruby ${BRANCH} failed to build, so the tests were skipped"
+        env:
+          BRANCH: ${{ matrix.branch }}
+        if: steps.build.outcome == 'failure'
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           path: rubygems/rubygems
@@ -84,13 +91,13 @@ jobs:
       - name: Test RubyGems
         run: make -s test-all TESTS="--no-retry -j$((1 + $(nproc)))"
         working-directory: ruby/ruby
-        if: matrix.target == 'Rubygems'
+        if: steps.build.outcome == 'success' && matrix.target == 'Rubygems'
       - name: Test Bundler
         run: |
           git add .
           make test-bundler-parallel
         working-directory: ruby/ruby
-        if: matrix.target == 'Bundler'
+        if: steps.build.outcome == 'success' && matrix.target == 'Bundler'
 
   ruby_core_master:
     name: ${{ matrix.suite.name }} on a ruby-core master build${{ matrix.box && ' (RUBY_BOX=1)' || '' }}
@@ -119,6 +126,7 @@ jobs:
           sudo apt-get update -q || :
           sudo apt-get install --no-install-recommends -q -y build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm-dev bison autoconf
       - name: Build and install Ruby
+        id: build
         run: |
           export GNUMAKEFLAGS="-j$((1 + $(nproc)))"
           ./autogen.sh
@@ -127,6 +135,10 @@ jobs:
           make install
           echo "$RUNNER_TEMP/ruby/bin" >> "$GITHUB_PATH"
         working-directory: ruby/ruby
+        continue-on-error: true
+      - name: Skip tests when ruby/ruby does not build
+        run: echo "::warning::ruby/ruby master failed to build, so the tests were skipped"
+        if: steps.build.outcome == 'failure'
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           path: rubygems
@@ -138,12 +150,14 @@ jobs:
         env:
           RUBYOPT: ${{ matrix.suite.rubyopt }}
         working-directory: rubygems
+        if: steps.build.outcome == 'success'
       - name: Run Test
         run: bin/rake ${{ matrix.suite.task }}
         env:
           RUBYOPT: ${{ matrix.suite.rubyopt }}
           RUBY_BOX: ${{ matrix.box && '1' || '' }}
         working-directory: rubygems
+        if: steps.build.outcome == 'success'
 
     timeout-minutes: 90
 
