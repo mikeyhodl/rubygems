@@ -2,6 +2,29 @@
 
 Bundler's changelog before 4.0.0, when it was versioned separately from RubyGems, is in [doc/CHANGELOG-bundler-2.x.md](https://github.com/ruby/rubygems/blob/master/doc/CHANGELOG-bundler-2.x.md).
 
+## 4.0.21 / 2026-09-16
+
+### RubyGems
+
+#### Enhancements:
+
+* Stop vendoring resolv for two regexps. Pull request [#9877](https://github.com/ruby/rubygems/pull/9877) by Hiroshi SHIBATA
+* Normalize absolute symlink targets during gem extraction. Pull request [#9860](https://github.com/ruby/rubygems/pull/9860) by Hiroshi SHIBATA
+* Installs bundler 4.0.21 as a default gem.
+
+### Bundler
+
+#### Enhancements:
+
+* Don't update bundler to a prerelease unless asked for one. Pull request [#9869](https://github.com/ruby/rubygems/pull/9869) by Hiroshi SHIBATA
+* Reject Bundler redirects that downgrade https to http. Pull request [#9859](https://github.com/ruby/rubygems/pull/9859) by Hiroshi SHIBATA
+
+#### Bug fixes:
+
+* Support `safe.bareRepository=explicit` in git sources. Pull request [#9876](https://github.com/ruby/rubygems/pull/9876) by Hiroshi SHIBATA
+* Stop resolving locally for empty CHECKSUMS entries. Pull request [#9862](https://github.com/ruby/rubygems/pull/9862) by Hiroshi SHIBATA
+* Expand the git source gemspec path before the chdir. Pull request [#9845](https://github.com/ruby/rubygems/pull/9845) by Hiroshi SHIBATA
+
 ## 4.1.0.beta1 / 2026-09-09
 
 ### RubyGems
