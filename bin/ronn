@@ -4,4 +4,8 @@
 require_relative "../spec/support/switch_rubygems"
 require_relative "../spec/support/rubygems_ext"
 
+# Ruby 4.0+ registers no requirable path for the strscan default gem, so an installed strscan gem
+# can be activated after the stdlib copy is already loaded, initializing the extension twice.
+gem "strscan"
+
 Spec::Rubygems.gem_load("ronn-ng", "ronn")
