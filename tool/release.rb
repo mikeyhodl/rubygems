@@ -364,7 +364,9 @@ class Release
     system("git", "commit", "-am", changelog_commit_message, exception: true)
 
     @bundler.bump_versions!
-    system("bin/rake", "version:update_locked_bundler", exception: true)
+    # This regenerates lockfiles that ship, so it has to run against the release
+    # branch's own RubyGems rather than whatever `RGV` this shell selected.
+    system({ "RGV" => nil }, "bin/rake", "version:update_locked_bundler", exception: true)
     system("git", "commit", "-am", "Bump Bundler version to #{@bundler.version}", exception: true)
 
     @rubygems.bump_versions!
