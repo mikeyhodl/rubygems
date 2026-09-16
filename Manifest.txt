@@ -533,8 +533,6 @@ lib/rubygems/vendor/pub_grub/lib/pub_grub/version_constraint.rb
 lib/rubygems/vendor/pub_grub/lib/pub_grub/version_range.rb
 lib/rubygems/vendor/pub_grub/lib/pub_grub/version_solver.rb
 lib/rubygems/vendor/pub_grub/lib/pub_grub/version_union.rb
-lib/rubygems/vendor/resolv/COPYING
-lib/rubygems/vendor/resolv/lib/resolv.rb
 lib/rubygems/vendor/securerandom/COPYING
 lib/rubygems/vendor/securerandom/lib/securerandom.rb
 lib/rubygems/vendor/timeout/COPYING
