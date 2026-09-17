@@ -114,7 +114,7 @@ class ReleaseTest < Test::Unit::TestCase
     assert_include error.message, "no-such-ref-for-a-test"
   end
 
-  def test_create_for_github_attaches_the_packages_that_go_to_s3
+  def test_create_for_github_attaches_every_package_the_release_builds
     client = FakeGithubClient.new
     release.instance_variable_set(:@gh_client, client)
 
@@ -123,6 +123,7 @@ class ReleaseTest < Test::Unit::TestCase
     assert_equal [
       [client.release_url, "pkg/rubygems-4.1.0.tgz", "application/gzip"],
       [client.release_url, "pkg/rubygems-4.1.0.zip", "application/zip"],
+      [client.release_url, "pkg/rubygems-update-4.1.0.gem", "application/octet-stream"],
     ], client.uploaded
   end
 

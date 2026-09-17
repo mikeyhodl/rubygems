@@ -24,9 +24,10 @@ class Release
 
   # Octokit guesses an asset's content type through the mime-types gem, which
   # the release bundle does not carry, so each type is spelled out here.
-  RELEASE_ASSET_CONTENT_TYPES = {
-    "tgz" => "application/gzip",
-    "zip" => "application/zip",
+  RELEASE_ASSETS = {
+    "rubygems-%s.tgz" => "application/gzip",
+    "rubygems-%s.zip" => "application/zip",
+    "rubygems-update-%s.gem" => "application/octet-stream",
   }.freeze
 
   COMMIT_AUTHORS_QUERY = <<~GRAPHQL
@@ -406,8 +407,8 @@ class Release
 
     release = gh_client.create_release "ruby/rubygems", tag, **options
 
-    RELEASE_ASSET_CONTENT_TYPES.each do |ext, content_type|
-      gh_client.upload_asset(release.url, "pkg/rubygems-#{@rubygems.version}.#{ext}", content_type: content_type)
+    RELEASE_ASSETS.each do |pattern, content_type|
+      gh_client.upload_asset(release.url, "pkg/#{format(pattern, @rubygems.version)}", content_type: content_type)
     end
   end
 
