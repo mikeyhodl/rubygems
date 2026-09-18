@@ -114,6 +114,19 @@ class ReleaseTest < Test::Unit::TestCase
     assert_include error.message, "no-such-ref-for-a-test"
   end
 
+  def test_create_for_github_attaches_every_package_the_release_builds
+    client = FakeGithubClient.new
+    release.instance_variable_set(:@gh_client, client)
+
+    release.create_for_github!
+
+    assert_equal [
+      [client.release_url, "pkg/rubygems-4.1.0.tgz", "application/gzip"],
+      [client.release_url, "pkg/rubygems-4.1.0.zip", "application/zip"],
+      [client.release_url, "pkg/rubygems-update-4.1.0.gem", "application/octet-stream"],
+    ], client.uploaded
+  end
+
   private
 
   # A minor release, so that the constructor derives the previous release tag
@@ -172,5 +185,25 @@ class ReleaseTest < Test::Unit::TestCase
       "author" => { "login" => "hsbt", "name" => "Hiroshi SHIBATA" },
       "mergeCommit" => { "oid" => "0602168df08a985b635ea24fb80f9048465f9530" },
     }.merge(overrides)
+  end
+
+  class FakeGithubClient
+    attr_reader :uploaded
+
+    def initialize
+      @uploaded = []
+    end
+
+    def release_url
+      "https://api.github.com/repos/ruby/rubygems/releases/1"
+    end
+
+    def create_release(*, **)
+      Struct.new(:url).new(release_url)
+    end
+
+    def upload_asset(url, path, content_type:)
+      @uploaded << [url, path, content_type]
+    end
   end
 end
