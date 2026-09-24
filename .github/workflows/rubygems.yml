@@ -100,36 +100,29 @@ jobs:
   rubygems-openssl:
     name: RubyGems with AWS-LC
     runs-on: ubuntu-24.04
+    env:
+      # The last release whose ML-DSA long names are MLDSAxx rather than
+      # ML-DSA-xx, so Gem::Security.ml_dsa_key? has to match by OID here.
+      AWS_LC_VERSION: v5.8.0
 
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
 
-      # Keep the AWS-LC build and cache behavior aligned with ruby/openssl.
-      # https://github.com/ruby/openssl/blob/master/.github/workflows/test.yml
-      # Caches that are accessed at least once a week can remain permanently.
-      # Include the current week in the key so the latest AWS-LC is built weekly.
-      # https://github.com/actions/cache#cache-limits
-      - name: Get current week
-        id: current-week
-        run: echo "week=$(date -u '+%Y%W')" >> "$GITHUB_OUTPUT"
-
       - name: Restore AWS-LC cache
         id: cache-aws-lc
         uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: ~/openssl
-          key: aws-lc-${{ runner.os }}-${{ runner.arch }}-${{ steps.current-week.outputs.week }}
+          key: aws-lc-${{ env.AWS_LC_VERSION }}-${{ runner.os }}-${{ runner.arch }}
 
       - name: Compile AWS-LC
         if: steps.cache-aws-lc.outputs.cache-hit != 'true'
         run: |
           mkdir -p tmp/build-aws-lc
           cd tmp/build-aws-lc
-          git clone https://github.com/aws/aws-lc.git .
-          AWS_LC_RELEASE=$(git tag --sort=-creatordate --list "v*" | head -1)
-          git checkout "$AWS_LC_RELEASE"
+          git clone --depth 1 --branch "$AWS_LC_VERSION" https://github.com/aws/aws-lc.git .
           cmake -DCMAKE_INSTALL_PREFIX="$HOME/openssl" -DCMAKE_INSTALL_LIBDIR=lib
           make -j4
           make install
