@@ -130,7 +130,8 @@ jobs:
         run: |
           export GNUMAKEFLAGS="-j$((1 + $(nproc)))"
           ./autogen.sh
-          ./configure -C --disable-install-doc --prefix="$RUNNER_TEMP/ruby"
+          # libruby-static.a bundles the JIT's Rust std with its symbols localized, so the Rust newgem's `cargo test` cannot link against it.
+          ./configure -C --disable-install-doc --enable-shared --prefix="$RUNNER_TEMP/ruby"
           make
           make install
           echo "$RUNNER_TEMP/ruby/bin" >> "$GITHUB_PATH"
