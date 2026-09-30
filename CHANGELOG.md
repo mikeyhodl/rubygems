@@ -2,6 +2,38 @@
 
 Bundler's changelog before 4.0.0, when it was versioned separately from RubyGems, is in [doc/CHANGELOG-bundler-2.x.md](https://github.com/ruby/rubygems/blob/master/doc/CHANGELOG-bundler-2.x.md).
 
+## 4.0.22 / 2026-09-30
+
+### RubyGems
+
+#### Enhancements:
+
+* Add --source option to gem exec command. Pull request [#9765](https://github.com/ruby/rubygems/pull/9765) by Akshay Birajdar and Akshay Birajdar
+* Keep credentials on redirects only within the same origin. Pull request [#9909](https://github.com/ruby/rubygems/pull/9909) by Hiroshi SHIBATA
+* Validate the version field in Gem::Installer#verify_spec. Pull request [#9890](https://github.com/ruby/rubygems/pull/9890) by Hiroshi SHIBATA
+* Installs bundler 4.0.22 as a default gem.
+
+#### Bug fixes:
+
+* Remove the build_info file on uninstall and stop gem build from logging unknown extensions. Pull request [#9894](https://github.com/ruby/rubygems/pull/9894) by Hiroshi SHIBATA
+
+### Bundler
+
+#### Enhancements:
+
+* Report the effective platform in `bundle platform`. Pull request [#9898](https://github.com/ruby/rubygems/pull/9898) by Islam Elsayed
+* Keep credentials on redirects only within the same origin. Pull request [#9909](https://github.com/ruby/rubygems/pull/9909) by Hiroshi SHIBATA
+* Update Magnus version in Rust extension gem template. Pull request [#9904](https://github.com/ruby/rubygems/pull/9904) by Mat Sadler and Hiroshi SHIBATA
+
+#### Bug fixes:
+
+* Stop `Bundler.bin_path` creating the directory it reports. Pull request [#9887](https://github.com/ruby/rubygems/pull/9887) by Islam Elsayed and Hiroshi SHIBATA
+* Look up `bundler-<command>` executables only in PATH. Pull request [#9874](https://github.com/ruby/rubygems/pull/9874) by Hiroshi SHIBATA
+
+#### Documentation:
+
+* Describe `--major` as preferring the latest major version. Pull request [#9891](https://github.com/ruby/rubygems/pull/9891) by Hiroshi SHIBATA
+
 ## 4.0.21 / 2026-09-16
 
 ### RubyGems
