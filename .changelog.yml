@@ -24,6 +24,8 @@ excluded_credit_logins:
 credit_aliases:
   byroot:
     - casperisfine
+  the-spectator:
+    - akshay-birajdar-zendesk
 
 library_headings:
   rubygems: RubyGems
